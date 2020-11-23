@@ -6,7 +6,7 @@
 #    By: abrabant <abrabant@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/09/30 15:22:25 by abrabant          #+#    #+#              #
-#    Updated: 2020/11/22 22:03:38 by abrabant         ###   ########.fr        #
+#    Updated: 2020/11/23 19:31:40 by abrabant         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -46,7 +46,7 @@ IO						= ft_putnbr_fd.c ft_putstr_fd.c ft_putchar_fd.c
 
 STRCONV					= ft_atoi.c
 
-INTCONV					= ft_itoa.c ft_lltob.c ft_ulltob.c
+INTCONV					= ft_itoa.c ft_lltob.c ft_ulltob.c ft_ulllenb.c
 
 UNICODE					= ft_runelen.c ft_buf_utf8.c ft_encode_utf8.c
 

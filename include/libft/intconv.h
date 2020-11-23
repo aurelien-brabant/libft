@@ -6,7 +6,7 @@
 /*   By: abrabant <abrabant@42.student.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/07 14:31:21 by abrabant          #+#    #+#             */
-/*   Updated: 2020/11/22 13:34:37 by abrabant         ###   ########.fr       */
+/*   Updated: 2020/11/23 19:40:03 by abrabant         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,5 +17,6 @@
 char	*ft_itoa(int n);
 char	*ft_lltob(long long n, unsigned char base);
 char	*ft_ulltob(unsigned long long n, unsigned char base);
+size_t	ft_ulllenb(unsigned long long n, t_byte base);
 
 #endif
