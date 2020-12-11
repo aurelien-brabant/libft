@@ -6,7 +6,7 @@
 /*   By: abrabant <abrabant@42.student.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/07 14:17:27 by abrabant          #+#    #+#             */
-/*   Updated: 2020/11/22 21:53:35 by abrabant         ###   ########.fr       */
+/*   Updated: 2020/12/11 12:27:01 by abrabant         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,6 +33,7 @@ char				*ft_strnstr(const char	*big, const char *little,
 char				*ft_strcasestr(const char *haystack, const char *needle);
 int					ft_strncmp(const char *s1, const char *s2, size_t len);
 char				*ft_strdup(const char *s);
+char				*ft_strndup(const char *s, size_t n);
 
 char				*ft_substr(char const *s, unsigned int start, size_t len);
 char				*ft_strjoin(char const *s1, char const *s2);
