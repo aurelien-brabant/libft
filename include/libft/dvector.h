@@ -1,17 +1,17 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   vector.h                                           :+:      :+:    :+:   */
+/*   dvector.h                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: abrabant <abrabant@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/12 22:50:06 by abrabant          #+#    #+#             */
-/*   Updated: 2020/11/23 12:02:31 by abrabant         ###   ########.fr       */
+/*   Updated: 2020/12/11 12:15:16 by abrabant         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef VECTOR_H
-# define VECTOR_H
+#ifndef DVECTOR_H
+# define DVECTOR_H
 # include "libft/types.h"
 
 # define VECTOR_DEFAULT_CAP 4
