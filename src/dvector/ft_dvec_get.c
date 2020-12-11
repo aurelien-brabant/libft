@@ -6,11 +6,11 @@
 /*   By: abrabant <abrabant@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/11 10:51:32 by abrabant          #+#    #+#             */
-/*   Updated: 2020/12/11 10:51:37 by abrabant         ###   ########.fr       */
+/*   Updated: 2020/12/11 11:09:12 by abrabant         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft/vector.h"
+#include "libft/dvector.h"
 
 void	*ft_dvec_get(t_dvec *v, size_t i)
 {

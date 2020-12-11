@@ -6,7 +6,7 @@
 /*   By: abrabant <abrabant@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/21 21:25:50 by abrabant          #+#    #+#             */
-/*   Updated: 2020/11/21 21:30:14 by abrabant         ###   ########.fr       */
+/*   Updated: 2020/12/11 11:07:38 by abrabant         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@
 # define LIBFT_H
 # include "libft/strconv.h"
 # include "libft/intconv.h"
-# include "libft/vector.h"
+# include "libft/dvector.h"
 # include "libft/core.h"
 # include "libft/string.h"
 # include "libft/unicode.h"

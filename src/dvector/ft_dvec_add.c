@@ -6,12 +6,12 @@
 /*   By: abrabant <abrabant@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/11 10:50:48 by abrabant          #+#    #+#             */
-/*   Updated: 2020/12/11 10:50:51 by abrabant         ###   ########.fr       */
+/*   Updated: 2020/12/11 11:08:36 by abrabant         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft/core.h"
-#include "libft/vector.h"
+#include "libft/dvector.h"
 
 static void	resize_vec(t_dvec *v, size_t ncap)
 {

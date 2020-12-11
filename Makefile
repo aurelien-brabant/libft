@@ -6,7 +6,7 @@
 #    By: abrabant <abrabant@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/09/30 15:22:25 by abrabant          #+#    #+#              #
-#    Updated: 2020/11/23 19:31:40 by abrabant         ###   ########.fr        #
+#    Updated: 2020/12/11 11:06:38 by abrabant         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -24,7 +24,7 @@ NAME					= libft.a
 # ~~~~~~~~~~   SOURCES   ~~~~~~~~~~
 
 VPATH					= ./src/string:./src/ctype:./src/io:./src/strconv:	\
-						./src/intconv ./src/unicode ./src/core ./src/vector
+						./src/intconv ./src/unicode ./src/core ./src/dvector
 
 CORE				 	= ft_calloc.c ft_realloc.c
 

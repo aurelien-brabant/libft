@@ -6,11 +6,11 @@
 /*   By: abrabant <abrabant@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/11 10:53:11 by abrabant          #+#    #+#             */
-/*   Updated: 2020/12/11 10:53:13 by abrabant         ###   ########.fr       */
+/*   Updated: 2020/12/11 11:09:24 by abrabant         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft/vector.h"
+#include "libft/dvector.h"
 #include <stdlib.h>
 
 /*
@@ -22,7 +22,7 @@
 ** make: do not make it too large, or you'll waste memory, but do not make
 ** it to small because resizing a vector is a costly operation.
 ** Any non-greater-than-zero value is interpreted as no value, and cap will
-** be fixed to the VECTOR_DEFAULT_CAP constant defined in libft/vector.h
+** be fixed to the VECTOR_DEFAULT_CAP constant defined in libft/dvector.h
 **
 ** @return	a boolean value which indicates whether or not the initialization
 ** has been successful. A return value of false is a sign of a malloc failure.

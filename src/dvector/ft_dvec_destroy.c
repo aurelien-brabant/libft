@@ -6,12 +6,12 @@
 /*   By: abrabant <abrabant@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/11 10:51:06 by abrabant          #+#    #+#             */
-/*   Updated: 2020/12/11 10:51:09 by abrabant         ###   ########.fr       */
+/*   Updated: 2020/12/11 11:09:05 by abrabant         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdlib.h>
-#include "libft/vector.h"
+#include "libft/dvector.h"
 
 /*
 ** Completely destroy a vector.
