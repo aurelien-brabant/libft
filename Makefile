@@ -6,7 +6,7 @@
 #    By: abrabant <abrabant@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/09/30 15:22:25 by abrabant          #+#    #+#              #
-#    Updated: 2020/12/11 12:27:13 by abrabant         ###   ########.fr        #
+#    Updated: 2020/12/11 14:08:53 by abrabant         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -23,8 +23,9 @@ NAME					= libft.a
 
 # ~~~~~~~~~~   SOURCES   ~~~~~~~~~~
 
-VPATH					= ./src/string:./src/ctype:./src/io:./src/strconv:	\
-						./src/intconv ./src/unicode ./src/core ./src/dvector
+VPATH					= ./src/string:./src/ctype:./src/io:./src/io/gnl:	\
+						./src/strconv:./src/intconv ./src/unicode			\
+						./src/core ./src/dvector
 
 CORE				 	= ft_calloc.c ft_realloc.c
 
@@ -41,7 +42,9 @@ CTYPE					= ft_isascii.c ft_isdigit.c ft_isalnum.c			\
 						ft_isalpha.c ft_isprint.c ft_tolower.c ft_toupper.c	\
 						ft_isspace.c
 
-IO						= ft_putnbr_fd.c ft_putstr_fd.c ft_putchar_fd.c	
+GNL						= ft_gnl.c ft_gnl_utils.c
+
+IO						= ft_putnbr_fd.c ft_putstr_fd.c ft_putchar_fd.c	\
 
 STRCONV					= ft_atoi.c
 
@@ -53,7 +56,7 @@ DVECTOR					= ft_dvec_make.c ft_dvec_add.c ft_dvec_get.c			\
 						  ft_dvec_destroy.c ft_dvec_del.c
 
 SRCS					= $(CORE) $(STRING) $(CTYPE) $(IO) $(STRCONV)		\
-						$(INTCONV) $(UNICODE) $(DVECTOR)
+						$(INTCONV) $(UNICODE) $(DVECTOR) $(GNL)
 
 # ~~~~~~~~~~   OBJECTS   ~~~~~~~~~~
 
@@ -78,7 +81,7 @@ re: fclean all
 
 .PHONY: all clean fclean re bonus
 
-# Compilation rule for each C file
+# Compilation rule for each C file.
 $(OBJ_DIR)/%.o:%.c
 	$(CC) $(CFLAGS) -I$(INCLUDE_PATH) -g -c $< -o $@
 

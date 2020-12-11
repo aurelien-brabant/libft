@@ -1,21 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_gnl.h                                           :+:      :+:    :+:   */
+/*   gnl.h                                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: abrabant <abrabant@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/23 23:21:41 by abrabant          #+#    #+#             */
-/*   Updated: 2020/12/11 12:15:49 by abrabant         ###   ########.fr       */
+/*   Updated: 2020/12/11 14:16:38 by abrabant         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FT_GNL_H
-# define FT_GNL_H
+#ifndef GNL_H
+# define GNL_H
 # include "../types.h"
 # define ERROR -1
 # define GNL_EOF 0
 # define SUCCESS 1
+# define BUFFER_SIZE 1000
 
 typedef struct			s_fd_item
 {
@@ -24,7 +25,6 @@ typedef struct			s_fd_item
 	struct s_fd_item	*next;
 }						t_fd_item;
 
-int						get_next_line(int fd, char **line);
 int						join_rd(const char *fdbuf, char **stacked);
 int						pop_ln(char *stacked, char *fdbuf, char **line);
 int						init_gnl(t_fd_item **head, t_fd_item **item,
