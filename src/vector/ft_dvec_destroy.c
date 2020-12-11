@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_vec_destroy.c                                   :+:      :+:    :+:   */
+/*   ft_dvec_destroy.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: abrabant <abrabant@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -23,7 +23,7 @@
 ** as a sign that you don't need any special cleanup routine.
 */
 
-void	ft_vec_destroy(t_vec *v, void (*destr)(void **item))
+void	ft_dvec_destroy(t_dvec *v, void (*destr)(void **item))
 {
 	size_t	i;
 

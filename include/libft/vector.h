@@ -16,17 +16,17 @@
 
 # define VECTOR_DEFAULT_CAP 4
 
-typedef struct	s_vec
+typedef struct	s_dvec
 {
 	void		**val;
 	size_t		len;
 	size_t		cap;
-}				t_vec;
+}				t_dvec;
 
-bool			ft_vec_make(t_vec *v, int cap);
-void			ft_vec_destroy(t_vec *v, void(*destr)(void **item));
-void			ft_vec_add(t_vec *v, void *item);
-void			*ft_vec_get(t_vec *v, size_t i);
-void			ft_vec_del(t_vec *v, size_t i, void(*destr)(void **item));
+bool			ft_dvec_make(t_dvec *v, int cap);
+void			ft_dvec_destroy(t_dvec *v, void(*destr)(void **item));
+void			ft_dvec_add(t_dvec *v, void *item);
+void			*ft_dvec_get(t_dvec *v, size_t i);
+void			ft_dvec_del(t_dvec *v, size_t i, void(*destr)(void **item));
 
 #endif

@@ -19,7 +19,6 @@ CFLAGS					= -Wall -Wextra -Werror
 INCLUDE_PATH			= ./include/
 
 # ~~~~~~~~~~   PROJECT   ~~~~~~~~~~
-
 NAME					= libft.a
 
 # ~~~~~~~~~~   SOURCES   ~~~~~~~~~~
@@ -50,11 +49,11 @@ INTCONV					= ft_itoa.c ft_lltob.c ft_ulltob.c ft_ulllenb.c
 
 UNICODE					= ft_runelen.c ft_buf_utf8.c ft_encode_utf8.c
 
-VECTOR					= ft_vec_make.c ft_vec_add.c ft_vec_get.c			\
-						  ft_vec_destroy.c ft_vec_del.c
+DVECTOR					= ft_dvec_make.c ft_dvec_add.c ft_dvec_get.c			\
+						  ft_dvec_destroy.c ft_dvec_del.c
 
 SRCS					= $(CORE) $(STRING) $(CTYPE) $(IO) $(STRCONV)		\
-						$(INTCONV) $(UNICODE) $(VECTOR)
+						$(INTCONV) $(UNICODE) $(DVECTOR)
 
 # ~~~~~~~~~~   OBJECTS   ~~~~~~~~~~
 

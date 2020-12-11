@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_vec_make.c                                      :+:      :+:    :+:   */
+/*   ft_dvec_make.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: abrabant <abrabant@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -14,7 +14,7 @@
 #include <stdlib.h>
 
 /*
-** Initialize or make a new t_vec object.
+** Initialize or make a new t_dvec object.
 **
 ** @param	v	=> the vector to initalize (allocated before).
 ** @param	cap	=> the number of elements the vector will be able to
@@ -28,7 +28,7 @@
 ** has been successful. A return value of false is a sign of a malloc failure.
 */
 
-bool	ft_vec_make(t_vec *v, int cap)
+bool	ft_dvec_make(t_dvec *v, int cap)
 {
 	if (cap <= 0)
 		cap = VECTOR_DEFAULT_CAP;

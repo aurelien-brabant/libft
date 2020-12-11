@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_vec_del.c                                       :+:      :+:    :+:   */
+/*   ft_dvec_del.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: abrabant <abrabant@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -23,7 +23,7 @@
 **                     Can be NULL, to mean that nothing needs to be done.
 */
 
-void	ft_vec_del(t_vec *v, size_t i, void (*destr)(void **item))
+void	ft_dvec_del(t_dvec *v, size_t i, void (*destr)(void **item))
 {
 	size_t	it;
 

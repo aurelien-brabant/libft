@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_vec_get.c                                       :+:      :+:    :+:   */
+/*   ft_dvec_get.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: abrabant <abrabant@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -12,7 +12,7 @@
 
 #include "libft/vector.h"
 
-void	*ft_vec_get(t_vec *v, size_t i)
+void	*ft_dvec_get(t_dvec *v, size_t i)
 {
 	if (i < 0 || i >= v->len)
 		return (0);
