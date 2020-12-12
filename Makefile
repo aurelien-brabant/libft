@@ -6,7 +6,7 @@
 #    By: abrabant <abrabant@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/09/30 15:22:25 by abrabant          #+#    #+#              #
-#    Updated: 2020/12/11 14:08:53 by abrabant         ###   ########.fr        #
+#    Updated: 2020/12/12 15:14:29 by abrabant         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -24,6 +24,7 @@ NAME					= libft.a
 # ~~~~~~~~~~   SOURCES   ~~~~~~~~~~
 
 VPATH					= ./src/string:./src/ctype:./src/io:./src/io/gnl:	\
+						./src/io/printf:									\
 						./src/strconv:./src/intconv ./src/unicode			\
 						./src/core ./src/dvector
 
@@ -42,9 +43,17 @@ CTYPE					= ft_isascii.c ft_isdigit.c ft_isalnum.c			\
 						ft_isalpha.c ft_isprint.c ft_tolower.c ft_toupper.c	\
 						ft_isspace.c
 
-GNL						= ft_gnl.c ft_gnl_utils.c
+# Special project files for IO
 
-IO						= ft_putnbr_fd.c ft_putstr_fd.c ft_putchar_fd.c	\
+GNL_CORE				= ft_gnl_utils.c
+
+PRINTF_CORE				= parse.c conv_int.c utils.c field_width.c			\
+						init_conv.c conv_str.c lenspec.c conv_cur_written.c	\
+						buf.c conv_char.c conv_pct.c 						
+
+IO						= ft_putnbr_fd.c ft_putstr_fd.c ft_putchar_fd.c		\
+						$(GNL_CORE) ft_gnl.c $(PRINTF_CORE) ft_printf.c		\
+						ft_sprintf.c ft_dprintf.c
 
 STRCONV					= ft_atoi.c
 
@@ -56,7 +65,7 @@ DVECTOR					= ft_dvec_make.c ft_dvec_add.c ft_dvec_get.c			\
 						  ft_dvec_destroy.c ft_dvec_del.c
 
 SRCS					= $(CORE) $(STRING) $(CTYPE) $(IO) $(STRCONV)		\
-						$(INTCONV) $(UNICODE) $(DVECTOR) $(GNL)
+						$(INTCONV) $(UNICODE) $(DVECTOR) 
 
 # ~~~~~~~~~~   OBJECTS   ~~~~~~~~~~
 
