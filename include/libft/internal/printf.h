@@ -6,7 +6,7 @@
 /*   By: abrabant <abrabant@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/13 15:21:26 by abrabant          #+#    #+#             */
-/*   Updated: 2020/12/12 17:19:58 by abrabant         ###   ########.fr       */
+/*   Updated: 2020/12/25 00:03:27 by abrabant         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,18 +22,18 @@
 ** while STRING_OUT is used by ft_sprintf and ft_snprintf variants.
 */
 
-typedef enum				e_out_spec
+typedef enum e_out_spec
 {
 	STRING_OUT = 0,
 	FD_OUT = 1,
-}							t_out_spec;
+}	t_out_spec;
 
 /*
 ** printf conversion specifiers, i.e 'c', 's', '[id]', 'u', 'x', 'X', 'p', '%',
 ** 'n' (in this order).
 */
 
-typedef enum				e_spec
+typedef enum e_spec
 {
 	DEFAULT_SPEC = 0,
 	CHAR_SPEC = 1,
@@ -46,26 +46,26 @@ typedef enum				e_spec
 	PCT_SPEC,
 	CUR_WRITTEN_SPEC,
 	TOTAL_SPEC,
-}							t_spec;
+}			t_spec;
 
 /*
 ** printf length specifiers, i.e 'l', 'll', 'h', 'hh' (in this order).
 */
 
-typedef enum				e_lenspec
+typedef enum e_lenspec
 {
 	DEFAULT_LENSPEC = 0,
 	L_LENSPEC = 1,
 	LL_LENSPEC,
 	H_LENSPEC,
 	HH_LENSPEC,
-}							t_lenspec;
+}			t_lenspec;
 
 /*
 ** printf flags, i.e '#', '0', '-', ' ', '+' (in this order)
 */
 
-typedef enum				e_flag
+typedef enum e_flag
 {
 	DEFAULT_FLAG = 0,
 	ALT_FORM_FLAG = 1 << 0,
@@ -73,44 +73,84 @@ typedef enum				e_flag
 	REV_PAD_FLAG = 1 << 2,
 	BLANK_FLAG = 1 << 3,
 	PLUS_SIGN_FLAG = 1 << 4,
-}							t_flag;
+}			t_flag;
 
 /*
 ** printf global state, reused by all the variants
 */
 
-typedef struct				s_state
-{
-	va_list					*alst;
-	const char				*fmt;
-	size_t					written;
-	struct
-	{
-		union
-		{
-			int				dfd;
-			struct
-			{
-				long long	lim;
-				char		*s;
+/*
+** typedefs to avoid anonymous struct/union declaration, as it seems to
+** cause parsing errors with the third edition of the 42 norm.
+*/
 
-			}				s_strout;
-		}					u_dst;
-		t_out_spec			outspec;
-		size_t				len;
-		char				str[PRINTF_BUF];
-	}						s_buf;
-	struct
-	{
-		t_spec				spec;
-		t_lenspec			lenspec;
-		t_byte				flags;
-		int					prec;
-		int					width;
-		bool				isneg;
-		bool				iszero;
-	}						s_conv;
-}							t_state;
+/*
+** Used when the converted string is to be written to a string.
+*/
+
+typedef struct s_strout
+{
+	long long	lim;
+	char		*s;
+}	t_strout;
+
+/*
+** Two outputs are actually possible:
+**  - to a file descriptor
+**  - to a character buffer
+** This union represents the destination, which is therefore a given file
+** descriptor OR a t_strout object.
+*/
+
+typedef union u_dst
+{
+	int			dfd;
+	t_strout	strout;
+}	t_dst;
+
+/*
+** The buffer used by printf to manage the output.
+*/
+
+typedef struct s_buf
+{
+	t_out_spec	outspec;
+	size_t		len;
+	char		str[PRINTF_BUF];
+	t_dst		dst;
+}				t_buf;
+
+/*
+** Used when converting a value.
+*/
+
+typedef struct s_conv
+{
+	t_spec		spec;
+	t_lenspec	lenspec;
+	t_byte		flags;
+	int			prec;
+	int			width;
+	bool		isneg;
+	bool		iszero;
+}	t_conv;
+
+/*
+** THE ACTUAL STATE - PREVIOUS TYPEDEFS EXIST FOR IT
+*/
+
+typedef struct s_state
+{
+	va_list		*alst;
+	const char	*fmt;
+	size_t		written;
+	t_buf		buf;
+	t_conv		conv;
+}	t_state;
+
+/*
+** Representation of a converter function
+*/
 
 typedef void(*t_converter)(t_state *);
 
@@ -118,8 +158,8 @@ typedef void(*t_converter)(t_state *);
 ** parsing
 */
 
-void						parse_fmt(t_state *state,
-										const t_converter *converters);
+void						parse_fmt(t_state *state
+							, const t_converter *converters);
 /*
 ** buffering
 */

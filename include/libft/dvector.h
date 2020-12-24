@@ -6,7 +6,7 @@
 /*   By: abrabant <abrabant@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/12 22:50:06 by abrabant          #+#    #+#             */
-/*   Updated: 2020/12/11 12:15:16 by abrabant         ###   ########.fr       */
+/*   Updated: 2020/12/24 22:05:54 by abrabant         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@
 
 # define VECTOR_DEFAULT_CAP 4
 
-typedef struct	s_dvec
+typedef struct s_dvec
 {
 	void		**val;
 	size_t		len;
