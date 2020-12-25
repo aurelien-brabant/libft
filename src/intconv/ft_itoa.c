@@ -6,14 +6,14 @@
 /*   By: abrabant <abrabant@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/08/29 22:50:19 by abrabant          #+#    #+#             */
-/*   Updated: 2020/11/07 15:50:26 by abrabant         ###   ########.fr       */
+/*   Updated: 2020/12/26 00:00:23 by abrabant         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft/string.h"
 #include "libft/core.h"
 
-static char		*strrev(char *str)
+static char	*strrev(char *str)
 {
 	int		i;
 	int		j;
@@ -35,8 +35,11 @@ static size_t	intlen(int nb)
 	size_t	count;
 
 	count = 1;
-	while (nb /= 10)
+	while (nb / 10)
+	{
 		++count;
+		nb /= 10;
+	}
 	return (count);
 }
 
@@ -48,7 +51,7 @@ static size_t	intlen(int nb)
 ** @return the string representation of the integer.
 */
 
-char			*ft_itoa(int n)
+char	*ft_itoa(int n)
 {
 	long		nb;
 	size_t		nlen;
