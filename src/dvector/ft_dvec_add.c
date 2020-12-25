@@ -6,7 +6,7 @@
 /*   By: abrabant <abrabant@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/11 10:50:48 by abrabant          #+#    #+#             */
-/*   Updated: 2020/12/11 11:08:36 by abrabant         ###   ########.fr       */
+/*   Updated: 2020/12/25 23:48:40 by abrabant         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ static void	resize_vec(t_dvec *v, size_t ncap)
 ** @param	item	=> the actual item to add.
 */
 
-void		ft_dvec_add(t_dvec *v, void *item)
+void	ft_dvec_add(t_dvec *v, void *item)
 {
 	if (v->len == v->cap)
 		resize_vec(v, v->cap * 2);

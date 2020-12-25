@@ -6,7 +6,7 @@
 /*   By: abrabant <abrabant@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/11 10:51:06 by abrabant          #+#    #+#             */
-/*   Updated: 2020/12/11 11:09:05 by abrabant         ###   ########.fr       */
+/*   Updated: 2020/12/25 23:50:21 by abrabant         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,11 +29,13 @@ void	ft_dvec_destroy(t_dvec *v, void (*destr)(void **item))
 
 	i = 0;
 	if (destr)
+	{
 		while (i < v->len)
 		{
 			destr(&(v->val[i]));
 			++i;
 		}
+	}
 	free(v->val);
 	v->len = 0;
 	v->cap = 0;
