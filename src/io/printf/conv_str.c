@@ -33,7 +33,7 @@ static void		buf_lstr(t_state *s)
 	int				prec;
 	size_t			i;
 
-	prec = s->s_conv.prec;
+	prec = s->conv.prec;
 	ra = va_arg(*s->alst, t_rune *);
 	if (!ra)
 		while (*nstr && prec-- != 0)
@@ -67,7 +67,7 @@ static void		buf_str(t_state *s)
 	int				prec;
 
 	str = va_arg(*s->alst, t_byte *);
-	prec = s->s_conv.prec;
+	prec = s->conv.prec;
 	if (!str)
 		str = (t_byte *)nstr;
 	while (prec-- != 0 && str && *str)
@@ -95,7 +95,7 @@ static size_t	get_lflen(t_state *s)
 	t_rune	*ra;
 
 	va_copy(clst, *s->alst);
-	prec = s->s_conv.prec;
+	prec = s->conv.prec;
 	flen = 0;
 	ra = va_arg(clst, t_rune *);
 	if (!ra && (prec < 0 || prec >= 6))
@@ -132,7 +132,7 @@ static size_t	get_flen(t_state *s)
 	t_byte	*bs;
 	int		prec;
 
-	prec = s->s_conv.prec;
+	prec = s->conv.prec;
 	flen = 0;
 	va_copy(clst, *s->alst);
 	bs = va_arg(clst, t_byte *);
@@ -154,7 +154,7 @@ static size_t	get_flen(t_state *s)
 
 void			conv_str(t_state *s)
 {
-	const bool	isutf8 = s->s_conv.lenspec == L_LENSPEC;
+	const bool	isutf8 = s->conv.lenspec == L_LENSPEC;
 	size_t		flen;
 
 	if (isutf8)

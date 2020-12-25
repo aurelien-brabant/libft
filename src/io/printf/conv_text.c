@@ -27,8 +27,8 @@ void	buf_utf8(t_state *s)
 	size_t		i;
 	t_byte		buf[5];
 
-	prec = s->s_conv.prec;
-	if (s->s_conv.spec == CHAR_SPEC)
+	prec = s->conv.prec;
+	if (s->conv.spec == CHAR_SPEC)
 	{
 		ft_buf_utf8(buf, va_arg(*s->alst, t_rune));
 		store_in_buf(s, (char *)buf, ft_strlen((char *)buf));
@@ -60,8 +60,8 @@ void	buf_str(t_state *s)
 	char	*str;
 
 	str = va_arg(*s->alst, char *);
-	if (s->s_conv.prec >= 0)
-		store_in_buf(s, str, s->s_conv.prec);
+	if (s->conv.prec >= 0)
+		store_in_buf(s, str, s->conv.prec);
 	else
 		store_in_buf(s, str, ft_strlen(str));
 }
@@ -77,9 +77,9 @@ void	conv_text(t_state *s)
 
 	if (!isflag(s, REV_PAD_FLAG))
 		buf_field_width(s, flen);
-	if (s->s_conv.lenspec == L_LENSPEC)
+	if (s->conv.lenspec == L_LENSPEC)
 		buf_utf8(s);
-	else if (s->s_conv.spec == CHAR_SPEC)
+	else if (s->conv.spec == CHAR_SPEC)
 		buf_char(s);
 	else
 		buf_str(s);

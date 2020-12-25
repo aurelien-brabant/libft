@@ -30,9 +30,9 @@ int			ft_dprintf(int fd, const char *fmt, ...)
 	va_start(alst, fmt);
 	s.alst = &alst;
 	s.written = 0;
-	s.s_buf.len = 0;
-	s.s_buf.outspec = FD_OUT;
-	s.s_buf.u_dst.dfd = fd;
+	s.buf.len = 0;
+	s.buf.outspec = FD_OUT;
+	s.buf.dst.dfd = fd;
 	init_conv(conv);
 	while (*s.fmt)
 		parse_fmt(&s, conv);

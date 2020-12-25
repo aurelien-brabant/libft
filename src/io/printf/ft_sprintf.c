@@ -28,10 +28,10 @@ int			ft_sprintf(char *str, const char *fmt, ...)
 	va_start(alst, fmt);
 	s.alst = &alst;
 	s.written = 0;
-	s.s_buf.len = 0;
-	s.s_buf.outspec = STRING_OUT;
-	s.s_buf.u_dst.s_strout.s = str;
-	s.s_buf.u_dst.s_strout.lim = -1;
+	s.buf.len = 0;
+	s.buf.outspec = STRING_OUT;
+	s.buf.dst.s_strout.s = str;
+	s.buf.dst.s_strout.lim = -1;
 	init_conv(conv);
 	while (*s.fmt)
 		parse_fmt(&s, conv);

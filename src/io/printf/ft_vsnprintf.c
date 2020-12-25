@@ -28,10 +28,10 @@ int			ft_vsnprintf(char *str, size_t len, const char *fmt, va_list ap)
 	va_copy(alst, ap);
 	s.alst = &alst;
 	s.written = 0;
-	s.s_buf.len = 0;
-	s.s_buf.outspec = STRING_OUT;
-	s.s_buf.u_dst.s_strout.s = str;
-	s.s_buf.u_dst.s_strout.lim = len;
+	s.buf.len = 0;
+	s.buf.outspec = STRING_OUT;
+	s.buf.dst.s_strout.s = str;
+	s.buf.dst.s_strout.lim = len;
 	init_conv(conv);
 	while (*s.fmt)
 		parse_fmt(&s, conv);

@@ -6,7 +6,7 @@
 /*   By: abrabant <abrabant@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/14 16:29:07 by abrabant          #+#    #+#             */
-/*   Updated: 2020/11/25 14:53:42 by abrabant         ###   ########.fr       */
+/*   Updated: 2020/12/25 00:55:12 by abrabant         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,26 +29,27 @@
 ** @param	base	=> the arithmetic base.
 */
 
-static void					buf_int(t_state *s, unsigned long long n,
+static void	buf_int(t_state *s, unsigned long long n,
 									t_byte base)
 {
-	const char			*set = "0123456789abcdef";
-	t_byte				c;
+	char			*set;
+	t_byte			c;
 
+	set = "0123456789abcdef";
 	if (n >= base)
 		buf_int(s, n / base, base);
 	c = set[n % base];
-	if (s->s_conv.spec == HEXUPR_SPEC)
+	if (s->conv.spec == HEXUPR_SPEC)
 		c = ft_toupper(c);
 	store_in_buf(s, (char *)&c, 1);
 }
 
-static void					buf_alt_form(t_state *s, bool iszero)
+static void	buf_alt_form(t_state *s, bool iszero)
 {
 	if (ishexspec(s) && ((isflag(s, ALT_FORM_FLAG) && !iszero)
-				|| s->s_conv.spec == PTR_SPEC))
+				|| s->conv.spec == PTR_SPEC))
 	{
-		if (s->s_conv.spec == HEXUPR_SPEC)
+		if (s->conv.spec == HEXUPR_SPEC)
 			store_in_buf(s, "0X", 2);
 		else
 			store_in_buf(s, "0x", 2);
@@ -69,17 +70,17 @@ static void					buf_alt_form(t_state *s, bool iszero)
 ** @return	the field length used by the buf_field_width function.
 */
 
-static size_t				get_flen(t_state *s, size_t nlen, bool iszero)
+static size_t	get_flen(t_state *s, size_t nlen, bool iszero)
 {
 	size_t	flen;
 
-	flen = nlen - (iszero && s->s_conv.prec == 0);
+	flen = nlen - (iszero && s->conv.prec == 0);
 	flen += (ishexspec(s) && ((isflag(s, ALT_FORM_FLAG) && !iszero)
-				|| s->s_conv.spec == PTR_SPEC)) * 2;
-	flen += (s->s_conv.isneg || isflag(s, BLANK_FLAG)
+				|| s->conv.spec == PTR_SPEC)) * 2;
+	flen += (s->conv.isneg || isflag(s, BLANK_FLAG)
 			|| isflag(s, PLUS_SIGN_FLAG));
-	if (s->s_conv.prec > (int)nlen)
-		flen += s->s_conv.prec - nlen;
+	if (s->conv.prec > (int)nlen)
+		flen += s->conv.prec - nlen;
 	return (flen);
 }
 
@@ -101,7 +102,7 @@ void						conv_int(t_state *s)
 
 	if (!isflag(s, ZERO_PAD_FLAG) && !isflag(s, REV_PAD_FLAG))
 		buf_field_width(s, flen);
-	if (s->s_conv.isneg)
+	if (s->conv.isneg)
 		store_in_buf(s, "-", 1);
 	else if (isflag(s, PLUS_SIGN_FLAG))
 		store_in_buf(s, "+", 1);
@@ -110,10 +111,10 @@ void						conv_int(t_state *s)
 	buf_alt_form(s, n == 0);
 	if (isflag(s, ZERO_PAD_FLAG))
 		buf_field_width(s, flen);
-	prec = s->s_conv.prec;
+	prec = s->conv.prec;
 	while (prec-- > (int)nlen)
 		store_in_buf(s, "0", 1);
-	if (!(n == 0 && s->s_conv.prec == 0))
+	if (!(n == 0 && s->conv.prec == 0))
 		buf_int(s, n, base);
 	if (isflag(s, REV_PAD_FLAG))
 		buf_field_width(s, flen);

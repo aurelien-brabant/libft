@@ -21,10 +21,10 @@ static size_t			get_utf8_field_len(t_state *s)
 	t_rune	*ra;
 	size_t	flen;
 
-	if (s->s_conv.prec >= 0)
-		return (s->s_conv.prec);
+	if (s->conv.prec >= 0)
+		return (s->conv.prec);
 	va_copy(lstcpy, *s->alst);
-	if (s->s_conv.spec == CHAR_SPEC)
+	if (s->conv.spec == CHAR_SPEC)
 		flen = ft_runelen(va_arg(lstcpy, t_rune));
 	else
 	{
@@ -50,10 +50,10 @@ static size_t			get_text_field_len(t_state *s)
 	char	*str;
 
 	flen = 0;
-	if (s->s_conv.spec == CHAR_SPEC)
+	if (s->conv.spec == CHAR_SPEC)
 		return (1);
-	if (s->s_conv.prec >= 0)
-		return (s->s_conv.prec);
+	if (s->conv.prec >= 0)
+		return (s->conv.prec);
 	va_copy(lstcpy, *s->alst);
 	str = va_arg(lstcpy, char *);
 	va_end(lstcpy);
@@ -67,9 +67,9 @@ size_t					get_field_len(t_state *s)
 	int	flen;
 
 	flen = 0;
-	if (s->s_conv.spec == CHAR_SPEC || s->s_conv.spec == STR_SPEC)
+	if (s->conv.spec == CHAR_SPEC || s->conv.spec == STR_SPEC)
 	{
-		if (s->s_conv.lenspec == L_LENSPEC)
+		if (s->conv.lenspec == L_LENSPEC)
 			flen = get_utf8_field_len(s);
 		else
 			flen = get_text_field_len(s);
@@ -89,10 +89,10 @@ void					buf_field_width(t_state *s, size_t flen)
 	char	padc;
 
 	padc = ' ';
-	if (s->s_conv.width <= (int)flen)
+	if (s->conv.width <= (int)flen)
 		return ;
 	if (isflag(s, ZERO_PAD_FLAG))
 		padc = '0';
-	while (s->s_conv.width-- > (int)flen)
+	while (s->conv.width-- > (int)flen)
 		store_in_buf(s, &padc, 1);
 }

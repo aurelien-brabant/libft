@@ -6,7 +6,7 @@
 /*   By: abrabant <abrabant@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/24 13:37:29 by abrabant          #+#    #+#             */
-/*   Updated: 2020/11/28 09:52:27 by abrabant         ###   ########.fr       */
+/*   Updated: 2020/12/25 00:31:04 by abrabant         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ void	conv_char(t_state *s)
 
 	flen = 1;
 	ft_memset(buf, 0, 5);
-	if (s->s_conv.lenspec == L_LENSPEC)
+	if (s->conv.lenspec == L_LENSPEC)
 	{
 		flen = ft_strlen((char *)ft_buf_utf8(buf, va_arg(*s->alst, t_rune)));
 		if (flen == 0)

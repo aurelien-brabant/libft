@@ -25,22 +25,22 @@
 
 bool	isflag(t_state *s, t_flag f)
 {
-	return (s->s_conv.flags & f);
+	return (s->conv.flags & f);
 }
 
 void	remflag(t_state *s, t_flag f)
 {
-	s->s_conv.flags = s->s_conv.flags & ~f;
+	s->conv.flags = s->conv.flags & ~f;
 }
 
 bool	ishexspec(t_state *s)
 {
-	return (s->s_conv.spec == HEXUPR_SPEC || s->s_conv.spec == HEXLWR_SPEC
-				|| s->s_conv.spec == PTR_SPEC);
+	return (s->conv.spec == HEXUPR_SPEC || s->conv.spec == HEXLWR_SPEC
+				|| s->conv.spec == PTR_SPEC);
 }
 
 bool	is_int_conv(t_state *s)
 {
-	return (s->s_conv.spec == INT_SPEC || s->s_conv.spec == UINT_SPEC ||
-			s->s_conv.spec == HEXLWR_SPEC || s->s_conv.spec == HEXUPR_SPEC);
+	return (s->conv.spec == INT_SPEC || s->conv.spec == UINT_SPEC ||
+			s->conv.spec == HEXLWR_SPEC || s->conv.spec == HEXUPR_SPEC);
 }

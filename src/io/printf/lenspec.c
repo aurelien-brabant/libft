@@ -83,8 +83,8 @@ static unsigned long long	extract_unsigned(t_lenspec lspec, va_list *alst)
 ** Extract the current argument in the va_list as an integer, which type
 ** is determined by the specified length specifier (if any).
 ** If the extracted int is a negative integer, it is transformed in
-** unsigned for code harmonization, and the s->s_conv.isneg flag is set
-** to true. If it is zero, the s->s_conv.iszero flag is set to true, as
+** unsigned for code harmonization, and the s->conv.isneg flag is set
+** to true. If it is zero, the s->conv.iszero flag is set to true, as
 ** a integer value can lead to very special cases.
 **
 ** @param	s	=> a pointer to the ft_printf global state.
@@ -95,20 +95,20 @@ unsigned long long			extract_int(t_state *s)
 	unsigned long long	n;
 	long long			tmp;
 
-	if (s->s_conv.spec == INT_SPEC)
+	if (s->conv.spec == INT_SPEC)
 	{
-		tmp = extract_signed(s->s_conv.lenspec, s->alst);
+		tmp = extract_signed(s->conv.lenspec, s->alst);
 		if (tmp < 0)
 		{
 			n = -tmp;
-			s->s_conv.isneg = true;
+			s->conv.isneg = true;
 		}
 		else
 			n = tmp;
 	}
 	else
-		n = extract_unsigned(s->s_conv.lenspec, s->alst);
+		n = extract_unsigned(s->conv.lenspec, s->alst);
 	if (!n)
-		s->s_conv.iszero = true;
+		s->conv.iszero = true;
 	return (n);
 }

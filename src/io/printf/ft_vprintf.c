@@ -28,9 +28,9 @@ int			ft_vprintf(const char *fmt, va_list ap)
 	s.fmt = fmt;
 	s.alst = &alst;
 	s.written = 0;
-	s.s_buf.len = 0;
-	s.s_buf.outspec = FD_OUT;
-	s.s_buf.u_dst.dfd = STDOUT_FILENO;
+	s.buf.len = 0;
+	s.buf.outspec = FD_OUT;
+	s.buf.dst.dfd = STDOUT_FILENO;
 	init_conv(conv);
 	while (*s.fmt)
 		parse_fmt(&s, conv);
