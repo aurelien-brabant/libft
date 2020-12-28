@@ -6,7 +6,7 @@
 /*   By: abrabant <abrabant@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/13 15:23:23 by abrabant          #+#    #+#             */
-/*   Updated: 2020/11/26 13:46:06 by abrabant         ###   ########.fr       */
+/*   Updated: 2020/12/28 20:26:44 by abrabant         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@
 ** Initialize ft_vprintf call. Where everything starts.
 */
 
-int			ft_vprintf(const char *fmt, va_list ap)
+int	ft_vprintf(const char *fmt, va_list ap)
 {
 	va_list				alst;
 	t_state				s;

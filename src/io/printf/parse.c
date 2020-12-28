@@ -6,7 +6,7 @@
 /*   By: abrabant <abrabant@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/13 20:50:41 by abrabant          #+#    #+#             */
-/*   Updated: 2020/11/25 01:51:16 by aurelienb        ###   ########.fr       */
+/*   Updated: 2020/12/28 22:12:49 by abrabant         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ void	sanitize_parsing(t_state *s)
 		s->conv.width = va_arg(*s->alst, int);
 		if (s->conv.width < 0)
 		{
-			s->conv.width = -(s->conv.width);
+			s->conv.width = - (s->conv.width);
 			s->conv.flags |= REV_PAD_FLAG;
 		}
 	}
@@ -76,9 +76,10 @@ void	parse_lenspec(t_state *s)
 
 void	parse_spec(t_state *s)
 {
-	const char	*specset = "csduxXp%n";
+	const char	*specset;
 	char		*c;
 
+	specset = "csduxXp%n";
 	if (*s->fmt == '\0')
 		return ;
 	c = ft_strchr(specset, *s->fmt);
@@ -99,9 +100,10 @@ void	parse_spec(t_state *s)
 
 void	parse_conv(t_state *s)
 {
-	const char	*flagset = "#0- +";
+	char		*flagset;
 	char		*c;
 
+	flagset = "#0- +";
 	c = ft_strchr(flagset, *s->fmt);
 	while (c)
 	{

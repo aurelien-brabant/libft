@@ -6,7 +6,7 @@
 /*   By: abrabant <abrabant@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/17 13:15:12 by abrabant          #+#    #+#             */
-/*   Updated: 2020/11/25 14:54:35 by abrabant         ###   ########.fr       */
+/*   Updated: 2020/12/28 20:24:46 by abrabant         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 #include "libft/unicode.h"
 #include "libft/intconv.h"
 
-static size_t			get_utf8_field_len(t_state *s)
+static size_t	get_utf8_field_len(t_state *s)
 {
 	va_list	lstcpy;
 	t_rune	*ra;
@@ -43,7 +43,7 @@ static size_t			get_utf8_field_len(t_state *s)
 ** function to know the necessary amount of padding to add (if any).
 */
 
-static size_t			get_text_field_len(t_state *s)
+static size_t	get_text_field_len(t_state *s)
 {
 	va_list	lstcpy;
 	size_t	flen;
@@ -62,7 +62,7 @@ static size_t			get_text_field_len(t_state *s)
 	return (ft_strlen(str));
 }
 
-size_t					get_field_len(t_state *s)
+size_t	get_field_len(t_state *s)
 {
 	int	flen;
 
@@ -84,7 +84,7 @@ size_t					get_field_len(t_state *s)
 ** right time, i.e when the padding is expected.
 */
 
-void					buf_field_width(t_state *s, size_t flen)
+void	buf_field_width(t_state *s, size_t flen)
 {
 	char	padc;
 

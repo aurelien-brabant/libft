@@ -6,7 +6,7 @@
 #    By: abrabant <abrabant@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/09/30 15:22:25 by abrabant          #+#    #+#              #
-#    Updated: 2020/12/25 22:02:21 by abrabant         ###   ########.fr        #
+#    Updated: 2020/12/28 22:39:53 by abrabant         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -52,9 +52,9 @@ PRINTF_CORE				= parse.c conv_int.c utils.c field_width.c			\
 						buf.c conv_char.c conv_pct.c 						
 
 IO						= ft_putnbr_fd.c ft_putstr_fd.c ft_putchar_fd.c		\
-						$(GNL_CORE) ft_gnl.c $(PRINTF_CORE) 
-						#ft_printf.c		\
-						#ft_sprintf.c ft_dprintf.c
+						$(GNL_CORE) ft_gnl.c $(PRINTF_CORE)					\
+						ft_printf.c	ft_snprintf.c ft_sprintf.c ft_dprintf.c	\
+						ft_vprintf.c ft_vsprintf.c ft_vsnprintf.c
 
 STRCONV					= ft_atoi.c
 

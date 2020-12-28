@@ -6,7 +6,7 @@
 /*   By: abrabant <abrabant@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/13 15:23:23 by abrabant          #+#    #+#             */
-/*   Updated: 2020/11/26 14:08:08 by abrabant         ###   ########.fr       */
+/*   Updated: 2020/12/28 22:39:19 by abrabant         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@
 ** Initialize ft_snprintf call. Where everything starts.
 */
 
-int			ft_snprintf(char *str, size_t len, const char *fmt, ...)
+int	ft_snprintf(char *str, size_t len, const char *fmt, ...)
 {
 	t_state				s;
 	va_list				alst;
@@ -30,8 +30,8 @@ int			ft_snprintf(char *str, size_t len, const char *fmt, ...)
 	s.written = 0;
 	s.buf.len = 0;
 	s.buf.outspec = STRING_OUT;
-	s.buf.dst.s_strout.s = str;
-	s.buf.dst.s_strout.lim = len;
+	s.buf.dst.strout.s = str;
+	s.buf.dst.strout.lim = len;
 	init_conv(conv);
 	while (*s.fmt)
 		parse_fmt(&s, conv);

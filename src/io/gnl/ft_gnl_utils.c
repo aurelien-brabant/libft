@@ -6,7 +6,7 @@
 /*   By: abrabant <abrabant@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/11 14:03:36 by abrabant          #+#    #+#             */
-/*   Updated: 2020/12/11 14:03:39 by abrabant         ###   ########.fr       */
+/*   Updated: 2020/12/28 20:13:01 by abrabant         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,7 @@ t_fd_item	*get_fd_item(t_fd_item **head, int fd)
 	return (new);
 }
 
-void		destroy_fd_item(t_fd_item **head, int fd)
+void	destroy_fd_item(t_fd_item **head, int fd)
 {
 	t_fd_item	*cur;
 	t_fd_item	*last;

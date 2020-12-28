@@ -6,7 +6,7 @@
 /*   By: abrabant <abrabant@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/14 16:29:07 by abrabant          #+#    #+#             */
-/*   Updated: 2020/12/25 00:55:12 by abrabant         ###   ########.fr       */
+/*   Updated: 2020/12/28 22:26:24 by abrabant         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,8 +29,7 @@
 ** @param	base	=> the arithmetic base.
 */
 
-static void	buf_int(t_state *s, unsigned long long n,
-									t_byte base)
+static void	buf_int(t_state *s, unsigned long long n, unsigned char base)
 {
 	char			*set;
 	t_byte			c;
@@ -41,7 +40,7 @@ static void	buf_int(t_state *s, unsigned long long n,
 	c = set[n % base];
 	if (s->conv.spec == HEXUPR_SPEC)
 		c = ft_toupper(c);
-	store_in_buf(s, (char *)&c, 1);
+	store_in_buf(s, (char *) & c, 1);
 }
 
 static void	buf_alt_form(t_state *s, bool iszero)
@@ -92,16 +91,16 @@ static size_t	get_flen(t_state *s, size_t nlen, bool iszero)
 ** @param	s	=> a pointer to the ft_printf global state.
 */
 
-void						conv_int(t_state *s)
+void	conv_int(t_state *s)
 {
-	const unsigned long long	n = extract_int(s);
-	const t_byte				base = 10 + (ishexspec(s) * 6);
-	const size_t				nlen = ft_ulllenb(n, base);
-	const size_t				flen = get_flen(s, nlen, n == 0);
-	int							prec;
+	unsigned long long	n; 	
+	size_t				nlen;
+	int					prec;
 
+	n = extract_int(s);
+	nlen = ft_ulllenb(n, 10 + (ishexspec(s) * 6));
 	if (!isflag(s, ZERO_PAD_FLAG) && !isflag(s, REV_PAD_FLAG))
-		buf_field_width(s, flen);
+		buf_field_width(s, get_flen(s, nlen, n == 0));
 	if (s->conv.isneg)
 		store_in_buf(s, "-", 1);
 	else if (isflag(s, PLUS_SIGN_FLAG))
@@ -110,12 +109,12 @@ void						conv_int(t_state *s)
 		store_in_buf(s, " ", 1);
 	buf_alt_form(s, n == 0);
 	if (isflag(s, ZERO_PAD_FLAG))
-		buf_field_width(s, flen);
+		buf_field_width(s, get_flen(s, nlen, n == 0));
 	prec = s->conv.prec;
 	while (prec-- > (int)nlen)
 		store_in_buf(s, "0", 1);
 	if (!(n == 0 && s->conv.prec == 0))
-		buf_int(s, n, base);
+		buf_int(s, n, 10 + (ishexspec(s) * 6));
 	if (isflag(s, REV_PAD_FLAG))
-		buf_field_width(s, flen);
+		buf_field_width(s, get_flen(s, nlen, n == 0));
 }

@@ -6,7 +6,7 @@
 /*   By: abrabant <abrabant@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/24 14:51:12 by abrabant          #+#    #+#             */
-/*   Updated: 2020/11/28 11:04:40 by abrabant         ###   ########.fr       */
+/*   Updated: 2020/12/28 22:29:33 by abrabant         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,29 +25,26 @@
 ** @param	s	=> a pointer to the ft_printf global state.
 */
 
-static void		buf_lstr(t_state *s)
+static void	buf_lstr(t_state *s)
 {
-	const t_byte	*nstr = (t_byte *)"(null)";
+	char			*nstr;
 	t_byte			buf[5];
 	t_rune			*ra;
 	int				prec;
 	size_t			i;
 
+	nstr = "(null)";
 	prec = s->conv.prec;
 	ra = va_arg(*s->alst, t_rune *);
 	if (!ra)
 		while (*nstr && prec-- != 0)
-			store_in_buf(s, (char *)nstr++, 1);
+			store_in_buf(s, nstr++, 1);
 	while (prec != 0 && ra && *ra)
 	{
 		ft_buf_utf8(buf, *ra++);
 		i = 0;
-		while (buf[i] && prec != 0)
-		{
-			if (!(!ft_isprint(buf[i]) && prec == 1))
-				store_in_buf(s, (char *)&buf[i++], 1);
-			--prec;
-		}
+		while (buf[i] && prec-- != 0)
+			store_in_buf(s, (char *) & buf[i++], 1);
 	}
 }
 
@@ -60,18 +57,17 @@ static void		buf_lstr(t_state *s)
 ** @param	s	=> a pointer to the ft_printf global state.
 */
 
-static void		buf_str(t_state *s)
+static void	buf_str(t_state *s)
 {
-	const t_byte	*nstr = (t_byte *)"(null)";
-	t_byte			*str;
+	char			*str;
 	int				prec;
 
-	str = va_arg(*s->alst, t_byte *);
+	str = va_arg(*s->alst, char *);
 	prec = s->conv.prec;
 	if (!str)
-		str = (t_byte *)nstr;
+		str = "(null)";
 	while (prec-- != 0 && str && *str)
-		store_in_buf(s, (char *)str++, 1);
+		store_in_buf(s, str++, 1);
 }
 
 /*
@@ -96,19 +92,18 @@ static size_t	get_lflen(t_state *s)
 
 	va_copy(clst, *s->alst);
 	prec = s->conv.prec;
-	flen = 0;
 	ra = va_arg(clst, t_rune *);
 	if (!ra && (prec < 0 || prec >= 6))
-		flen = 6;
+		return (ft_strlen("(null)"));
 	else if (!ra)
-		flen = prec;
-	else if (ra)
-		while (prec != 0 && *ra)
-		{
-			tmp = ft_runelen(*ra++);
-			while (prec != 0 && tmp-- > 0 && ++flen)
-				--prec;
-		}
+		return (prec);
+	flen = 0;
+	while (prec != 0 && *ra)
+	{
+		tmp = ft_runelen(*ra++);
+		while (prec != 0 && tmp-- > 0 && ++flen)
+			--prec;
+	}
 	va_end(clst);
 	return (flen);
 }
@@ -129,16 +124,16 @@ static size_t	get_flen(t_state *s)
 {
 	va_list	clst;
 	size_t	flen;
-	t_byte	*bs;
+	char	*str;
 	int		prec;
 
 	prec = s->conv.prec;
 	flen = 0;
 	va_copy(clst, *s->alst);
-	bs = va_arg(clst, t_byte *);
-	if (!bs)
-		bs = (t_byte *)"(null)";
-	while (*bs++ && prec-- != 0)
+	str = va_arg(clst, char *);
+	if (!str)
+		str = "(null)";
+	while (*str++ && prec-- != 0)
 		++flen;
 	va_end(clst);
 	return (flen);
@@ -152,18 +147,17 @@ static size_t	get_flen(t_state *s)
 ** @param	s	=> a pointer to the ft_printf global state.
 */
 
-void			conv_str(t_state *s)
+void	conv_str(t_state *s)
 {
-	const bool	isutf8 = s->conv.lenspec == L_LENSPEC;
 	size_t		flen;
 
-	if (isutf8)
+	if (s->conv.lenspec == L_LENSPEC)
 		flen = get_lflen(s);
 	else
 		flen = get_flen(s);
 	if (!isflag(s, REV_PAD_FLAG))
 		buf_field_width(s, flen);
-	if (isutf8)
+	if (s->conv.lenspec == L_LENSPEC)
 		buf_lstr(s);
 	else
 		buf_str(s);

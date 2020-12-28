@@ -6,7 +6,7 @@
 /*   By: abrabant <abrabant@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/23 23:24:04 by abrabant          #+#    #+#             */
-/*   Updated: 2020/12/11 14:10:44 by abrabant         ###   ########.fr       */
+/*   Updated: 2020/12/28 20:12:40 by abrabant         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@
 #include "libft/string.h"
 #include "libft/internal/gnl.h"
 
-int			ft_gnl(int fd, char **line)
+int	ft_gnl(int fd, char **line)
 {
 	static t_fd_item	*head = 0;
 	t_fd_item			*item;
@@ -41,8 +41,8 @@ int			ft_gnl(int fd, char **line)
 	return (rdres);
 }
 
-int			init_gnl(t_fd_item **head, t_fd_item **item, int fd,
-						char **stacked)
+int	init_gnl(t_fd_item **head, t_fd_item **item, int fd
+			, char **stacked)
 {
 	*stacked = NULL;
 	if (BUFFER_SIZE <= 0 || read(fd, NULL, 0) == -1)
@@ -59,7 +59,7 @@ int			init_gnl(t_fd_item **head, t_fd_item **item, int fd,
 	return (SUCCESS);
 }
 
-int			make_line(t_fd_item *item, char *stacked, char **line, int rdres)
+int	make_line(t_fd_item *item, char *stacked, char **line, int rdres)
 {
 	if (rdres > 0)
 		return (pop_ln(stacked, item->buf, line));
@@ -72,16 +72,17 @@ int			make_line(t_fd_item *item, char *stacked, char **line, int rdres)
 	return (ERROR);
 }
 
-int			join_rd(const char *fdbuf, char **stacked)
+int	join_rd(const char *fdbuf, char **stacked)
 {
-	const char		*tmp;
-	const size_t	join_len = ft_strlen(fdbuf) + ft_strlen(*stacked) + 1;
+	char			*tmp;
+	size_t			join_len;
 	size_t			i;
 	size_t			j;
 	int				retval;
 
 	i = 0;
 	j = 0;
+	join_len = ft_strlen(fdbuf) + ft_strlen(*stacked) + 1;
 	retval = ERROR;
 	tmp = *stacked;
 	*stacked = ft_calloc(join_len, sizeof(char));
@@ -98,13 +99,15 @@ int			join_rd(const char *fdbuf, char **stacked)
 	return (retval);
 }
 
-int			pop_ln(char *stacked, char *fdbuf, char **line)
+int	pop_ln(char *stacked, char *fdbuf, char **line)
 {
-	const char	*tmp = stacked;
-	const char	*nlp = ft_strchr(stacked, '\n');
-	size_t		i;
-	int			retval;
+	char	*tmp;
+	char	*nlp;
+	size_t	i;
+	int		retval;
 
+	tmp = stacked;
+	nlp = ft_strchr(stacked, '\n');
 	i = -1;
 	retval = SUCCESS;
 	while (nlp[++i + 1])

@@ -6,7 +6,7 @@
 /*   By: abrabant <abrabant@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/13 15:23:23 by abrabant          #+#    #+#             */
-/*   Updated: 2020/11/26 14:06:45 by abrabant         ###   ########.fr       */
+/*   Updated: 2020/12/28 20:25:17 by abrabant         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@
 ** Initialize ft_dprintf call. Where everything starts.
 */
 
-int			ft_dprintf(int fd, const char *fmt, ...)
+int	ft_dprintf(int fd, const char *fmt, ...)
 {
 	t_state				s;
 	va_list				alst;

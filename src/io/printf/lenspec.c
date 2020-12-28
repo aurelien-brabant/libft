@@ -6,7 +6,7 @@
 /*   By: abrabant <abrabant@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/16 19:43:09 by abrabant          #+#    #+#             */
-/*   Updated: 2020/11/25 14:52:34 by abrabant         ###   ########.fr       */
+/*   Updated: 2020/12/28 22:11:15 by abrabant         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@
 ** @return	a long long int, as a max-signed value.
 */
 
-static long long			extract_signed(t_lenspec lspec, va_list *alst)
+static long long	extract_signed(t_lenspec lspec, va_list *alst)
 {
 	long long	nb;
 
@@ -90,7 +90,7 @@ static unsigned long long	extract_unsigned(t_lenspec lspec, va_list *alst)
 ** @param	s	=> a pointer to the ft_printf global state.
 */
 
-unsigned long long			extract_int(t_state *s)
+unsigned long long	extract_int(t_state *s)
 {
 	unsigned long long	n;
 	long long			tmp;
