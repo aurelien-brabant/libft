@@ -6,7 +6,7 @@
 /*   By: abrabant <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/08/09 09:49:00 by abrabant          #+#    #+#             */
-/*   Updated: 2020/11/23 16:47:17 by abrabant         ###   ########.fr       */
+/*   Updated: 2020/12/28 12:28:39 by abrabant         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,8 +18,9 @@
 
 static bool	iswspace(char c)
 {
-	const char	*set = " \n\v\r\t\f";
+	char	*set;
 
+	set = " \n\v\r\t\f";
 	return (ft_strchr(set, c) != 0);
 }
 
@@ -29,7 +30,7 @@ static bool	iswspace(char c)
 ** underflow / overflow is handled, even if it is normally undefined.
 */
 
-int			ft_atoi(const char *nptr)
+int	ft_atoi(const char *nptr)
 {
 	int		nb;
 	bool	isneg;
