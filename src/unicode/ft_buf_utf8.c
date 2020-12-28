@@ -6,7 +6,7 @@
 /*   By: abrabant <abrabant@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/22 19:03:42 by abrabant          #+#    #+#             */
-/*   Updated: 2020/11/23 17:07:32 by abrabant         ###   ########.fr       */
+/*   Updated: 2020/12/28 23:12:27 by abrabant         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,22 +23,21 @@
 
 t_byte	*ft_buf_utf8(t_byte *dst, t_rune r)
 {
-	const size_t	rlen = ft_runelen(r);
-	size_t			i;
+	size_t	i;
 
 	i = 0;
-	if (rlen == 1)
+	if (ft_runelen(r) == 1)
 		dst[i++] = (t_byte)r;
 	else
 	{
-		if (rlen == 2)
+		if (ft_runelen(r) == 2)
 			dst[i++] = (r >> 0x06) | 0xC0;
-		if (rlen == 3)
+		if (ft_runelen(r) == 3)
 		{
 			dst[i++] = (r >> 0xC) | 0xE0;
 			dst[i++] = ((r >> 0x6) & 0x3F) | 0x80;
 		}
-		if (rlen == 4)
+		if (ft_runelen(r) == 4)
 		{
 			dst[i++] = (r >> 18) | 0xF0;
 			dst[i++] = ((r >> 12) & 0x3F) | 0x80;

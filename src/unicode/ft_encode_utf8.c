@@ -6,7 +6,7 @@
 /*   By: abrabant <abrabant@42.student.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/07 16:48:53 by abrabant          #+#    #+#             */
-/*   Updated: 2020/11/23 17:05:17 by abrabant         ###   ########.fr       */
+/*   Updated: 2020/12/28 22:56:26 by abrabant         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ static size_t	get_alloc_size(t_rune *r)
 ** @return	the malloc-ed string.
 */
 
-t_byte			*ft_encode_utf8(t_rune *r)
+t_byte	*ft_encode_utf8(t_rune *r)
 {
 	t_byte	*enc_ptr;
 	t_byte	*enc;
