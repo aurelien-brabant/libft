@@ -6,7 +6,7 @@
 /*   By: abrabant <abrabant@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/08/30 13:54:16 by abrabant          #+#    #+#             */
-/*   Updated: 2020/11/07 15:35:48 by abrabant         ###   ########.fr       */
+/*   Updated: 2020/12/28 12:30:52 by abrabant         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,8 +19,9 @@
 void	*ft_memccpy(void *dest, const void *src, int c, size_t n)
 {
 	unsigned char		*d;
-	const unsigned char	*s = (unsigned char *)src;
+	unsigned char		*s;
 
+	s = (unsigned char *)src;
 	if (!n)
 		return (0);
 	d = (unsigned char *)dest;

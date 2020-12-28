@@ -6,7 +6,7 @@
 /*   By: abrabant <abrabant@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/08/30 13:45:36 by abrabant          #+#    #+#             */
-/*   Updated: 2020/11/07 15:35:14 by abrabant         ###   ########.fr       */
+/*   Updated: 2020/12/28 12:30:25 by abrabant         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,10 +19,10 @@
 void	*ft_memcpy(void *dest, const void *src, size_t n)
 {
 	unsigned char		*destc;
-	const unsigned char	*srcc;
+	unsigned char		*srcc;
 
 	destc = (unsigned char *)dest;
-	srcc = (const unsigned char *)src;
+	srcc = (unsigned char *)src;
 	if (!dest && !src)
 		return (0);
 	while (n--)

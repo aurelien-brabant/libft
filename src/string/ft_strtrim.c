@@ -6,7 +6,7 @@
 /*   By: abrabant <abrabant@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/08/29 20:06:35 by abrabant          #+#    #+#             */
-/*   Updated: 2020/11/07 15:41:38 by abrabant         ###   ########.fr       */
+/*   Updated: 2020/12/28 13:00:06 by abrabant         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,7 @@ static char	*aux_strchr(const char *s, int c)
 ** @return	a pointer to the first allocated byte.
 */
 
-char		*alloc_trim(char const *str, char const *set)
+char	*alloc_trim(char const *str, char const *set)
 {
 	int		i;
 	int		j;
@@ -76,7 +76,7 @@ char		*alloc_trim(char const *str, char const *set)
 ** @return	The trimed string, allocated by alloc_trim.
 */
 
-char		*ft_strtrim(char const *s1, char const *set)
+char	*ft_strtrim(char const *s1, char const *set)
 {
 	char	*trimed;
 	int		i;

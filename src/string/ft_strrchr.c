@@ -6,9 +6,12 @@
 /*   By: abrabant <abrabant@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/08/31 13:24:30 by abrabant          #+#    #+#             */
-/*   Updated: 2020/11/07 15:22:59 by abrabant         ###   ########.fr       */
+/*   Updated: 2020/12/28 12:59:19 by abrabant         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+#include "libft/types.h"
+#include "libft/string.h"
 
 /*
 ** libft implementation of strrchr(3)
@@ -22,14 +25,11 @@
 
 char	*ft_strrchr(const char *s, int c)
 {
-	char *last;
+	long long	i;
 
-	last = 0;
-	while (*s)
-	{
-		if (*s == c)
-			last = (char *)s;
-		++s;
-	}
-	return (c == '\0' ? (char *)s : last);
+	i = ft_strlen(s);
+	while (i >= 0)
+		if (s[i--] == c)
+			return ((char *)&s[i + 1]);
+	return (NULL);
 }

@@ -6,7 +6,7 @@
 /*   By: abrabant <abrabant@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/08/30 21:16:44 by abrabant          #+#    #+#             */
-/*   Updated: 2020/11/07 15:34:46 by abrabant         ###   ########.fr       */
+/*   Updated: 2020/12/28 12:33:27 by abrabant         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,9 +19,10 @@
 
 void	*ft_memmove(void *dest, const void *src, size_t n)
 {
-	const unsigned char	*src_byte = (const unsigned char *)src;
+	unsigned char		*src_byte;
 	unsigned char		*dest_byte;
 
+	src_byte = (unsigned char *)src;
 	dest_byte = (unsigned char *)dest;
 	if (src_byte < dest_byte)
 	{

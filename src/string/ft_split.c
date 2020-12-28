@@ -6,7 +6,7 @@
 /*   By: abrabant <abrabant@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/08/29 21:56:44 by abrabant          #+#    #+#             */
-/*   Updated: 2020/11/07 15:39:12 by abrabant         ###   ########.fr       */
+/*   Updated: 2020/12/28 12:34:50 by abrabant         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@
 ** array that'll be generated using getwc.
 */
 
-static unsigned int		getwc(char const *str, char c)
+static unsigned int	getwc(char const *str, char c)
 {
 	unsigned int	count;
 
@@ -56,7 +56,7 @@ static unsigned int		getwc(char const *str, char c)
 ** the string that'll be generated using getlc.
 */
 
-static unsigned int		getlc(char const *str, char c, int i)
+static unsigned int	getlc(char const *str, char c, int i)
 {
 	int	count;
 
@@ -78,7 +78,7 @@ static unsigned int		getlc(char const *str, char c, int i)
 ** @return	a string array that contains every word + ending 0 pointer.
 */
 
-char					**ft_split(char const *s, char c)
+char	**ft_split(char const *s, char c)
 {
 	char	**strs;
 	int		i;

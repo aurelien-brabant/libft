@@ -6,7 +6,7 @@
 /*   By: abrabant <abrabant@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/09/02 12:45:59 by abrabant          #+#    #+#             */
-/*   Updated: 2020/11/07 15:39:52 by abrabant         ###   ########.fr       */
+/*   Updated: 2020/12/28 12:46:01 by abrabant         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,9 +32,9 @@ char	*ft_strjoin(char const *s1, char const *s2)
 	concat = ft_calloc(concat_len + 1, sizeof(char));
 	if (!concat)
 		return (NULL);
-	while ((*concat = *s1++))
-		++concat;
-	while ((*concat = *s2++))
-		++concat;
+	while ((*s1))
+		*concat++ = *s1++;
+	while ((*s2))
+		*concat++ = *s2++;
 	return (concat - concat_len);
 }

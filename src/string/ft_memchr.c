@@ -6,7 +6,7 @@
 /*   By: abrabant <abrabant@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/08/31 21:19:26 by abrabant          #+#    #+#             */
-/*   Updated: 2020/11/07 15:37:04 by abrabant         ###   ########.fr       */
+/*   Updated: 2020/12/28 12:31:26 by abrabant         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,9 +18,10 @@
 
 void	*ft_memchr(const void *s, int c, size_t n)
 {
-	const unsigned char	*sc = (const unsigned char *)s;
-	unsigned char		ch;
+	unsigned char	*sc;
+	unsigned char	ch;
 
+	sc = (unsigned char *)s;
 	ch = (unsigned char)c;
 	while (n--)
 	{

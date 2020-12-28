@@ -6,9 +6,11 @@
 /*   By: abrabant <abrabant@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/08/31 13:24:30 by abrabant          #+#    #+#             */
-/*   Updated: 2020/11/07 15:22:15 by abrabant         ###   ########.fr       */
+/*   Updated: 2020/12/28 12:38:25 by abrabant         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+#include "libft/types.h"
 
 /*
 ** libft implementation of strchr(3)
@@ -22,5 +24,7 @@ char	*ft_strchr(const char *s, int c)
 			return ((char *)s);
 		++s;
 	}
-	return (c == '\0' ? (char *)s : 0);
+	if (c == '\0')
+		return ((char *)s);
+	return (NULL);
 }
