@@ -6,7 +6,7 @@
 #    By: abrabant <abrabant@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/09/30 15:22:25 by abrabant          #+#    #+#              #
-#    Updated: 2020/12/28 22:39:53 by abrabant         ###   ########.fr        #
+#    Updated: 2020/12/29 00:28:09 by abrabant         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -79,7 +79,10 @@ OBJS					= $(SRCS:%.c=$(OBJ_DIR)/%.o)
 all: $(NAME)
 
 $(NAME): $(OBJ_DIR) $(OBJS)
-	ar rcs $(NAME) $(OBJS)
+	@printf "****** \033[1;35mBuilding \033[0;32m$(NAME)\033[0m ******\n"
+	@printf "ar rcs \033[1;35m$(NAME) \033[0;36m$(OBJS) \033[0m\n"
+	@ar rcs $(NAME) $(OBJS)
+	@printf "****** \033[1;35mBuild \033[0mof \033[0;32m$(NAME)\033[0m should have succeeded ******\n"
 
 clean:
 	rm -f $(OBJS) $(BONUS_OBJS)
@@ -93,7 +96,8 @@ re: fclean all
 
 # Compilation rule for each C file.
 $(OBJ_DIR)/%.o:%.c
-	$(CC) $(CFLAGS) -I$(INCLUDE_PATH) -g -c $< -o $@
+	@printf "\033[1;34mCompiling \033[0;36m$<\033[0m\n" 
+	@$(CC) $(CFLAGS) -I$(INCLUDE_PATH) -g -c $< -o $@
 
 $(OBJ_DIR):
 	mkdir $(OBJ_DIR)
