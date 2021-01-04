@@ -6,7 +6,7 @@
 /*   By: abrabant <abrabant@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/04 11:40:19 by abrabant          #+#    #+#             */
-/*   Updated: 2021/01/04 11:59:52 by abrabant         ###   ########.fr       */
+/*   Updated: 2021/01/04 12:13:29 by abrabant         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ int	ft_strcmp(const char *p1, const char *p2)
 {
 	const unsigned char	*s1;
 	const unsigned char	*s2;
-	
+
 	s1 = (const unsigned char *) p1;
 	s2 = (const unsigned char *) p2;
 	while (*s1 == *s2 && *s1)
