@@ -6,7 +6,7 @@
 /*   By: abrabant <abrabant@42.student.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/07 14:17:27 by abrabant          #+#    #+#             */
-/*   Updated: 2021/01/04 22:10:09 by abrabant         ###   ########.fr       */
+/*   Updated: 2021/01/05 00:25:08 by abrabant         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,6 +34,7 @@ int		ft_strcmp(const char *s1, const char *s2);
 int		ft_strncmp(const char *s1, const char *s2, size_t len);
 char	*ft_strdup(const char *s);
 char	*ft_strndup(const char *s, size_t n);
+char	*ft_strtok(char *str, const char *delim);
 
 char	*ft_substr(char const *s, unsigned int start, size_t len);
 char	*ft_strjoin(char const *s1, char const *s2);

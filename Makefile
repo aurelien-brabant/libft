@@ -6,7 +6,7 @@
 #    By: abrabant <abrabant@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/09/30 15:22:25 by abrabant          #+#    #+#              #
-#    Updated: 2021/01/04 22:11:01 by abrabant         ###   ########.fr        #
+#    Updated: 2021/01/05 00:27:06 by abrabant         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -38,7 +38,7 @@ STRING					= ft_strlen.c ft_strlcpy.c ft_strlcat.c ft_strdup.c	\
 						ft_strrev.c ft_strlwr.c ft_strupr.c ft_strinsrt.c	\
 						ft_strcasestr.c ft_strchri.c ft_strhsprfx.c			\
 						ft_strhssfx.c ft_strndup.c ft_strcmp.c				\
-						ft_strtrim_uniq.c
+						ft_strtrim_uniq.c ft_strtok.c
 
 CTYPE					= ft_isascii.c ft_isdigit.c ft_isalnum.c			\
 						ft_isalpha.c ft_isprint.c ft_tolower.c ft_toupper.c	\
