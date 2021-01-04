@@ -6,7 +6,7 @@
 /*   By: abrabant <abrabant@42.student.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/07 14:17:27 by abrabant          #+#    #+#             */
-/*   Updated: 2020/12/26 00:07:27 by abrabant         ###   ########.fr       */
+/*   Updated: 2021/01/04 12:10:37 by abrabant         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,7 @@ char	*ft_strrchr(const char *s, int c);
 char	*strrchr(const char *s, int c);
 char	*ft_strnstr(const char	*big, const char *little, size_t len);
 char	*ft_strcasestr(const char *haystack, const char *needle);
+int		ft_strcmp(const char *s1, const char *s2);
 int		ft_strncmp(const char *s1, const char *s2, size_t len);
 char	*ft_strdup(const char *s);
 char	*ft_strndup(const char *s, size_t n);
