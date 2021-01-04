@@ -6,7 +6,7 @@
 /*   By: abrabant <abrabant@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/04 16:02:26 by abrabant          #+#    #+#             */
-/*   Updated: 2021/01/04 22:09:46 by abrabant         ###   ########.fr       */
+/*   Updated: 2021/01/04 23:00:15 by abrabant         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@
 
 static bool	is_in_set(unsigned char c, const char *set)
 {
-	const unsigned char *charset;
+	const unsigned char	*charset;
 
 	charset = (const unsigned char *)set;
 	while (*charset)
@@ -120,7 +120,7 @@ static void	write_uniq(unsigned char *trimmed, const unsigned char *sfront
 char	*ft_strtrim_uniq(const char *s, const char *set)
 {
 	const unsigned char	*sback;
-	const unsigned char	*sfront;		
+	const unsigned char	*sfront;
 	unsigned char		*trimmed;
 	size_t				alloc_char;
 
@@ -132,7 +132,7 @@ char	*ft_strtrim_uniq(const char *s, const char *set)
 		--sback;
 	alloc_char = sback - sfront + !(is_in_set(*sfront, set))
 		- get_nb_of_inner_trimmed(sfront, sback, set) + 1;
-	trimmed = ft_calloc(alloc_char, sizeof (*trimmed)); 
+	trimmed = ft_calloc(alloc_char, sizeof (*trimmed));
 	if (!trimmed)
 		return (NULL);
 	write_uniq(trimmed, sfront, sback, set);
