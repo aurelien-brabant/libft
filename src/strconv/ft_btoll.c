@@ -6,7 +6,7 @@
 /*   By: abrabant <abrabant@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/10 20:50:30 by abrabant          #+#    #+#             */
-/*   Updated: 2021/01/10 22:03:09 by abrabant         ###   ########.fr       */
+/*   Updated: 2021/01/10 23:55:27 by abrabant         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,10 +19,10 @@
 
 long long	ft_btoll(const char *s, uint8_t base)
 {
-	static const char	*const set = "0123456789abcdef";
-	long long			nb;					
-	char				*ch;
-	int8_t				sign;
+	static const char *const	set = "0123456789abcdef";
+	long long					nb;					
+	char						*ch;
+	int8_t						sign;
 
 	nb = 0;
 	sign = 1;

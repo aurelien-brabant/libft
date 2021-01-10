@@ -1,31 +1,38 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memset.c                                        :+:      :+:    :+:   */
+/*   ft_cla_init.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: abrabant <abrabant@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/08/30 12:19:03 by abrabant          #+#    #+#             */
-/*   Updated: 2021/01/10 12:06:56 by abrabant         ###   ########.fr       */
+/*   Created: 2021/01/09 21:12:50 by abrabant          #+#    #+#             */
+/*   Updated: 2021/01/10 15:40:56 by abrabant         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stddef.h>
-#include "libft/io.h"
+#include "libft/core.h"
+#include "libft/cla.h"
+#include "libft/internal/cla_int.h"
 
-/*
-** libft implementation of memset(3)
-*/
-
-void	*ft_memset(void *s, int c, size_t n)
+static void	init_pos_index(t_cla_pos *pos)
 {
-	unsigned char	*byte_set;
+	size_t	i;
 
-	byte_set = (unsigned char *)s;
-	while (n > 0)
+	i = 0;
+	while (i < MAX_POS)
+		pos[i++].index = -1;
+}
+
+void	*ft_cla_init(int ac, char **av)
+{
+	t_cla	*cla;
+	
+	cla = ft_calloc(1, sizeof (t_cla));
+	if (cla != NULL)
 	{
-		*byte_set++ = c;
-		--n;
+		cla->ac = ac - 1;
+		cla->av = av + 1;
+		init_pos_index(cla->pos);
 	}
-	return (s);
+	return (cla);
 }

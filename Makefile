@@ -6,7 +6,7 @@
 #    By: abrabant <abrabant@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/09/30 15:22:25 by abrabant          #+#    #+#              #
-#    Updated: 2021/01/05 00:27:06 by abrabant         ###   ########.fr        #
+#    Updated: 2021/01/10 21:53:49 by abrabant         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -25,8 +25,8 @@ NAME					= libft.a
 
 VPATH					= ./src/string:./src/ctype:./src/io:./src/io/gnl:	\
 						./src/io/printf:									\
-						./src/strconv:./src/intconv ./src/unicode			\
-						./src/core ./src/dvector
+						./src/strconv:./src/intconv:./src/unicode			\
+						./src/core:./src/dvector:./src/cla 
 
 CORE				 	= ft_calloc.c ft_realloc.c
 
@@ -57,17 +57,20 @@ IO						= ft_putnbr_fd.c ft_putstr_fd.c ft_putchar_fd.c		\
 						ft_printf.c	ft_snprintf.c ft_sprintf.c ft_dprintf.c	\
 						ft_vprintf.c ft_vsprintf.c ft_vsnprintf.c
 
-STRCONV					= ft_atoi.c
+STRCONV					= ft_atoi.c ft_btoll.c
 
 INTCONV					= ft_itoa.c ft_lltob.c ft_ulltob.c ft_ulllenb.c
 
 UNICODE					= ft_runelen.c ft_buf_utf8.c ft_encode_utf8.c
 
-DVECTOR					= ft_dvec_make.c ft_dvec_add.c ft_dvec_get.c			\
+DVECTOR					= ft_dvec_make.c ft_dvec_add.c ft_dvec_get.c		\
 						  ft_dvec_destroy.c ft_dvec_del.c
 
+CLA						= ft_cla_init.c ft_cla_str_var.c ft_cla_int_var.c	\
+						ft_cla_bool_var.c ft_cla_parse.c ft_cla_pos_var.c
+
 SRCS					= $(CORE) $(STRING) $(CTYPE) $(IO) $(STRCONV)		\
-						$(INTCONV) $(UNICODE) $(DVECTOR) 
+						$(INTCONV) $(UNICODE) $(DVECTOR) $(CLA) 
 
 # ~~~~~~~~~~   OBJECTS   ~~~~~~~~~~
 
