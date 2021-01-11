@@ -6,13 +6,17 @@
 /*   By: abrabant <abrabant@42.student.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/07 14:17:27 by abrabant          #+#    #+#             */
-/*   Updated: 2021/01/05 00:25:08 by abrabant         ###   ########.fr       */
+/*   Updated: 2021/01/11 18:24:17 by abrabant         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef STRING_H
 # define STRING_H
 # include "./types.h"
+
+/*
+** MEMORY
+*/
 
 void	*ft_memset(void *s, int c, size_t n);
 void	ft_bzero(void *s, size_t n);
@@ -32,6 +36,7 @@ char	*ft_strnstr(const char	*big, const char *little, size_t len);
 char	*ft_strcasestr(const char *haystack, const char *needle);
 int		ft_strcmp(const char *s1, const char *s2);
 int		ft_strncmp(const char *s1, const char *s2, size_t len);
+int		ft_strcmpset(const char *s1, const char *s2, const char *set);
 char	*ft_strdup(const char *s);
 char	*ft_strndup(const char *s, size_t n);
 char	*ft_strtok(char *str, const char *delim);
