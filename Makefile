@@ -6,7 +6,7 @@
 #    By: abrabant <abrabant@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/09/30 15:22:25 by abrabant          #+#    #+#              #
-#    Updated: 2021/01/10 21:53:49 by abrabant         ###   ########.fr        #
+#    Updated: 2021/01/11 22:57:11 by abrabant         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -38,7 +38,7 @@ STRING					= ft_strlen.c ft_strlcpy.c ft_strlcat.c ft_strdup.c	\
 						ft_strrev.c ft_strlwr.c ft_strupr.c ft_strinsrt.c	\
 						ft_strcasestr.c ft_strchri.c ft_strhsprfx.c			\
 						ft_strhssfx.c ft_strndup.c ft_strcmp.c				\
-						ft_strtrim_uniq.c ft_strtok.c
+						ft_strtrim_uniq.c ft_strtok.c ft_strcmpset.c
 
 CTYPE					= ft_isascii.c ft_isdigit.c ft_isalnum.c			\
 						ft_isalpha.c ft_isprint.c ft_tolower.c ft_toupper.c	\
@@ -67,7 +67,9 @@ DVECTOR					= ft_dvec_make.c ft_dvec_add.c ft_dvec_get.c		\
 						  ft_dvec_destroy.c ft_dvec_del.c
 
 CLA						= ft_cla_init.c ft_cla_str_var.c ft_cla_int_var.c	\
-						ft_cla_bool_var.c ft_cla_parse.c ft_cla_pos_var.c
+						ft_cla_bool_var.c ft_cla_pos_var.c					\
+						ft_cla_sanity_check.c ft_cla_get_config.c
+
 
 SRCS					= $(CORE) $(STRING) $(CTYPE) $(IO) $(STRCONV)		\
 						$(INTCONV) $(UNICODE) $(DVECTOR) $(CLA) 

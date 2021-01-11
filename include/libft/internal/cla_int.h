@@ -1,5 +1,5 @@
-#ifndef CLA_INT
-# define CLA_INT
+#ifndef CLA_INT_H
+# define CLA_INT_H
 
 # define MAX_BOOL 10
 # define MAX_STR 10

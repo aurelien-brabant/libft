@@ -6,7 +6,7 @@
 /*   By: abrabant <abrabant@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/21 21:25:50 by abrabant          #+#    #+#             */
-/*   Updated: 2020/12/11 11:07:38 by abrabant         ###   ########.fr       */
+/*   Updated: 2021/01/11 19:30:34 by abrabant         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,5 +27,6 @@
 # include "libft/types.h"
 # include "libft/ctype.h"
 # include "libft/io.h"
+# include "libft/cla.h"
 
 #endif

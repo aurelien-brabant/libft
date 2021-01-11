@@ -6,23 +6,36 @@
 /*   By: abrabant <abrabant@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/09 22:29:40 by abrabant          #+#    #+#             */
-/*   Updated: 2021/01/10 00:06:07 by abrabant         ###   ########.fr       */
+/*   Updated: 2021/01/11 18:58:47 by abrabant         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include <stdlib.h>
+
+#include "libft/string.h"
 #include "libft/cla.h"
 #include "libft/internal/cla_int.h"
 
-void	ft_cla_str_var(void *cla, char **var, const char *key, const char *dflt)
+char	*ft_cla_str_var(void *cla, char **var, const char *key
+							, const char *dflt)
 {
 	t_cla	*cla_ptr;
-	size_t	i;
+	int		i;
+	char	*tmp;
+	char	*opt;
 
 	cla_ptr = (t_cla *) cla;
+	opt = NULL;
 	i = 0;
-	while (cla_ptr->strs[i].key != NULL)
-		++i;
-	cla_ptr->strs[i].key = key;
-	cla_ptr->strs[i].dflt = dflt;
-	cla_ptr->strs[i].ptr = var;
+	tmp = ft_strjoin("--", key);
+	opt = ft_strjoin(tmp, "=");
+	free(tmp);
+	tmp = (char *)dflt;
+	while (i < cla_ptr->ac)
+		if (ft_strhsprfx(cla_ptr->av[i++], opt))
+			tmp = ft_strchr(cla_ptr->av[i - 1], '=') + 1;
+	if (var != NULL)
+		*var = tmp;
+	free(opt);
+	return (tmp);
 }

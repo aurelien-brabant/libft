@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memcmpset.c                                     :+:      :+:    :+:   */
+/*   ft_strcmpset.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: abrabant <abrabant@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/11 13:01:35 by abrabant          #+#    #+#             */
-/*   Updated: 2021/01/11 18:45:00 by abrabant         ###   ########.fr       */
+/*   Updated: 2021/01/11 21:58:12 by abrabant         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,7 +48,7 @@ int	ft_strcmpset(const char *s1, const char *s2, const char *set)
 
 	us1 = (const unsigned char *)s1;
 	us2 = (const unsigned char *)s2;
-	while (1)
+	while (*us1 != '\0')
 	{
 		break_flag = *us1 != *us2;
 		if (is_in_set(set, *us1)
