@@ -13,10 +13,14 @@ This repository is making use of this [norminette-action](https://github.com/ale
 
 The norm is a good way for us to learn without coding badly, even if some constraints can be really questionable.
 
-The [version 3 of the norminette](https://github.com/42School/norminette) has been released, and will be taken as the new reference since the 4th of January of 2021. My libft has been and will be updated accordingly.
+The [version 3 of the norminette](https://github.com/42School/norminette) will be released in February 2021 (recently delayed).
+My libft has been and will be updated according to this new version (which is introducing breaking changes to v2 code).
 
 ## Testing
-I am a big fan of the TDD approach. I made [this framework](https://github.com/abrabant-42/libft-crit) based on the criterion test API. I am updating it each time I make changes in my lib. A new function is usually developed in the dev branch and merged when tests have been made.
+
+Each function in my libft has its own test suite to ensure it produces the expected behaviour. All the suites can be found
+at `test/suites`. `test/run.sh all` will run all the suites to ensure the libft is not experiencing unexpected issues. [Criterion](https://github.com/Snaipe/Criterion)
+and clang are required.
 
 ## Motivations
 If you're not a 42 school, you may ask what is the purpose of "reinventing" the wheel with this library. At 42, we do not have
@@ -30,6 +34,5 @@ I always try and like to provide good documentation about what I am coding, ther
 
 ## Related
 
-- [libft-crit](https://github.com/abrabant-42/libft-crit))
 - [42school/norminette](https://github.com/42School/norminette)
 - [alexandregv/norminette-action](https://github.com/alexandregv/norminette-action)
