@@ -1,7 +1,4 @@
-![](https://i.imgur.com/DqWmaUD.png)
-# libft-crit
-
-A testing framework to ensure all libft's functions are working correctly.
+# Testing libft
 
 ## Dependencies
 
@@ -19,6 +16,6 @@ Simply run `make test` from the root of the repository.
 Just compile the test suite manually, and don't forget to link all the required dependencies and include the correct headers.
 The following example command must be run at the root of the repository:
 
-`$(CC) -lcriterion -lbsd -L. -lft -Iinclude test/suite/ft_strcmp_suite.c -o test_strcmp`
+`$CC -lcriterion -lbsd -L. -lft -Iinclude test/suite/ft_strcmp_suite.c -o test_strcmp`
 
-Where `$(CC)` is your compiler.
+Where `$CC` is your compiler.

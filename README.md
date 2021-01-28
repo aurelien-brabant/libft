@@ -18,9 +18,7 @@ My libft has been and will be updated according to this new version (which is in
 
 ## Testing
 
-Each function in my libft has its own test suite to ensure it produces the expected behaviour. All the suites can be found
-at `test/suites`. `test/run.sh all` will run all the suites to ensure the libft is not experiencing unexpected issues. [Criterion](https://github.com/Snaipe/Criterion)
-and clang are required.
+See this [README](https://github.com/aurelien-brabant/libft/blob/master/test/README.md).
 
 ## Motivations
 If you're not a 42 school, you may ask what is the purpose of "reinventing" the wheel with this library. At 42, we do not have
