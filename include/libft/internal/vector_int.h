@@ -6,7 +6,7 @@
 /*   By: abrabant <abrabant@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/28 19:06:56 by abrabant          #+#    #+#             */
-/*   Updated: 2021/01/28 19:12:52 by abrabant         ###   ########.fr       */
+/*   Updated: 2021/01/28 19:32:58 by abrabant         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,13 +23,14 @@
 # include <stddef.h>
 
 # define VECTOR_DEFAULT_CAP 10
-# define VECTOR_GROWTH_FACTOR 2.0
+# define VECTOR_DEFAULT_GROWTH_FACTOR 2.0
 
 typedef struct s_vector_int
 {
 	void	**items;
 	size_t	len;
 	size_t	cap;
+	float	gfac;
 }	t_vector_int;
 
 #endif

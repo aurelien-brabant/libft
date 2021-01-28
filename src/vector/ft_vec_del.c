@@ -1,20 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_dvec_get.c                                      :+:      :+:    :+:   */
+/*   ft_vec_del.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: abrabant <abrabant@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/12/11 10:51:32 by abrabant          #+#    #+#             */
-/*   Updated: 2020/12/11 11:09:12 by abrabant         ###   ########.fr       */
+/*   Created: 2021/01/28 23:41:45 by abrabant          #+#    #+#             */
+/*   Updated: 2021/01/28 23:49:00 by abrabant         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft/dvector.h"
+#include "libft/vector.h"
+#include "libft/internal/vector_int.h"
 
-void	*ft_dvec_get(t_dvec *v, size_t i)
+int	ft_vec_del(t_vector vector, size_t index, void (*cleanup)(void *))
 {
-	if (i < 0 || i >= v->len)
-		return (0);
-	return (v->val[i]);
+	t_vector_int	*vec;
+	size_t			it;
+
+	vec = (t_vector_int *)vector;
+	if (index < 0 && index >= vec->len)
+		return (-1);
+	if (cleanup)
+		cleanup(vec->items[index]);
+	it = index;
+	while (it < vec->len - 1)
+	{
+		vec->items[it] = vec->items[it + 1];
+		++it;
+	}
+	return (index);
 }
