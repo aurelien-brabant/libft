@@ -98,7 +98,15 @@ fclean: clean
 
 re: fclean all
 
-.PHONY: all clean fclean re bonus
+
+# Test the libft
+
+test:
+	@printf "\033[1;35mCompiling test binary\033[0m...\n"
+	@$(CC)  -Wno-format-security test/suite/ft_*_suite*.c -D_GNU_SOURCE -lcriterion -lbsd -L. -lft -I$(INCLUDE_PATH) -o runner
+	@printf "Executing test binary:\n"
+	@./runner
+	@rm -rf runner
 
 # Compilation rule for each C file.
 $(OBJ_DIR)/%.o:%.c
@@ -107,3 +115,5 @@ $(OBJ_DIR)/%.o:%.c
 
 $(OBJ_DIR):
 	mkdir $(OBJ_DIR)
+
+.PHONY: all clean fclean re test
