@@ -145,6 +145,26 @@ void		ft_vec_foreach(t_vector vector, void (*func)(void *));
 void		*ft_vec_get(t_vector vector, size_t index);
 
 /*
+** Set a vector's existing element to another one.
+** 
+** @PARAM vector:
+** The targeted vector instance.
+**
+** @PARAM index:
+** The index of the element to set. An element must already exist at this
+** index. If not, this is undefined behaviour. Consider using ft_vec_add
+** if what you want is adding an element.
+**
+** @PARAM element:
+** The new element to set as a replacement for the one at the specified
+** index.
+**
+** NOTE: no operation is performed on the replaced element.
+*/
+
+void		ft_vec_set(t_vector vector, size_t index, void *elem);
+
+/*
 ** Concatenate two vectors inside a new one. The vectors used
 ** for the concatenation are NOT destroyed.
 ** The biggest growth_factor is used for the new vector.
