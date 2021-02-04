@@ -14,7 +14,7 @@
 
 CC						= clang 
 
-CFLAGS					= -Wall -Wextra -Werror
+CFLAGS					= -Wall -Wextra -Werror -O2
 
 INCLUDE_PATH			= ./include/
 
@@ -87,10 +87,7 @@ OBJS					= $(SRCS:%.c=$(OBJ_DIR)/%.o)
 all: $(NAME)
 
 $(NAME): $(OBJ_DIR) $(OBJS)
-	@printf "****** \033[1;35mBuilding \033[0;32m$(NAME)\033[0m ******\n"
-	@printf "ar rcs \033[1;35m$(NAME) \033[0;36m$(OBJS) \033[0m\n"
-	@ar rcs $(NAME) $(OBJS)
-	@printf "****** \033[1;35mBuild \033[0mof \033[0;32m$(NAME)\033[0m should have succeeded ******\n"
+	ar rcs $(NAME) $(OBJS)
 
 clean:
 	rm -f $(OBJS) $(BONUS_OBJS)
@@ -104,16 +101,13 @@ re: fclean all
 # Test the libft
 
 test: $(NAME)
-	@printf "\033[1;35mCompiling test binary\033[0m...\n"
-	@$(CC)  -Wno-format-security test/suite/ft_*_suite*.c -D_GNU_SOURCE -lcriterion -lbsd -L. -lft -I$(INCLUDE_PATH) -o runner
-	@printf "Executing test binary:\n"
-	@./runner
-	@rm -rf runner
+	$(CC)  -Wno-format-security test/suite/ft_*_suite*.c -D_GNU_SOURCE -lcriterion -lbsd -L. -lft -I$(INCLUDE_PATH) -o runner
+	./runner
+	rm -rf runner
 
 # Compilation rule for each C file.
 $(OBJ_DIR)/%.o:%.c
-	@printf "\033[1;34mCompiling \033[0;36m$<\033[0m\n" 
-	@$(CC) $(CFLAGS) -I$(INCLUDE_PATH) -g -c $< -o $@
+	$(CC) $(CFLAGS) -I$(INCLUDE_PATH) -g -c $< -o $@
 
 $(OBJ_DIR):
 	mkdir $(OBJ_DIR)
