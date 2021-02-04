@@ -6,7 +6,7 @@
 /*   By: abrabant <abrabant@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/14 23:09:51 by abrabant          #+#    #+#             */
-/*   Updated: 2020/12/28 22:14:52 by abrabant         ###   ########.fr       */
+/*   Updated: 2021/02/04 22:17:04 by abrabant         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ bool	isflag(t_state *s, t_flag f)
 
 void	remflag(t_state *s, t_flag f)
 {
-	s->conv.flags = s->conv.flags & ~ f;
+	s->conv.flags = s->conv.flags & ~f;
 }
 
 bool	ishexspec(t_state *s)

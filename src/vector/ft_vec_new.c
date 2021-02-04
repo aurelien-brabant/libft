@@ -6,7 +6,7 @@
 /*   By: abrabant <abrabant@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/28 19:14:42 by abrabant          #+#    #+#             */
-/*   Updated: 2021/01/28 22:38:33 by abrabant         ###   ########.fr       */
+/*   Updated: 2021/02/04 20:01:58 by abrabant         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,6 @@
 #include "libft/core.h"
 #include "libft/vector.h"
 #include "libft/internal/vector_int.h"
-
 
 t_vector	ft_vec_new(size_t cap, float growth_factor)
 {
