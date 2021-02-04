@@ -66,7 +66,7 @@ UNICODE					= ft_runelen.c ft_buf_utf8.c ft_encode_utf8.c
 VECTOR					= ft_vec_new.c ft_vec_cap.c ft_vec_len.c			\
 						ft_vec_add.c ft_vec_foreach.c ft_vec_get.c			\
 						ft_vec_destroy.c ft_vec_del.c ft_vec_cat.c			\
-						ft_vec_set.c
+						ft_vec_set.c ft_vec_map.c
 
 CLA						= ft_cla_init.c ft_cla_str_var.c ft_cla_int_var.c	\
 						ft_cla_bool_var.c ft_cla_pos_var.c					\
@@ -103,7 +103,7 @@ re: fclean all
 
 # Test the libft
 
-test:
+test: $(NAME)
 	@printf "\033[1;35mCompiling test binary\033[0m...\n"
 	@$(CC)  -Wno-format-security test/suite/ft_*_suite*.c -D_GNU_SOURCE -lcriterion -lbsd -L. -lft -I$(INCLUDE_PATH) -o runner
 	@printf "Executing test binary:\n"

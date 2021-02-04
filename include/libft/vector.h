@@ -130,6 +130,26 @@ size_t		ft_vec_cap(t_vector vector);
 void		ft_vec_foreach(t_vector vector, void (*func)(void *));
 
 /*
+** Iterate over vector's elements in the perspective to modify them.
+**
+** @PARAM vector:
+** The targeted vector instance.
+**
+** @PARAM func:
+** A pointer to a function that is applied on each element of the vector.
+**
+** NOTE: as opposed to ft_vec_foreach, here the address of the element is
+** given and not the element itself. This allows one to apply modifications
+** to the vector item slot itself. For example, it is possible to create a new
+** element with each mapped vector item and replace the old elements with
+** the newly created ones. This is NOT something ft_vec_foreach can achieve.
+**
+** Like a standard mapping function, the index of each element is passed.
+*/
+
+void		ft_vec_map(t_vector vector, void (*func)(void **, size_t));
+
+/*
 ** Get an element of the vector using its index.
 **
 ** @PARAM vector:

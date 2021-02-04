@@ -29,5 +29,6 @@ int	ft_vec_del(t_vector vector, size_t index, void (*cleanup)(void *))
 		vec->items[it] = vec->items[it + 1];
 		++it;
 	}
+	--vec->len;
 	return (index);
 }
