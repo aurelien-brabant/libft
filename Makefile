@@ -6,7 +6,7 @@
 #    By: abrabant <abrabant@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/09/30 15:22:25 by abrabant          #+#    #+#              #
-#    Updated: 2021/01/29 11:31:49 by abrabant         ###   ########.fr        #
+#    Updated: 2021/02/11 00:04:07 by abrabant         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -28,7 +28,7 @@ VPATH					= ./src/string:./src/ctype:./src/io:./src/io/gnl:	\
 						./src/strconv:./src/intconv:./src/unicode			\
 						./src/core:./src/vector:./src/cla 
 
-CORE				 	= ft_calloc.c ft_realloc.c
+CORE				 	= ft_calloc.c ft_realloc.c ft_bsort.c
 
 STRING					= ft_strlen.c ft_strlcpy.c ft_strlcat.c ft_strdup.c	\
 						ft_strchr.c ft_strrchr.c ft_strncmp.c ft_strnstr.c	\
