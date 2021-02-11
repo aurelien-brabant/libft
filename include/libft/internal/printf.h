@@ -6,7 +6,7 @@
 /*   By: abrabant <abrabant@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/13 15:21:26 by abrabant          #+#    #+#             */
-/*   Updated: 2020/12/25 00:03:27 by abrabant         ###   ########.fr       */
+/*   Updated: 2021/02/11 01:42:42 by abrabant         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -158,8 +158,8 @@ typedef void(*t_converter)(t_state *);
 ** parsing
 */
 
-void						parse_fmt(t_state *state
-							, const t_converter *converters);
+void						parse_fmt(t_state *state,
+								const t_converter *converters);
 /*
 ** buffering
 */

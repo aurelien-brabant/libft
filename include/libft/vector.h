@@ -6,7 +6,7 @@
 /*   By: abrabant <abrabant@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/28 18:59:13 by abrabant          #+#    #+#             */
-/*   Updated: 2021/01/29 11:24:16 by abrabant         ###   ########.fr       */
+/*   Updated: 2021/02/11 01:43:11 by abrabant         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -88,8 +88,8 @@ void		*ft_vec_add(t_vector vector, void *element);
 ** The index of the deleted element if deletion was successful, -1 otherwise.
 */
 
-int			ft_vec_del(t_vector vector, size_t index
-						, void (*cleanup)(void *));
+int			ft_vec_del(t_vector vector, size_t index,
+				void (*cleanup)(void *));
 
 /*
 ** Return the number of elements held by the vector.
