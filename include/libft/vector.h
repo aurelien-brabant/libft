@@ -6,7 +6,7 @@
 /*   By: abrabant <abrabant@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/28 18:59:13 by abrabant          #+#    #+#             */
-/*   Updated: 2021/02/17 00:32:55 by abrabant         ###   ########.fr       */
+/*   Updated: 2021/02/17 00:56:20 by abrabant         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -191,7 +191,7 @@ void		ft_vec_foreach(t_vector vector, void (*func)(), void *data);
 ** ft_vec_map does nothing with this data.
 */
 
-void		ft_vec_map(t_vector vector, void (*func)(), void  *data);
+void		ft_vec_map(t_vector vector, void (*func)(), void *data);
 
 /*
 ** Get an element of the vector using its index.
@@ -247,9 +247,9 @@ void		ft_vec_set(t_vector vector, size_t index, void *elem);
 
 t_vector	ft_vec_cat(t_vector vector1, t_vector vector2);
 
-void		ft_vec_sort(t_vector vec, 
-		void (*sort)(void *, size_t, size_t, int (*cmp)(void *, void *)),
-		int (*cmp)(void *, void *));
+void		ft_vec_sort(t_vector vec, void (*sort)
+				(void *, size_t, size_t, int (*cmp)(void *, void *)),
+				int (*cmp)(void *, void *));
 
 /*
 ** Destroy the vector, freeing all the memory allocated for it.
