@@ -1,3 +1,4 @@
+#include <criterion/assert.h>
 #include <criterion/criterion.h>
 #include <criterion/internal/assert.h>
 #include <criterion/redirect.h>
@@ -71,9 +72,9 @@ Test(ft_vector, ft_vec_get)
 char	*get_strs_from_foreach[3];
 int		foreach_index = 0;
 
-static void test_foreach(void *el)
+static void test_foreach(void *el, size_t index, void *strs)
 {
-	get_strs_from_foreach[foreach_index++] = el;
+	cr_expect_str_eq(((char **)strs)[index], (char *)el);
 }
 
 Test(ft_vector, ft_vec_foreach)
@@ -84,8 +85,7 @@ Test(ft_vector, ft_vec_foreach)
 
 	for (int i = 0; i < 3; ++i)
 		ft_vec_add(vec, strs1[i]);
-	ft_vec_foreach(vec, test_foreach);
-	cr_expect_arr_eq(get_strs_from_foreach, strs1, sizeof(char *) * 3);
+	ft_vec_foreach(vec, test_foreach, strs1);
 
 	ft_vec_destroy(vec, NULL);
 }
@@ -182,7 +182,7 @@ Test(ft_vector, ft_vec_del)
 ** ft_vec_map
 */
 
-static void test_map(void **elem, size_t index)
+static void test_map(void **elem)
 {
 	(void)index;
 	*elem = "changed by map";
@@ -197,7 +197,7 @@ Test(ft_vector, ft_vec_map)
 
 	for (int i = 0; i < 3; ++i)
 		ft_vec_add(vec, strs1[i]);
-	ft_vec_map(vec, &test_map);
+	ft_vec_map(vec, &test_map, NULL);
 	for (int i = 0; i < 3; ++i)
 		cr_expect_str_eq(ft_vec_get(vec, i), "changed by map");
 
@@ -228,6 +228,51 @@ Test(ft_vector, ft_vec_set)
 
 	ft_vec_destroy(vec, NULL);
 }
+
+/*
+** ft_vec_set_len
+*/
+
+Test(ft_vector, ft_vec_set_len)
+{
+	t_vector	vec;
+
+	vec = ft_vec_new(0, 0);
+
+	for (int i = 0; i < 3; ++i)
+		ft_vec_add(vec, strs1[i]);
+
+	cr_expect_eq(ft_vec_len(vec), 3);
+	ft_vec_set_len(vec, 0);
+	cr_expect_eq(ft_vec_len(vec), 0);
+
+	ft_vec_destroy(vec, NULL);
+}
+
+/* ft_vec_sort */
+
+static int	sort_positive_int(void *el1, void *el2)
+{
+	return (**(int **)el1 - **(int **)el2);
+}
+
+Test(ft_vector, ft_vec_sort)
+{
+	int	tab[] = { 9, 7, 0, 3, 4 };
+	int	tab_ref[] = { 0, 3, 4, 7, 9 };
+	t_vector	vec;
+
+	vec = ft_vec_new(0, 0);
+
+	for (int i = 0; i < 5; ++i)
+		ft_vec_add(vec, &tab[i]);
+	ft_vec_sort(vec, &ft_bsort, &sort_positive_int);
+	for (int i = 0; i < 5; ++i)
+		cr_expect_eq(*(int *)ft_vec_get(vec, i), tab_ref[i]);
+
+	ft_vec_destroy(vec, NULL);
+}
+
 
 /*****************************************************************************/
 /* VECTOR BEHAVIOUR TESTS                                                    */

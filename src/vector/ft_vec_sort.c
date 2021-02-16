@@ -1,29 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_vec_map.c                                       :+:      :+:    :+:   */
+/*   ft_vec_sort.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: abrabant <abrabant@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/02/04 19:59:32 by abrabant          #+#    #+#             */
-/*   Updated: 2021/02/16 21:45:44 by abrabant         ###   ########.fr       */
+/*   Created: 2021/02/16 23:07:18 by abrabant          #+#    #+#             */
+/*   Updated: 2021/02/17 00:34:42 by abrabant         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft/vector.h"
 #include "libft/internal/vector_int.h"
+#include "libft/core.h"
 
-void	ft_vec_map(t_vector vector,
-		void (*func)(void **, size_t index, void *), void *data)
+
+void		ft_vec_sort(t_vector_int *vec, 
+		void (*sort)(void *, size_t, size_t, int (*cmp)(void *, void *)),
+		int (*cmp)(void *, void *))
 {
-	t_vector_int	*vec;
-	size_t			index;
-
-	vec = (t_vector_int *)vector;
-	index = 0;
-	while (index < vec->len)
-	{
-		func(&vec->items[index], index, data);
-		++index;
-	}
+	sort(vec->items, vec->len, sizeof (void *), cmp);
 }

@@ -6,7 +6,7 @@
 /*   By: abrabant <abrabant@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/28 18:59:13 by abrabant          #+#    #+#             */
-/*   Updated: 2021/02/11 01:43:11 by abrabant         ###   ########.fr       */
+/*   Updated: 2021/02/17 00:32:55 by abrabant         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -104,6 +104,20 @@ int			ft_vec_del(t_vector vector, size_t index,
 size_t		ft_vec_len(t_vector vector);
 
 /*
+** Set the length of a vector.
+** Useful to clear a vector and allow its storage to be used for
+** another purpose.
+**
+** @PARAM vector:
+** The targeted vector instance.
+**
+** @PARAM length:
+** The new length of the vector.
+*/
+
+void		ft_vec_set_len(t_vector vector, size_t length);
+
+/*
 ** Return the maximum number of elements that the vector can hold before
 ** it needs to trigger a resize operation.
 **
@@ -125,9 +139,28 @@ size_t		ft_vec_cap(t_vector vector);
 ** @PARAM func:
 ** A pointer to a function that is applied on each element of the vector.
 ** Passing a NULL pointer results in undefined behaviour.
+** This function can take UP TO three parameters, here's an example with
+** all the parameters allowed:
+**
+** handle_foreach(void *element, size_t index, void *data)
+**
+** - first argument is the element which foreach is looping on [MANDATORY]
+** - second argument is the index of the element in the vector
+** - third argument is the address of some data provided in the foreach call.
+**
+** @PARAM func:
+** A pointer to a function that is applied on each element of the vector.
+** Passing a NULL pointer results in undefined behaviour.
+** - first argument is the element itself
+** - second argument is the index of the element in the vector
+** - third argument is the address of some data provided in the foreach call.
+**
+** @PARAM data:
+** The address of some data that is to be passed to the *func* parameter.
+** ft_vec_foreach does nothing with this data.
 */
 
-void		ft_vec_foreach(t_vector vector, void (*func)(void *));
+void		ft_vec_foreach(t_vector vector, void (*func)(), void *data);
 
 /*
 ** Iterate over vector's elements in the perspective to modify them.
@@ -137,6 +170,15 @@ void		ft_vec_foreach(t_vector vector, void (*func)(void *));
 **
 ** @PARAM func:
 ** A pointer to a function that is applied on each element of the vector.
+** Passing a NULL pointer results in undefined behaviour.
+** This function can take UP TO three parameters, here's an example with
+** all the parameters allowed:
+**
+** handle_map(void **element_addr, size_t index, void *data)
+**
+** - first argument is the element which foreach is looping on [MANDATORY]
+** - second argument is the index of the element in the vector
+** - third argument is the address of some data provided in the foreach call.
 **
 ** NOTE: as opposed to ft_vec_foreach, here the address of the element is
 ** given and not the element itself. This allows one to apply modifications
@@ -144,10 +186,12 @@ void		ft_vec_foreach(t_vector vector, void (*func)(void *));
 ** element with each mapped vector item and replace the old elements with
 ** the newly created ones. This is NOT something ft_vec_foreach can achieve.
 **
-** Like a standard mapping function, the index of each element is passed.
+** @PARAM data:
+** The address of some data that is to be passed to the *func* parameter.
+** ft_vec_map does nothing with this data.
 */
 
-void		ft_vec_map(t_vector vector, void (*func)(void **, size_t));
+void		ft_vec_map(t_vector vector, void (*func)(), void  *data);
 
 /*
 ** Get an element of the vector using its index.
@@ -203,6 +247,10 @@ void		ft_vec_set(t_vector vector, size_t index, void *elem);
 
 t_vector	ft_vec_cat(t_vector vector1, t_vector vector2);
 
+void		ft_vec_sort(t_vector vec, 
+		void (*sort)(void *, size_t, size_t, int (*cmp)(void *, void *)),
+		int (*cmp)(void *, void *));
+
 /*
 ** Destroy the vector, freeing all the memory allocated for it.
 **
@@ -212,8 +260,13 @@ t_vector	ft_vec_cat(t_vector vector1, t_vector vector2);
 ** @PARAM cleanup:
 ** A pointer to a function that is applied on each element of the vector.
 ** Used to do some important cleanup. NULL value is interpreted as no cleanup.
+**
+** NOTE: The cleanup function always take at least one argument, that is
+** a void pointer. However, ft_vec_destroy makes use of ft_vec_foreach
+** internally, so an index and data parameters can be used too. See the
+** comments about ft_vec_foreach for more information.
 */
 
-void		ft_vec_destroy(t_vector vector, void (*cleanup)(void *));
+void		ft_vec_destroy(t_vector vector, void (*cleanup)());
 
 #endif
