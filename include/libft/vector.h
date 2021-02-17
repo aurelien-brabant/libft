@@ -6,7 +6,7 @@
 /*   By: abrabant <abrabant@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/28 18:59:13 by abrabant          #+#    #+#             */
-/*   Updated: 2021/02/17 01:22:29 by abrabant         ###   ########.fr       */
+/*   Updated: 2021/02/17 01:59:44 by abrabant         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -262,13 +262,8 @@ void		ft_vec_sort(t_vector vec, void (*sort)
 ** @PARAM cleanup:
 ** A pointer to a function that is applied on each element of the vector.
 ** Used to do some important cleanup. NULL value is interpreted as no cleanup.
-**
-** NOTE: The cleanup function always take at least one argument, that is
-** a void pointer. However, ft_vec_destroy makes use of ft_vec_foreach
-** internally, so an index and data parameters can be used too. See the
-** comments about ft_vec_foreach for more information.
 */
 
-void		ft_vec_destroy(t_vector vector, void (*cleanup)());
+void		ft_vec_destroy(t_vector vector, void (*cleanup)(void *));
 
 #endif

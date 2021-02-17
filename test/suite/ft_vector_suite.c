@@ -69,12 +69,10 @@ Test(ft_vector, ft_vec_get)
 ** ft_vec_foreach
 */
 
-char	*get_strs_from_foreach[3];
-int		foreach_index = 0;
-
-static void test_foreach(void *el, size_t index, void *strs)
+static int	test_foreach(void *el, size_t index, void *strs)
 {
 	cr_expect_str_eq(((char **)strs)[index], (char *)el);
+	return (0);
 }
 
 Test(ft_vector, ft_vec_foreach)
