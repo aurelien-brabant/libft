@@ -6,9 +6,11 @@
 /*   By: abrabant <abrabant@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/10 23:10:30 by abrabant          #+#    #+#             */
-/*   Updated: 2021/02/11 01:38:38 by abrabant         ###   ########.fr       */
+/*   Updated: 2021/02/17 21:34:41 by abrabant         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+#include <stdlib.h>
 
 #include "libft/core.h"
 #include "libft/string.h"
@@ -37,4 +39,5 @@ void	ft_bsort(void *addr, size_t len
 		else
 			addr += size;
 	}
+	free(tmp);
 }
