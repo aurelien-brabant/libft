@@ -6,7 +6,7 @@
 /*   By: abrabant <abrabant@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/28 18:59:13 by abrabant          #+#    #+#             */
-/*   Updated: 2021/02/17 00:56:20 by abrabant         ###   ########.fr       */
+/*   Updated: 2021/02/17 01:22:29 by abrabant         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -142,25 +142,27 @@ size_t		ft_vec_cap(t_vector vector);
 ** This function can take UP TO three parameters, here's an example with
 ** all the parameters allowed:
 **
-** handle_foreach(void *element, size_t index, void *data)
-**
-** - first argument is the element which foreach is looping on [MANDATORY]
-** - second argument is the index of the element in the vector
-** - third argument is the address of some data provided in the foreach call.
-**
-** @PARAM func:
-** A pointer to a function that is applied on each element of the vector.
-** Passing a NULL pointer results in undefined behaviour.
+** int handle_foreach(void *element, size_t index, void *data)
+*
 ** - first argument is the element itself
 ** - second argument is the index of the element in the vector
 ** - third argument is the address of some data provided in the foreach call.
+** - NOTE: the return value of this function is needed. Zero means everything
+** went well, any non-zero one indicates an error and the loop is therefore
+** interrupted. This code is then returned by the ft_vec_foreach function.
+** See @RETURN below.
 **
 ** @PARAM data:
 ** The address of some data that is to be passed to the *func* parameter.
 ** ft_vec_foreach does nothing with this data.
+**
+** @RETURN:
+** The return value can be used as an error indicator. A return value of zero
+** means everything went well. Any non-zero value indicates an error. This return value
+** is directly based on what *func* returns.
 */
 
-void		ft_vec_foreach(t_vector vector, void (*func)(), void *data);
+int			ft_vec_foreach(t_vector vector, int (*func)(), void *data);
 
 /*
 ** Iterate over vector's elements in the perspective to modify them.
