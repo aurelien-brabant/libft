@@ -6,7 +6,7 @@
 /*   By: abrabant <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/08/09 09:49:00 by abrabant          #+#    #+#             */
-/*   Updated: 2020/12/28 12:28:39 by abrabant         ###   ########.fr       */
+/*   Updated: 2021/02/22 03:03:12 by abrabant         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,24 +33,24 @@ static bool	iswspace(char c)
 int	ft_atoi(const char *nptr)
 {
 	int		nb;
-	bool	isneg;
+	int8_t	sign;
 	uint8_t	n;
 
 	nb = 0;
-	isneg = false;
+	sign = 1;
 	while (iswspace(*nptr))
 		++nptr;
 	if (*nptr == '+' || *nptr == '-')
 		if (*nptr++ == '-')
-			isneg = true;
+			sign = -1;
 	while (ft_isdigit(*nptr))
 	{
 		n = *nptr++ - 48;
-		if ((uint32_t)nb * 10 + n > ((uint32_t)INT_MAX + isneg))
-			break ;
+		if ((uint32_t)nb * 10 + n > ((uint32_t)INT_MAX + (sign == -1)))
+		{
+			return (sign * INT_MAX - (sign == -1));
+		}
 		nb = nb * 10 + n;
 	}
-	if (isneg)
-		return (-nb);
-	return (nb);
+	return (nb * sign);
 }

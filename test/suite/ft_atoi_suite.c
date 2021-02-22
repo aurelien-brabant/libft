@@ -1,4 +1,5 @@
 #include <criterion/criterion.h>
+#include <limits.h>
 #include "libft.h"
 
 TestSuite(ft_atoi);
@@ -43,6 +44,24 @@ Test(ft_atoi, test_INT_MIN)
 {
 	const char	*toparse = "-2147483648";
 	const int	ref = atoi(toparse);
+	const int	ft = ft_atoi(toparse);
+
+	cr_assert(ref == ft, "For input \"%s\":\n- Was: %d\n- Got: %d\n", toparse, ft, ref);
+}
+
+Test(ft_atoi, test_overflow)
+{
+	const char	*toparse = "2147483648";
+	const int	ref = INT_MAX;
+	const int	ft = ft_atoi(toparse);
+
+	cr_assert(ref == ft, "For input \"%s\":\n- Was: %d\n- Got: %d\n", toparse, ft, ref);
+}
+
+Test(ft_atoi, test_underflow)
+{
+	const char	*toparse = "-2147483649";
+	const int	ref = INT_MIN;
 	const int	ft = ft_atoi(toparse);
 
 	cr_assert(ref == ft, "For input \"%s\":\n- Was: %d\n- Got: %d\n", toparse, ft, ref);
