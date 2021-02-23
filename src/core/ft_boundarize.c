@@ -1,31 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_calloc.c                                        :+:      :+:    :+:   */
+/*   ft_boundarize.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: abrabant <abrabant@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/08/31 21:49:57 by abrabant          #+#    #+#             */
-/*   Updated: 2021/02/22 21:35:25 by abrabant         ###   ########.fr       */
+/*   Created: 2021/02/24 00:41:51 by abrabant          #+#    #+#             */
+/*   Updated: 2021/02/24 00:52:29 by abrabant         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <limits.h>
-#include <stdlib.h>
-#include "libft/string.h"
-
-/*
-** libft implementation of calloc(3)
-*/
-
-void	*ft_calloc(size_t nmemb, size_t size)
+long long	ft_boundarize(long long nb, long long min, long long max)
 {
-	void	*mem;
-	size_t	i;
-
-	i = 0;
-	mem = malloc(size * nmemb);
-	if (!mem)
-		return (NULL);
-	return (ft_memset(mem, 0, nmemb * size));
+	if (min > max)
+		return (nb);
+	if (nb < min)
+		return (min);
+	if (nb > max)
+		return (max);
+	return (nb);
 }
