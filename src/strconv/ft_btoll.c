@@ -11,7 +11,7 @@
 /* ************************************************************************** */
 
 #include "libft/ctype.h" 
-#include "libft/string.h" 
+#include "libft/cstring.h" 
 
 /*
 ** base to long long

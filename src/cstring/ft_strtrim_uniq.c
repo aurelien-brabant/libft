@@ -11,7 +11,7 @@
 /* ************************************************************************** */
 
 #include "libft/core.h"
-#include "libft/string.h"
+#include "libft/cstring.h"
 
 /*
 ** Determines if *c* is found in *set*.

@@ -11,7 +11,7 @@
 /* ************************************************************************** */
 
 #include "libft/types.h"
-#include "libft/string.h"
+#include "libft/cstring.h"
 
 /*
 ** libft implementation of strrchr(3)

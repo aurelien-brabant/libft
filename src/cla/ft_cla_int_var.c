@@ -13,7 +13,7 @@
 #include <stdlib.h>
 
 #include "libft/strconv.h"
-#include "libft/string.h"
+#include "libft/cstring.h"
 #include "libft/cla.h"
 #include "libft/internal/cla_int.h"
 

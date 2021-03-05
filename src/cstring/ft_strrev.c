@@ -1,25 +1,38 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strndup.c                                       :+:      :+:    :+:   */
+/*   ft_strrev.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: abrabant <abrabant@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/12/11 12:18:12 by abrabant          #+#    #+#             */
-/*   Updated: 2020/12/11 12:26:26 by abrabant         ###   ########.fr       */
+/*   Created: 2020/09/30 15:32:47 by abrabant          #+#    #+#             */
+/*   Updated: 2020/11/07 16:22:04 by abrabant         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft/string.h"
-#include "libft/core.h"
+#include "libft/cstring.h"
 
-char	*ft_strndup(const char *s, size_t n)
+/*
+** Reverses a string by mutating it.
+**
+** @param	string	The string to reverse
+**
+** @return	A pointer to the first character of the reversed inital string.
+*/
+
+char	*ft_strrev(char *str)
 {
-	char	*dup;
+	int		i;
+	int		j;
+	char	tmp;
 
-	dup = ft_calloc(n + 1, sizeof(char));
-	if (!dup)
-		return (0);
-	ft_strlcpy(dup, s, n + 1);
-	return (dup);
+	i = 0;
+	j = ft_strlen(str) - 1;
+	while (i < j)
+	{
+		tmp = str[i];
+		str[i++] = str[j];
+		str[j--] = tmp;
+	}
+	return (str);
 }

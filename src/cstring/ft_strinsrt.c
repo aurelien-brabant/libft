@@ -12,7 +12,7 @@
 
 #include <stddef.h>
 #include "libft/core.h"
-#include "libft/string.h"
+#include "libft/cstring.h"
 
 /*
 ** Duplicates a string while inserting another string at a specific position in

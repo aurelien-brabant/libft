@@ -13,7 +13,7 @@
 #include <stdlib.h>
 #include <unistd.h>
 #include "libft/core.h"
-#include "libft/string.h"
+#include "libft/cstring.h"
 #include "libft/internal/gnl.h"
 
 int	ft_gnl(int fd, char **line)

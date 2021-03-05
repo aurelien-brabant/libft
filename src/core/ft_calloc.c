@@ -12,7 +12,7 @@
 
 #include <limits.h>
 #include <stdlib.h>
-#include "libft/string.h"
+#include "libft/cstring.h"
 
 /*
 ** libft implementation of calloc(3)

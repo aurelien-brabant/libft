@@ -22,7 +22,7 @@
 # include "libft/intconv.h"
 # include "libft/vector.h"
 # include "libft/core.h"
-# include "libft/string.h"
+# include "libft/cstring.h"
 # include "libft/unicode.h"
 # include "libft/types.h"
 # include "libft/ctype.h"

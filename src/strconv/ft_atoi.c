@@ -14,7 +14,7 @@
 #include <stdbool.h>
 #include <stdint.h>
 #include "libft/ctype.h"
-#include "libft/string.h"
+#include "libft/cstring.h"
 
 static bool	iswspace(char c)
 {
