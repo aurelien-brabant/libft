@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft/string.h"
+#include "libft/cstring.h"
 #include "libft/core.h"
 
 static size_t	get_nb_len(unsigned long long nb, uint8_t base)

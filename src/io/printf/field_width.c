@@ -11,7 +11,7 @@
 /* ************************************************************************** */
 
 #include "libft/internal/printf.h"
-#include "libft/string.h"
+#include "libft/cstring.h"
 #include "libft/unicode.h"
 #include "libft/intconv.h"
 

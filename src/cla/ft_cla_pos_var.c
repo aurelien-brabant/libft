@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft/string.h"
+#include "libft/cstring.h"
 #include "libft/io.h"
 
 #include "libft/internal/cla_int.h"

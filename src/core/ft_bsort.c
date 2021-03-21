@@ -13,7 +13,7 @@
 #include <stdlib.h>
 
 #include "libft/core.h"
-#include "libft/string.h"
+#include "libft/cstring.h"
 
 void	ft_bsort(void *addr, size_t len
 			, size_t size, int (*cmp)(void *, void *))

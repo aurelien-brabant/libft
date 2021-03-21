@@ -14,7 +14,7 @@
 #include "libft/internal/printf.h"
 #include "libft/strconv.h"
 #include "libft/intconv.h"
-#include "libft/string.h"
+#include "libft/cstring.h"
 #include "libft/ctype.h"
 
 /*

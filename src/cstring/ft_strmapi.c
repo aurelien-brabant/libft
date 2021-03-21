@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft/string.h"
+#include "libft/cstring.h"
 
 /*
 ** Loop on a string and duplicate it while applying changes to each character

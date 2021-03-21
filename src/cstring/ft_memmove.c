@@ -1,35 +1,37 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlcpy.c                                       :+:      :+:    :+:   */
+/*   ft_memmove.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: abrabant <abrabant@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/09/01 15:12:21 by abrabant          #+#    #+#             */
-/*   Updated: 2020/11/07 15:18:46 by abrabant         ###   ########.fr       */
+/*   Created: 2020/08/30 21:16:44 by abrabant          #+#    #+#             */
+/*   Updated: 2020/12/28 12:33:27 by abrabant         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stddef.h>
-#include "libft/string.h"
+#include "libft/cstring.h"
 
 /*
-** libft implementation of FreeBSD strlcpy(3)
+** libft implementation of memmove(3)
 */
 
-size_t	ft_strlcpy(char *dst, const char *src, size_t size)
+void	*ft_memmove(void *dest, const void *src, size_t n)
 {
-	size_t	src_len;
-	size_t	i;
+	unsigned char		*src_byte;
+	unsigned char		*dest_byte;
 
-	i = 0;
-	src_len = ft_strlen(src);
-	while (*src && size && i < (size - 1))
+	src_byte = (unsigned char *)src;
+	dest_byte = (unsigned char *)dest;
+	if (src_byte < dest_byte)
 	{
-		*dst++ = *src++;
-		++i;
+		while (n--)
+			dest_byte[n] = src_byte[n];
 	}
-	if (size > 0)
-		*dst = '\0';
-	return (src_len);
+	else
+	{
+		ft_memcpy(dest_byte, src_byte, n);
+	}
+	return (dest);
 }

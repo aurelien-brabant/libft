@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft/string.h"
+#include "libft/cstring.h"
 
 /*
 ** Compare two memory areas as memcmp does, but stop when the current

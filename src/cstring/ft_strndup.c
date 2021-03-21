@@ -1,29 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strnstr.c                                       :+:      :+:    :+:   */
+/*   ft_strndup.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: abrabant <abrabant@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/08/31 13:39:49 by abrabant          #+#    #+#             */
-/*   Updated: 2020/12/28 12:50:05 by abrabant         ###   ########.fr       */
+/*   Created: 2020/12/11 12:18:12 by abrabant          #+#    #+#             */
+/*   Updated: 2020/12/11 12:26:26 by abrabant         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft/string.h"
+#include "libft/cstring.h"
+#include "libft/core.h"
 
-char	*ft_strnstr(const char *haystack, const char *needle, size_t len)
+char	*ft_strndup(const char *s, size_t n)
 {
-	size_t	nlen;
+	char	*dup;
 
-	nlen = ft_strlen(needle);
-	if (nlen == 0)
-		return ((char *)haystack);
-	while (*haystack && len-- >= nlen)
-	{
-		if (*haystack == *needle && ft_strncmp(haystack, needle, nlen) == 0)
-			return ((char *)haystack);
-		++haystack;
-	}
-	return (0);
+	dup = ft_calloc(n + 1, sizeof(char));
+	if (!dup)
+		return (0);
+	ft_strlcpy(dup, s, n + 1);
+	return (dup);
 }

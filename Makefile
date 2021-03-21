@@ -23,7 +23,7 @@ NAME					= libft.a
 
 # ~~~~~~~~~~   SOURCES   ~~~~~~~~~~
 
-VPATH					= ./src/string:./src/ctype:./src/io:./src/io/gnl:	\
+VPATH					= ./src/cstring:./src/ctype:./src/io:./src/io/gnl:	\
 						./src/io/printf:									\
 						./src/strconv:./src/intconv:./src/unicode			\
 						./src/core:./src/vector:./src/cla 
@@ -31,7 +31,7 @@ VPATH					= ./src/string:./src/ctype:./src/io:./src/io/gnl:	\
 CORE				 	= ft_calloc.c ft_realloc.c ft_bsort.c				\
 						ft_clamp.c
 
-STRING					= ft_strlen.c ft_strlcpy.c ft_strlcat.c ft_strdup.c	\
+CSTRING					= ft_strlen.c ft_strlcpy.c ft_strlcat.c ft_strdup.c	\
 						ft_strchr.c ft_strrchr.c ft_strncmp.c ft_strnstr.c	\
 						ft_strnstr.c ft_memset.c ft_memcpy.c ft_memccpy.c	\
 						ft_memmove.c ft_memcmp.c ft_memchr.c ft_substr.c	\
@@ -75,7 +75,7 @@ CLA						= ft_cla_init.c ft_cla_str_var.c ft_cla_int_var.c	\
 						ft_cla_sanity_check.c ft_cla_get_config.c
 
 
-SRCS					= $(CORE) $(STRING) $(CTYPE) $(IO) $(STRCONV)		\
+SRCS					= $(CORE) $(CSTRING) $(CTYPE) $(IO) $(STRCONV)		\
 						$(INTCONV) $(UNICODE) $(VECTOR) $(CLA) 
 
 # ~~~~~~~~~~   OBJECTS   ~~~~~~~~~~

@@ -1,37 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memmove.c                                       :+:      :+:    :+:   */
+/*   ft_strlcat.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: abrabant <abrabant@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/08/30 21:16:44 by abrabant          #+#    #+#             */
-/*   Updated: 2020/12/28 12:33:27 by abrabant         ###   ########.fr       */
+/*   Created: 2020/09/01 15:32:21 by abrabant          #+#    #+#             */
+/*   Updated: 2020/11/07 15:20:47 by abrabant         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stddef.h>
-#include "libft/string.h"
+#include "libft/cstring.h"
 
 /*
-** libft implementation of memmove(3)
+** libft's implementation of FreeBSD strlcat(3)
 */
 
-void	*ft_memmove(void *dest, const void *src, size_t n)
+size_t	ft_strlcat(char *dst, const char *src, size_t size)
 {
-	unsigned char		*src_byte;
-	unsigned char		*dest_byte;
+	size_t	i;
+	size_t	dst_len;
 
-	src_byte = (unsigned char *)src;
-	dest_byte = (unsigned char *)dest;
-	if (src_byte < dest_byte)
+	dst_len = ft_strlen(dst);
+	i = 0;
+	if (size <= dst_len)
+		return (size + ft_strlen(src));
+	while (src[i] && dst_len + i < (size - 1))
 	{
-		while (n--)
-			dest_byte[n] = src_byte[n];
+		dst[dst_len + i] = src[i];
+		++i;
 	}
-	else
-	{
-		ft_memcpy(dest_byte, src_byte, n);
-	}
-	return (dest);
+	dst[dst_len + i] = '\0';
+	return (ft_strlen(src) + dst_len);
 }

@@ -12,7 +12,7 @@
 
 #include <stddef.h>
 #include "libft/core.h"
-#include "libft/string.h"
+#include "libft/cstring.h"
 
 /*
 ** Auxiliary strchr is an implementation of strchr(3) that does not return
