@@ -1,0 +1,203 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   array.h                                            :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: abrabant <abrabant@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2021/03/21 12:30:11 by abrabant          #+#    #+#             */
+/*   Updated: 2021/03/22 17:34:44 by abrabant         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+/*
+** ABSTRACT DATA TYPE for array
+*/
+
+#ifndef ARRAY_H
+# define ARRAY_H
+# include <stdbool.h>
+# include "libft/internal/array_int.h"
+
+typedef	void *t_array; /* abstraction */
+
+t_array	*ft_array_new(int size);
+
+/*
+** Append the element el to the end of the array arr.
+**
+** Time complexity: O(1). Will increase if array resizing is required
+** for storing the new element.
+*/
+
+void	ft_array_append(t_array a, void *el);
+
+/*
+** Set the element at index i to el.
+** NOTE: No out of bounds check is performed, so make sure the value of is is
+** relevant.
+**
+** Time complexity: O(1) (in all cases).
+*/
+
+void	ft_array_set(t_array a, void *el, int i);
+
+/*
+** Get the element at index i of a.
+** NOTE: No out of bounds check is performed, so make sure the value of i is
+** relevant.
+**
+** Time complexity: O(1) (in all cases).
+*/
+
+void	*ft_array_get(t_array a, int i);
+
+/*
+** Insert an element at a given index.
+**
+** Time complexity: worst = O(n) / best = O(1)
+** Additional time will be taken if array needs to be resized in order to
+** perform the insert operation, but the time complexity will never exceed O(n).
+*/
+
+void	ft_array_insert(t_array a, void *el, int i);
+
+/*
+** Insert an element in a sorted array. Useful if keeping an array sorted
+** through insertions is wanted. Used as a replacement for the traditional
+** append function, but for sorted arrays.
+** The cmp function is used to compare two elements: the first is the inserted
+** element, the second can be any element already present in the array.
+**
+** Time complexity: worst = O(n) / best = O(1)
+*/
+
+void	ft_array_sinsert(t_array a, void *el, int (*cmp)(void *el1, void *el2));
+
+/*
+** Determine if array is sorted or not.
+** The cmp function should compare two elements and tell if element 1 is
+** indeed less than than el2.
+**
+** Time complexity: worst = O(n) / best = O(1)
+*/
+
+bool	ft_array_issorted(t_array a, int (*cmp)(void *el1, void *el2));
+
+/*
+** Shift the array in left or right direction, filling the missing elements
+** with zero.
+** The direction of the shift is specified using shiftdir. -1 means left shift,
+** while 1 means right shift.
+** The offset describes how many elements needs to be shifted.
+**
+** Time complexity: O(n)
+*/
+
+void	ft_array_shift(t_array a, char shiftdir, int offset);
+
+/*
+** Rotate the array in left or right direction.
+** The direction of the rotation is specified using rotatedir. -1 means
+** rotate to the left while 1 means rotate to the right. The number of elements
+** to rotate is passed as the offset parameter.
+**
+** FIXME: the rotate implementation is currently making use of a pretty naive
+** approach. Rotations are done one by one, repeatingly until the expected
+** number of rotations has been performed. Therefore the time complexity
+** involved by such an approach is O(n * d) where d is the number of rotations
+** that are performed. It is possible to reduce the complexity to O(n)
+** without making use of a temporary array, by using a juggling algorithm.
+** Ressource: https://www.geeksforgeeks.org/array-rotation/
+**
+** Such an algorithm hasn't been implemented because of my low interest
+** for the rotate capability in general.
+*/
+
+void	ft_array_rotate(t_array a, char rotatedir, int offset);
+
+/*
+** NOTE: this searching method should not be used if you want the order of
+** the elements in the array to stay relevant. If you're using sorted ADT
+** arrays, you should absolutely use ft_array_binsearch instead.
+**
+** Search for the index of a particular element. The cmp function
+** is called on every element to check if it corresponds to the one which
+** is searched. Return value of zero means that the element is the searched one.
+** The reference element used for the search is passed to ft_array_search and
+** to the cmp function.
+**
+** This search function uses linear search combined with transposition
+** strategy in order to optimize future searches based on search recurrence.
+**
+** Time complexity: worst = O(n) / best = O(1).
+** NOTE: Transposition strategy attempts to decrease complexity when searching
+** for often searched values.
+*/
+
+int	ft_array_linsearch(t_array a, void *ref, int cmp(void *ref, void *el));
+
+/*
+** NOTE: to get relevant results, the array NEEDS TO BE SORTED according to
+** what the cmp function defines as sorted. If you don't want to deal with
+** a sorted array and need to perform a search operation, use
+** ft_array_linsearch instead.
+**
+** Use the cmp function to search for an element in the array. The cmp function
+** takes the ref parameter as well as each tested array element, and compare
+** them. If cmp returns zero, then the searched element has been found. The
+** search is performed using a binary search algorithm, thus it is way faster
+** than ft_array_linsearch. However, it requires the array to be sorted.
+**
+** Time complexity: worst && average = O(log(n)) / best = O(1)
+*/
+
+int	ft_array_binsearch(t_array a, void *ref, int cmp(void *ref, void *el));
+
+/*
+** Delete the element at index i in the array a.
+** fn can be provided to do some cleanup related to the element.
+** If no such cleanup is needed, NULL can be passed.
+**
+** Time complexity: worst = O(n) / best = O(1). Smaller index relatively to
+** the total size of the array will lead to higher time complexity.
+*/
+
+void	ft_array_delete(t_array a, int i, void (*fn)(void *el));
+
+
+/*
+** Reverse the order of the elements in the array
+**
+** Time complexity: O(n)
+*/
+
+void	ft_array_reverse(t_array a);
+
+/*
+** For each element in the array, execute the fn function.
+**
+** The fn function can take up to 3 arguments, in that order:
+**   - the actual element (passed as void *)
+**   - the index of the element in the array (passed as int)
+**   - any additional data to use inside the function (passed as void *). This
+**   data needs to be passed to ft_array_foreach. If no data is required, NULL
+**   can be passed.
+**
+** The return value of fn is checked after each call: if its return value
+** is NOT zero, it means an error occured in fn. If so, the foreach iteration
+** will stop and ft_array_foreach will return this non-zero value.
+*/
+
+int		ft_array_foreach(t_array a, int (*fn)(), void *data);
+
+/*
+** Destroy the array ADT as well as the content of its members if needed.
+**
+** The function fn is used to do some cleanup for the members of the array
+** but NULL can be passed if no such cleanup is needed.
+*/
+
+void	ft_array_destroy(t_array a, void (*fn)(void *el));
+
+#endif

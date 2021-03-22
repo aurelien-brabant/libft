@@ -6,7 +6,7 @@
 #    By: abrabant <abrabant@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/09/30 15:22:25 by abrabant          #+#    #+#              #
-#    Updated: 2021/03/21 12:20:05 by abrabant         ###   ########.fr        #
+#    Updated: 2021/03/22 17:27:48 by abrabant         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,7 +14,7 @@
 
 CC						= clang
 
-CFLAGS					= -Wall -Wextra -Werror -O2
+CFLAGS					= -Wall -Wextra -Werror
 
 INCLUDE_PATH			= ./include/
 
@@ -25,8 +25,9 @@ NAME					= libft.a
 
 VPATH					= ./src/cstring:./src/ctype:./src/io:./src/io/gnl:	\
 						./src/io/printf:									\
-						./src/strconv:./src/intconv:./src/unicode			\
-						./src/core:./src/vector:./src/cla 
+						./src/strconv:./src/intconv:./src/unicode:			\
+						./src/core:./src/vector:./src/cla:					\
+						./src/array
 
 CORE				 	= ft_calloc.c ft_realloc.c ft_bsort.c				\
 						ft_clamp.c
@@ -70,13 +71,23 @@ VECTOR					= ft_vec_new.c ft_vec_cap.c ft_vec_len.c			\
 						ft_vec_set.c ft_vec_map.c ft_vec_set_len.c			\
 						ft_vec_sort.c
 
+ARRAY					= ft_array_new.c ft_array_append.c					\
+						ft_array_foreach.c ft_array_destroy.c				\
+						ft_array_insert.c ft_array_delete.c					\
+						ft_array_linsearch.c ft_array_binsearch.c			\
+						ft_array_get.c ft_array_set.c						\
+						ft_array_reverse.c ft_array_shift.c					\
+						ft_array_rotate.c ft_array_issorted.c				\
+						ft_array_sinsert.c									\
+						ft_array_int_resize.c
+
 CLA						= ft_cla_init.c ft_cla_str_var.c ft_cla_int_var.c	\
 						ft_cla_bool_var.c ft_cla_pos_var.c					\
 						ft_cla_sanity_check.c ft_cla_get_config.c
 
 
 SRCS					= $(CORE) $(CSTRING) $(CTYPE) $(IO) $(STRCONV)		\
-						$(INTCONV) $(UNICODE) $(VECTOR) $(CLA) 
+						$(INTCONV) $(UNICODE) $(VECTOR) $(CLA) $(ARRAY)
 
 # ~~~~~~~~~~   OBJECTS   ~~~~~~~~~~
 
