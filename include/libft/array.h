@@ -6,7 +6,7 @@
 /*   By: abrabant <abrabant@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/21 12:30:11 by abrabant          #+#    #+#             */
-/*   Updated: 2021/03/22 19:53:14 by abrabant         ###   ########.fr       */
+/*   Updated: 2021/03/22 22:09:32 by abrabant         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,6 +77,13 @@ t_array	ft_array_concat(t_array a1, t_array a2);
 
 t_array	ft_array_merge(t_array a1, t_array a2,
 		int (*cmp)(void *el1, void *el2));
+
+/*
+** Perform the union operation on the two arrays passed as arguments, and
+** put the result in a new array.
+*/
+
+t_array	ft_array_union(t_array a1, t_array a2, int (*cmp)(void *, void *));
 
 /*
 ** Insert an element at a given index.
