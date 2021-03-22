@@ -6,7 +6,7 @@
 /*   By: abrabant <abrabant@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/21 12:30:11 by abrabant          #+#    #+#             */
-/*   Updated: 2021/03/22 22:09:32 by abrabant         ###   ########.fr       */
+/*   Updated: 2021/03/22 22:24:36 by abrabant         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,7 +80,13 @@ t_array	ft_array_merge(t_array a1, t_array a2,
 
 /*
 ** Perform the union operation on the two arrays passed as arguments, and
-** put the result in a new array.
+** put the result in a new array. The cmp function is used to know how to
+** compare two items between arrays.
+**
+** Time complexity: O(n^2). The complexity is high because of the many
+** searches that need to be performed in order to copy a2. If the two
+** arrays are sorted, then it is recommended to use ft_array_sunion for
+** lower time complexity.
 */
 
 t_array	ft_array_union(t_array a1, t_array a2, int (*cmp)(void *, void *));
