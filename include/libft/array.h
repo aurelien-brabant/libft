@@ -6,7 +6,7 @@
 /*   By: abrabant <abrabant@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/21 12:30:11 by abrabant          #+#    #+#             */
-/*   Updated: 2021/03/22 17:34:44 by abrabant         ###   ########.fr       */
+/*   Updated: 2021/03/22 18:39:55 by abrabant         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,6 +51,24 @@ void	ft_array_set(t_array a, void *el, int i);
 */
 
 void	*ft_array_get(t_array a, int i);
+
+/*
+** Duplicates an array.
+**
+** Time complexity: O(n) where n is the number of elements in a.
+*/
+
+t_array	ft_array_dup(t_array a);
+
+/*
+** Concatenate two arrays in as a new one. No destroy operation is done
+** on the two arrays passed as arguments.
+**
+** Time complexity: O(n + m) where n is the number of elements in the first
+** array, and m the number of elements in the second one.
+*/
+
+t_array	ft_array_concat(t_array a1, t_array a2);
 
 /*
 ** Insert an element at a given index.
@@ -164,7 +182,6 @@ int	ft_array_binsearch(t_array a, void *ref, int cmp(void *ref, void *el));
 */
 
 void	ft_array_delete(t_array a, int i, void (*fn)(void *el));
-
 
 /*
 ** Reverse the order of the elements in the array
