@@ -6,7 +6,7 @@
 #    By: abrabant <abrabant@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/09/30 15:22:25 by abrabant          #+#    #+#              #
-#    Updated: 2021/03/22 22:15:47 by abrabant         ###   ########.fr        #
+#    Updated: 2021/03/23 00:06:27 by abrabant         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -80,7 +80,7 @@ ARRAY					= ft_array_new.c ft_array_append.c					\
 						ft_array_rotate.c ft_array_issorted.c				\
 						ft_array_sinsert.c ft_array_dup.c					\
 						ft_array_concat.c ft_array_merge.c					\
-						ft_array_union.c									\
+						ft_array_union.c ft_array_sunion.c					\
 						ft_array_int_resize.c
 
 CLA						= ft_cla_init.c ft_cla_str_var.c ft_cla_int_var.c	\

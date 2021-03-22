@@ -6,7 +6,7 @@
 /*   By: abrabant <abrabant@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/21 12:30:11 by abrabant          #+#    #+#             */
-/*   Updated: 2021/03/22 22:24:36 by abrabant         ###   ########.fr       */
+/*   Updated: 2021/03/23 00:38:47 by abrabant         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -90,6 +90,18 @@ t_array	ft_array_merge(t_array a1, t_array a2,
 */
 
 t_array	ft_array_union(t_array a1, t_array a2, int (*cmp)(void *, void *));
+
+/*
+** Union operation on arrays, like ft_array_union, but optimized for sorted
+** arrays.
+** NOTE: due to 42's norm restrictions, an additional overhead related to the 
+** way the function has been coded is expected. This will be fixed when norm
+** will no longer be required.
+**
+** Time complexity: O(n)
+*/
+
+t_array	ft_array_sunion(t_array a1, t_array a2, int (*cmp)(void *, void *));
 
 /*
 ** Insert an element at a given index.
