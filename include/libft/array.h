@@ -6,7 +6,7 @@
 /*   By: abrabant <abrabant@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/21 12:30:11 by abrabant          #+#    #+#             */
-/*   Updated: 2021/03/22 18:39:55 by abrabant         ###   ########.fr       */
+/*   Updated: 2021/03/22 19:53:14 by abrabant         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,6 +69,14 @@ t_array	ft_array_dup(t_array a);
 */
 
 t_array	ft_array_concat(t_array a1, t_array a2);
+
+/*
+** Merge two sorted arrays into a new one.
+** The cmp function is used to compare the elements.
+*/
+
+t_array	ft_array_merge(t_array a1, t_array a2,
+		int (*cmp)(void *el1, void *el2));
 
 /*
 ** Insert an element at a given index.
