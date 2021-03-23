@@ -6,7 +6,7 @@
 /*   By: abrabant <abrabant@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/21 12:30:11 by abrabant          #+#    #+#             */
-/*   Updated: 2021/03/23 01:24:35 by abrabant         ###   ########.fr       */
+/*   Updated: 2021/03/23 11:33:16 by abrabant         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -95,7 +95,7 @@ t_array	ft_array_union(t_array a1, t_array a2, int (*cmp)(void *, void *));
 ** Union operation on arrays, like ft_array_union, but optimized for sorted
 ** arrays.
 ** NOTE: due to 42's norm restrictions, an additional overhead related to the 
-** way the function has been coded is expected. This will be fixed when norm
+** way the function has been coded may be expected. This will be fixed when norm
 ** will no longer be required.
 **
 ** Time complexity: O(n)
@@ -114,6 +114,16 @@ t_array	ft_array_sunion(t_array a1, t_array a2, int (*cmp)(void *, void *));
 */
 
 t_array	ft_array_inter(t_array a1, t_array a2, int (*cmp)(void *, void *));
+
+/*
+** Inter operation on arrays, like ft_array_inter, but optimized for sorted
+** arrays.
+** NOTE: due to 42's norm restrictions, an additional overhead related to the 
+** way the function has been coded may be expected. This will be fixed when norm
+** will no longer be required.
+**
+** Time complexity: O(n)
+*/
 
 t_array	ft_array_sinter(t_array a1, t_array a2, int (*cmp)(void *, void *));
 
