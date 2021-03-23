@@ -75,15 +75,14 @@ Test(ft_array, test_array_set)
 {
 	t_array	a;
 	int		el[] = { 1, 2, 3, 4, 5 };
-	int		size = sizeof (el) / sizeof (int);
 	int		set = -1;
 
-	a = ft_array_new(5);
-	for (int i = 0; i < size; ++i) {
+	a = ft_array_new(sizeof (el) / sizeof (int));
+	for (int i = 0; i < ft_array_get_size(a); ++i) {
 		ft_array_append(a, &el[i]);
 		ft_array_set(a, &set, i);
 	}
-	for (int i = 0; i < size; ++i) {
+	for (int i = 0; i < ft_array_get_size(a); ++i) {
 		cr_expect_eq(*(int *)ft_array_get(a, i), set);
 	}
 	ft_array_destroy(a, NULL);
@@ -107,14 +106,14 @@ Test(ft_array, test_array_sub)
 
 	/* test */
 
-	a = ft_array_new(5);
+	a = ft_array_new(sizeof (el) / sizeof (int));
 	sub = ft_array_new(sizeof (subset) / sizeof (int));
 	/* Populate a */
-	for (int i = 0; i < (int)(sizeof (el) / sizeof (int)); ++i) {
+	for (int i = 0; i < ft_array_get_size(a); ++i) {
 		ft_array_append(a, &el[i]);
 	}
 	/* Populate sub */
-	for (int i = 0; i < (int)(sizeof (subset) / sizeof (int)); ++i) {
+	for (int i = 0; i < ft_array_get_size(sub); ++i) {
 		ft_array_append(sub, &subset[i]);
 	}
 	subed = ft_array_sub(a, sub, &cmp_uint);
