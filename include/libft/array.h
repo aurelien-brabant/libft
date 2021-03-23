@@ -6,7 +6,7 @@
 /*   By: abrabant <abrabant@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/21 12:30:11 by abrabant          #+#    #+#             */
-/*   Updated: 2021/03/23 11:33:16 by abrabant         ###   ########.fr       */
+/*   Updated: 2021/03/23 12:16:36 by abrabant         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -126,6 +126,32 @@ t_array	ft_array_inter(t_array a1, t_array a2, int (*cmp)(void *, void *));
 */
 
 t_array	ft_array_sinter(t_array a1, t_array a2, int (*cmp)(void *, void *));
+
+/*
+** Perform substraction operation on a1 and a2, and put the result in a new
+** array which is returned.
+** Substraction operation on array is a logical operation which excludes
+** any element present in the array 2 from the array 1.
+** Size of the new array is the same of a1's size.
+**
+** Time complexity: O(n^2).
+** NOTE: If arrays are sorted according to cmp, using ft_array_ssub is prefered
+** as it involves lower time complexity.
+*/
+
+t_array	ft_array_sub(t_array a1, t_array a2, int (*cmp)(void *, void *));
+
+/*
+** Sub operation on arrays, like ft_array_sub, but optimized for sorted
+** arrays.
+** NOTE: due to 42's norm restrictions, an additional overhead related to the 
+** way the function has been coded may be expected. This will be fixed when norm
+** will no longer be required.
+**
+** Time complexity: O(n)
+*/
+
+t_array	ft_array_ssub(t_array a1, t_array a2, int (*cmp)(void *, void *));
 
 /*
 ** Insert an element at a given index.

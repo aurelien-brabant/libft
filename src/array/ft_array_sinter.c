@@ -6,7 +6,7 @@
 /*   By: abrabant <abrabant@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/22 23:09:46 by abrabant          #+#    #+#             */
-/*   Updated: 2021/03/23 11:30:36 by abrabant         ###   ########.fr       */
+/*   Updated: 2021/03/23 12:30:06 by abrabant         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,7 +66,7 @@ t_array	ft_array_sinter(t_array a1, t_array a2,
 	arrs[2] = get_new_array(a1);
 	if (arrs[2] == NULL)
 		return (NULL);
-	while (iter[0] < arrs[0]->length && iter[1] < arrs[1]->length)
+	while (iter[0] < arrs[0]->length)
 	{
 		ret = cmp(arrs[0]->array[iter[0]], arrs[1]->array[iter[1]]);
 		if (ret > 0)
@@ -76,9 +76,5 @@ t_array	ft_array_sinter(t_array a1, t_array a2,
 		else
 			++iter[0];
 	}
-	while (iter[0] < arrs[0]->length)
-		arrs[2]->array[arrs[2]->length++] = arrs[0]->array[iter[0]++];
-	while (iter[1] < arrs[1]->length)
-		arrs[2]->array[arrs[2]->length++] = arrs[1]->array[iter[1]++];
 	return (arrs[2]);
 }
