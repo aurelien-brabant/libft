@@ -6,7 +6,7 @@
 /*   By: abrabant <abrabant@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/21 12:30:11 by abrabant          #+#    #+#             */
-/*   Updated: 2021/03/23 12:16:36 by abrabant         ###   ########.fr       */
+/*   Updated: 2021/03/24 00:11:57 by abrabant         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,6 +51,12 @@ void	ft_array_set(t_array a, void *el, int i);
 */
 
 void	*ft_array_get(t_array a, int i);
+
+/*
+** Get the length of the array.
+*/
+
+int		ft_array_get_length(t_array a, int i);
 
 /*
 ** Duplicates an array.
@@ -132,7 +138,7 @@ t_array	ft_array_sinter(t_array a1, t_array a2, int (*cmp)(void *, void *));
 ** array which is returned.
 ** Substraction operation on array is a logical operation which excludes
 ** any element present in the array 2 from the array 1.
-** Size of the new array is the same of a1's size.
+** Size of the new array is a1's size.
 **
 ** Time complexity: O(n^2).
 ** NOTE: If arrays are sorted according to cmp, using ft_array_ssub is prefered
@@ -144,7 +150,7 @@ t_array	ft_array_sub(t_array a1, t_array a2, int (*cmp)(void *, void *));
 /*
 ** Sub operation on arrays, like ft_array_sub, but optimized for sorted
 ** arrays.
-** NOTE: due to 42's norm restrictions, an additional overhead related to the 
+** NOTE: due to 42's norm restrictions, an additional overhead related to the
 ** way the function has been coded may be expected. This will be fixed when norm
 ** will no longer be required.
 **
@@ -254,6 +260,23 @@ int	ft_array_linsearch(t_array a, void *ref, int cmp(void *ref, void *el));
 */
 
 int	ft_array_binsearch(t_array a, void *ref, int cmp(void *ref, void *el));
+
+/*
+** Determines if array a doesn't have any duplicate. For that, ft_array_uniq
+** returns the index of the first duplicate found (beginning at index 0) or -1
+** if no duplicate has been found.
+**
+** Time complexity: worst = O(n^2) / best = O(1). If arrays are sorted according
+** to cmp, use ft_array_suniq instead for lower time complexity.
+*/
+
+int	ft_array_uniq(t_array a, int cmp(void *, void *));
+
+/*
+** Same than ft_array_uniq, but optimized for a sorted array.
+*/
+
+int	ft_array_suniq(t_array a, int cmp(void *, void *));
 
 /*
 ** Delete the element at index i in the array a.
