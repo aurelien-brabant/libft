@@ -6,7 +6,7 @@
 /*   By: abrabant <abrabant@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/21 12:30:11 by abrabant          #+#    #+#             */
-/*   Updated: 2021/03/23 00:38:47 by abrabant         ###   ########.fr       */
+/*   Updated: 2021/03/23 01:24:35 by abrabant         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -102,6 +102,20 @@ t_array	ft_array_union(t_array a1, t_array a2, int (*cmp)(void *, void *));
 */
 
 t_array	ft_array_sunion(t_array a1, t_array a2, int (*cmp)(void *, void *));
+
+/*
+** Perform the inter operation on the two arrays passed as arguments, and put
+** the result in a new array. The cmp function is used to know how to compare
+** two items between arrays.
+**
+** Time complexity: O(n^2). If the arrays are sorted according to cmp,
+** ft_array_sinter is a better choice as it reduces the complexity of the
+** operation on sorted arrays.
+*/
+
+t_array	ft_array_inter(t_array a1, t_array a2, int (*cmp)(void *, void *));
+
+t_array	ft_array_sinter(t_array a1, t_array a2, int (*cmp)(void *, void *));
 
 /*
 ** Insert an element at a given index.
