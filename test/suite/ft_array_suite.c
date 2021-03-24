@@ -47,10 +47,42 @@ Test(ft_array, test_array_core)
 	ft_array_destroy(a, NULL);
 }
 
+Test(ft_array, test_array_delete)
+{
+	t_array	a;
+	int		el[] = { 1, 2, 3, 4, 5 };
+
+	a = ft_array_new(sizeof (el) / sizeof (int));
+	for (int i = 0; i < ft_array_get_size(a); ++i) {
+		ft_array_append(a, &el[i]);
+	}
+	for (int i = 0; i < ft_array_get_length(a) - 1;) {
+		ft_array_delete(a, i, NULL);
+	}
+	cr_expect_eq(*(int *)ft_array_get(a, 0), el[4]);
+	ft_array_destroy(a, NULL);
+}
+
+Test(ft_array, test_array_delete_fn)
+{
+	t_array	a;
+	char	*el[] = { "str1", "str2", "str3", "str4", "str5" };
+
+	a = ft_array_new(sizeof (el) / sizeof (char *));
+	for (int i = 0; i < ft_array_get_size(a); ++i) {
+		ft_array_append(a, strdup(el[i]));
+	}
+	/* Delete every element expect the last */
+	for (int i = 0; i < ft_array_get_length(a) - 1;) {
+		ft_array_delete(a, i, &free);
+	}
+	cr_expect_str_eq(ft_array_get(a, 0), el[4]);
+	ft_array_destroy(a, &free);
+}
+
 /*
 ** Insert the distinctive value -1 at the beginning and the end of the array,
 ** as well as in the middle of it.
-** Ensure insertion was successful.
 */
 
 Test(ft_array, test_array_insert)
@@ -623,4 +655,123 @@ Test(ft_array, test_array_ssub)
 	ft_array_destroy(a, NULL);
 	ft_array_destroy(sub, NULL);
 	ft_array_destroy(subed, NULL);
+}
+
+/* Merge sorted arrays */
+
+Test(ft_array, test_array_merge)
+{
+	/* arrays involved in test */
+
+	t_array	a;
+	t_array	sub;
+	t_array	merged;
+
+	/* reference integer sets */
+
+	int		el[] = { 1, 2, 3, 12, 18, 23, 45 };
+	int		el2[] = { 5, 6 };
+	int		expected[] = { 1, 2, 3, 5, 6, 12, 18, 23, 45 };
+
+	/* test */
+
+	a = ft_array_new(sizeof (el) / sizeof (int));
+	sub = ft_array_new(sizeof (el2) / sizeof (int));
+	/* Populate a */
+	for (int i = 0; i < ft_array_get_size(a); ++i) {
+		ft_array_append(a, &el[i]);
+	}
+	/* Populate sub */
+	for (int i = 0; i < ft_array_get_size(sub); ++i) {
+		ft_array_append(sub, &el2[i]);
+	}
+	merged = ft_array_merge(a, sub, &cmp_uint);
+	/* Test merged array */
+	for (int i = 0; i < (int)(sizeof (expected) / sizeof (int)); ++i) {
+		cr_expect_eq(*(int *)ft_array_get(merged, i), expected[i]);
+	}
+	ft_array_destroy(a, NULL);
+	ft_array_destroy(sub, NULL);
+	ft_array_destroy(merged, NULL);
+}
+
+/* BINARY SEARCH */
+
+Test(ft_array, test_binsearch)
+{
+	t_array	a;
+
+	int	el[] = { 3, 5, 12, 32, 54 };
+	int	searched = 5;
+	int	expected = 1;
+
+	/* test */
+
+	a = ft_array_new(sizeof (el) / sizeof (int));
+	for (int i = 0; i < ft_array_get_size(a); ++i) {
+		ft_array_append(a, &el[i]);
+	}
+	/* Test one present value */
+	cr_expect_eq(ft_array_binsearch(a, &searched, &cmp_uint), expected);
+
+	/* Test one missing value */
+	expected = -1;
+	searched = 456;
+	cr_expect_eq(ft_array_binsearch(a, &searched, &cmp_uint), expected);
+	ft_array_destroy(a, NULL);
+}
+
+Test(ft_array, test_suniq)
+{
+	t_array	a;
+
+	int	notuniq[] = { 1, 2, 3, 3, 4, 5, 12, 14, 18 };
+	int	uniq[] = { 1, 2, 3, 4, 7, 8, 11, 13, 15, 17, 21 };
+	int	expected = 3;
+
+	/* test */
+
+	/* TEST NOT UNIQ ARRAY */
+
+	a = ft_array_new(sizeof (notuniq) / sizeof (int));
+	for (int i = 0; i < ft_array_get_size(a); ++i) {
+		ft_array_append(a, &notuniq[i]);
+	}
+	cr_expect_eq(ft_array_suniq(a, &cmp_uint), expected);
+	ft_array_destroy(a, NULL);
+
+	/* TEST UNIQ ARRAY */
+
+	a = ft_array_new(sizeof (notuniq) / sizeof (int));
+	for (int i = 0; i < ft_array_get_size(a); ++i) {
+		ft_array_append(a, &uniq[i]);
+	}
+	expected = -1;
+	cr_expect_eq(ft_array_suniq(a, &cmp_uint), expected);
+	ft_array_destroy(a, NULL);
+}
+
+Test(ft_array, test_issorted)
+{
+	t_array	a;
+
+	int	sorted[] = { 3, 5, 12, 32, 54 };
+	int	unsorted[] = {3, 4, 3, 12, 32, 53 };
+	int	expected = true;
+
+	a = ft_array_new(sizeof (sorted) / sizeof (int));
+	for (int i = 0; i < ft_array_get_size(a); ++i) {
+		ft_array_append(a, &sorted[i]);
+	}
+	cr_expect_eq(ft_array_issorted(a, &cmp_uint), expected);
+	ft_array_destroy(a, NULL);
+
+
+	a = ft_array_new(sizeof (unsorted) / sizeof (int));
+	for (int i = 0; i < ft_array_get_size(a); ++i) {
+		ft_array_append(a, &unsorted[i]);
+	}
+	expected = false;
+	cr_expect_eq(ft_array_issorted(a, &cmp_uint), expected);
+	ft_array_destroy(a, NULL);
 }
