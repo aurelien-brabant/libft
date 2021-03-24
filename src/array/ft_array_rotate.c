@@ -6,7 +6,7 @@
 /*   By: abrabant <abrabant@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/22 15:19:49 by abrabant          #+#    #+#             */
-/*   Updated: 2021/03/22 16:29:49 by abrabant         ###   ########.fr       */
+/*   Updated: 2021/03/24 21:20:44 by abrabant         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ static void	rotate_one_right(t_array_int *a)
 {
 	int		i;
 	void	*rotated;
-	
+
 	i = a->length - 1;
 	rotated = a->array[i];
 	while (i > 0)

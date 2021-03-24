@@ -6,7 +6,7 @@
 /*   By: abrabant <abrabant@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/28 20:57:11 by abrabant          #+#    #+#             */
-/*   Updated: 2021/02/17 01:26:56 by abrabant         ###   ########.fr       */
+/*   Updated: 2021/03/24 21:25:22 by abrabant         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 #include "libft/internal/vector_int.h"
 #include "libft/vector.h"
 
-int		ft_vec_foreach(t_vector vector,
+int	ft_vec_foreach(t_vector vector,
 		int (*func)(void *, size_t, void *), void *data)
 {
 	t_vector_int	*vec;

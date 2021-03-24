@@ -6,7 +6,7 @@
 /*   By: abrabant <abrabant@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/23 12:16:45 by abrabant          #+#    #+#             */
-/*   Updated: 2021/03/24 18:51:59 by abrabant         ###   ########.fr       */
+/*   Updated: 2021/03/24 21:24:10 by abrabant         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,6 +34,16 @@ static	t_array	get_new_array(t_array a1, t_array a2)
 	return (new);
 }
 
+/*
+** Again, for norm sake...
+*/
+
+static void	handle_ret_zero(int *iter)
+{
+	++iter[0];
+	++iter[1];
+}
+
 t_array	ft_array_ssub(t_array a1, t_array a2,
 		int (*cmp)(void *el1, void *el2))
 {
@@ -53,14 +63,11 @@ t_array	ft_array_ssub(t_array a1, t_array a2,
 		if (ret > 0)
 			iter[1]++;
 		else if (ret == 0)
-		{
-			++iter[0];
-			++iter[1];
-		}
+			handle_ret_zero(iter);
 		else
 			arrs[2]->array[arrs[2]->length++] = arrs[0]->array[iter[0]++];
 	}
 	while (iter[0] < arrs[0]->length)
-			arrs[2]->array[arrs[2]->length++] = arrs[0]->array[iter[0]++];
+		arrs[2]->array[arrs[2]->length++] = arrs[0]->array[iter[0]++];
 	return (arrs[2]);
 }

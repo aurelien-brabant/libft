@@ -6,7 +6,7 @@
 /*   By: abrabant <abrabant@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/21 12:30:11 by abrabant          #+#    #+#             */
-/*   Updated: 2021/03/24 00:21:59 by abrabant         ###   ########.fr       */
+/*   Updated: 2021/03/24 21:27:22 by abrabant         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@
 # include <stdbool.h>
 # include "libft/internal/array_int.h"
 
-typedef	void *t_array; /* abstraction */
+typedef void *t_array; /* abstraction */
 
 t_array	*ft_array_new(int size);
 
@@ -80,7 +80,7 @@ t_array	ft_array_concat(t_array a1, t_array a2);
 */
 
 t_array	ft_array_merge(t_array a1, t_array a2,
-		int (*cmp)(void *el1, void *el2));
+			int (*cmp)(void *el1, void *el2));
 
 /*
 ** Perform the union operation on the two arrays passed as arguments, and
@@ -240,7 +240,7 @@ void	ft_array_rotate(t_array a, char rotatedir, int offset);
 ** for often searched values.
 */
 
-int	ft_array_linsearch(t_array a, void *ref, int cmp(void *ref, void *el));
+int		ft_array_linsearch(t_array a, void *ref, int cmp(void *ref, void *el));
 
 /*
 ** NOTE: to get relevant results, the array NEEDS TO BE SORTED according to
@@ -257,7 +257,7 @@ int	ft_array_linsearch(t_array a, void *ref, int cmp(void *ref, void *el));
 ** Time complexity: worst && average = O(log(n)) / best = O(1)
 */
 
-int	ft_array_binsearch(t_array a, void *ref, int cmp(void *ref, void *el));
+int		ft_array_binsearch(t_array a, void *ref, int cmp(void *ref, void *el));
 
 /*
 ** Determines if array a doesn't have any duplicate. For that, ft_array_uniq
@@ -268,13 +268,13 @@ int	ft_array_binsearch(t_array a, void *ref, int cmp(void *ref, void *el));
 ** to cmp, use ft_array_suniq instead for lower time complexity.
 */
 
-int	ft_array_uniq(t_array a, int cmp(void *, void *));
+int		ft_array_uniq(t_array a, int cmp(void *, void *));
 
 /*
 ** Same than ft_array_uniq, but optimized for a sorted array.
 */
 
-int	ft_array_suniq(t_array a, int cmp(void *, void *));
+int		ft_array_suniq(t_array a, int cmp(void *, void *));
 
 /*
 ** Delete the element at index i in the array a.

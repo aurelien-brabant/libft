@@ -6,7 +6,7 @@
 /*   By: abrabant <abrabant@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/23 01:00:20 by abrabant          #+#    #+#             */
-/*   Updated: 2021/03/23 01:06:28 by abrabant         ###   ########.fr       */
+/*   Updated: 2021/03/24 21:19:55 by abrabant         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,5 +34,4 @@ t_array	ft_array_inter(t_array a1, t_array a2, int (*cmp)(void *, void *))
 		++i;
 	}
 	return (new);
-
 }

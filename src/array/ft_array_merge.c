@@ -6,7 +6,7 @@
 /*   By: abrabant <abrabant@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/22 19:54:15 by abrabant          #+#    #+#             */
-/*   Updated: 2021/03/24 18:23:31 by abrabant         ###   ########.fr       */
+/*   Updated: 2021/03/24 21:20:19 by abrabant         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,9 +31,9 @@ t_array	ft_array_merge(t_array a1, t_array a2,
 		int (*cmp)(void *el1, void *el2))
 {
 	t_array_int	*new;
-	int	i;
-	int	j;
-	int	k;
+	int			i;
+	int			j;
+	int			k;
 
 	i = 0;
 	j = 0;
@@ -41,11 +41,11 @@ t_array	ft_array_merge(t_array a1, t_array a2,
 	new = get_new_array(a1, a2);
 	while (i < ((t_array_int *)a1)->length && j < ((t_array_int *)a2)->length)
 	{
-		if (cmp(((t_array_int *)a1)->array[i], 
-					((t_array_int *)a2)->array[j]) > 0)
+		if (cmp(((t_array_int *)a1)->array[i],
+				((t_array_int *)a2)->array[j]) > 0)
 			new->array[k++] = ((t_array_int *)a2)->array[j++];
 		else
-			new->array[k++] = ((t_array_int *)a1)->array[i++]; 
+			new->array[k++] = ((t_array_int *)a1)->array[i++];
 	}
 	while (i < ((t_array_int *)a1)->length)
 		new->array[k++] = ((t_array_int *)a1)->array[i++];
