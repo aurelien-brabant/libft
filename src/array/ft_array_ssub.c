@@ -6,7 +6,7 @@
 /*   By: abrabant <abrabant@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/23 12:16:45 by abrabant          #+#    #+#             */
-/*   Updated: 2021/03/23 12:23:26 by abrabant         ###   ########.fr       */
+/*   Updated: 2021/03/24 18:51:59 by abrabant         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@
 ** Rework of this function without the norm restrictions is planned.
 */
 
-t_array	get_new_array(t_array a1, t_array a2)
+static	t_array	get_new_array(t_array a1, t_array a2)
 {
 	t_array_int	*new;
 
@@ -60,5 +60,7 @@ t_array	ft_array_ssub(t_array a1, t_array a2,
 		else
 			arrs[2]->array[arrs[2]->length++] = arrs[0]->array[iter[0]++];
 	}
+	while (iter[0] < arrs[0]->length)
+			arrs[2]->array[arrs[2]->length++] = arrs[0]->array[iter[0]++];
 	return (arrs[2]);
 }

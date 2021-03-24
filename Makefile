@@ -6,7 +6,7 @@
 #    By: abrabant <abrabant@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/09/30 15:22:25 by abrabant          #+#    #+#              #
-#    Updated: 2021/03/24 01:03:59 by abrabant         ###   ########.fr        #
+#    Updated: 2021/03/24 12:01:58 by abrabant         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -124,6 +124,7 @@ install:
 
 test: $(NAME)
 	@make -C test > /dev/null
+	@printf "\033[0;35mRunning tests\033[0m...\n"
 	@./test/test.out
 
 # Compilation rule for each C file.

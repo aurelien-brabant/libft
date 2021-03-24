@@ -3,3 +3,5 @@ libft.a
 .cache
 a.out
 main.c
+*.o
+test/suite/*.o

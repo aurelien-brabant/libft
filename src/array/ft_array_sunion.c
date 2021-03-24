@@ -6,7 +6,7 @@
 /*   By: abrabant <abrabant@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/22 23:09:46 by abrabant          #+#    #+#             */
-/*   Updated: 2021/03/23 00:37:04 by abrabant         ###   ########.fr       */
+/*   Updated: 2021/03/24 18:18:01 by abrabant         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@
 ** Rework of this function without the norm restrictions is planned.
 */
 
-t_array	get_new_array(t_array a1, t_array a2)
+static	t_array	get_new_array(t_array a1, t_array a2)
 {
 	t_array_int	*new;
 

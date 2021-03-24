@@ -10,7 +10,7 @@ OBJS	= $(SRCS:%.c=%.o)
 
 all: $(TARGET)
 
-$(TARGET): $(OBJS)
+$(TARGET): libft.a $(OBJS)
 	@$(CC) -o $(TARGET) $(OBJS) $(LD_FLAGS)
 	@printf "\033[0;32mtest.out \033[0mcreated!\n"
 
@@ -21,6 +21,9 @@ fclean: clean
 	@rm -rf $(TARGET)
 
 re: fclean all
+
+libft.a:
+	make -C ..
 
 %.o: %.c
 	@$(CC) $(CFLAGS) -g -c $< -o $@

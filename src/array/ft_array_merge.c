@@ -6,14 +6,14 @@
 /*   By: abrabant <abrabant@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/22 19:54:15 by abrabant          #+#    #+#             */
-/*   Updated: 2021/03/22 20:29:28 by abrabant         ###   ########.fr       */
+/*   Updated: 2021/03/24 18:23:31 by abrabant         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft/array.h"
 #include "libft/internal/array_int.h"
 
-t_array	get_new_array(t_array a1, t_array a2)
+static	t_array	get_new_array(t_array a1, t_array a2)
 {
 	t_array_int	*new;
 

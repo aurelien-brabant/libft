@@ -6,7 +6,7 @@
 /*   By: abrabant <abrabant@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/22 23:09:46 by abrabant          #+#    #+#             */
-/*   Updated: 2021/03/23 12:30:06 by abrabant         ###   ########.fr       */
+/*   Updated: 2021/03/24 18:30:15 by abrabant         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@
 ** Rework of this function without the norm restrictions is planned.
 */
 
-t_array	get_new_array(t_array a1)
+static	t_array	get_new_array(t_array a1)
 {
 	t_array_int	*new;
 
@@ -66,7 +66,7 @@ t_array	ft_array_sinter(t_array a1, t_array a2,
 	arrs[2] = get_new_array(a1);
 	if (arrs[2] == NULL)
 		return (NULL);
-	while (iter[0] < arrs[0]->length)
+	while (iter[0] < arrs[0]->length && iter[1] < arrs[1]->length)
 	{
 		ret = cmp(arrs[0]->array[iter[0]], arrs[1]->array[iter[1]]);
 		if (ret > 0)
