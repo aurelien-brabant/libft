@@ -6,7 +6,7 @@
 #    By: abrabant <abrabant@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/09/30 15:22:25 by abrabant          #+#    #+#              #
-#    Updated: 2021/03/24 00:24:47 by abrabant         ###   ########.fr        #
+#    Updated: 2021/03/24 01:03:59 by abrabant         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -106,13 +106,14 @@ OBJS					= $(SRCS:%.c=$(OBJ_DIR)/%.o)
 all: $(NAME)
 
 $(NAME): $(OBJ_DIR) $(OBJS)
-	ar rcs $(NAME) $(OBJS)
+	@ar rcs $(NAME) $(OBJS)
+	@printf "\033[0;32m$(NAME) \033[0mcreated.\n"
 
 clean:
-	rm -f $(OBJS) $(BONUS_OBJS)
+	@rm -f $(OBJS) $(BONUS_OBJS)
 
 fclean: clean
-	rm -f $(NAME)
+	@rm -f $(NAME)
 
 re: fclean all
 
@@ -122,13 +123,13 @@ install:
 # Test the libft
 
 test: $(NAME)
-	$(CC)  -Wno-format-security test/suite/ft_*_suite*.c -D_GNU_SOURCE -lcriterion -lbsd -L. -lft -I$(INCLUDE_PATH) -o runner
-	./runner
-	rm -rf runner
+	@make -C test > /dev/null
+	@./test/test.out
 
 # Compilation rule for each C file.
 $(OBJ_DIR)/%.o:%.c
-	$(CC) $(CFLAGS) -I$(INCLUDE_PATH) -g -c $< -o $@
+	@$(CC) $(CFLAGS) -I$(INCLUDE_PATH) -g -c $< -o $@
+	@printf "[\033[1;35mLIBFT\033[0m] \033[1;37mCC \033[0;33m$<\033[0m\n"
 
 $(OBJ_DIR):
 	mkdir $(OBJ_DIR)
