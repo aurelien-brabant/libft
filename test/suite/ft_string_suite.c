@@ -96,3 +96,34 @@ Test(ft_string, ft_string_at)
 	free(actual);
 	ft_string_destroy(str);
 }
+
+Test(ft_string, ft_string_reserve)
+{
+	const char	*ref = "xxxxxxxxxx";
+	const char	*actual = NULL;
+	t_string	str = ft_string_new_fill(10, 'x');
+
+	/* ensure capacity is indeed 10 */
+	cr_expect_eq(ft_string_capacity(str), 10);
+
+	/* now reserve more */
+	ft_string_reserve(str, 50);
+
+	/* ensure it has been reserved properly */
+	cr_expect_eq(ft_string_capacity(str), 50);
+	actual = ft_string_tocstring(str);
+	cr_expect_str_eq(actual, ref);
+
+	/* Try to reserve less than occupied by the string (less than length) */
+	ft_string_reserve(str, 9);
+	cr_expect_eq(ft_string_capacity(str), 50);
+
+	/* Attempt to write on reserved spaces, just to ensure the space is allocated */
+	for (int i = 10; i < 50; ++i) {
+		*ft_string_at(str, i) = 0;
+	}
+
+	free((void *)actual);
+	ft_string_destroy(str);
+}
+

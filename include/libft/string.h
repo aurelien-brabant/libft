@@ -6,7 +6,7 @@
 /*   By: abrabant <abrabant@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/25 13:41:21 by abrabant          #+#    #+#             */
-/*   Updated: 2021/03/25 21:20:42 by abrabant         ###   ########.fr       */
+/*   Updated: 2021/03/25 22:20:55 by abrabant         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,6 +69,16 @@ void			ft_string_append_cstr(t_string str, const char *cstr);
 */
 
 unsigned char	*ft_string_at(t_string str, size_t i);
+
+/*
+** Reserve additional storage for a future use. For example, if the string
+** is planned to grow at some point, especially multiple times, it can be better
+** to manually reserve more storage to avoid too many reallocations.
+** The sole capacity is modified. The length/size of the string is not, and
+** reserving less data than the string currently occupies is not permitted.
+*/
+
+void			ft_string_reserve(t_string str, size_t i);
 
 /*
 ** Get the number of characters in the string

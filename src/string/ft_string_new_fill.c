@@ -6,7 +6,7 @@
 /*   By: abrabant <abrabant@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/25 14:13:58 by abrabant          #+#    #+#             */
-/*   Updated: 2021/03/25 14:25:52 by abrabant         ###   ########.fr       */
+/*   Updated: 2021/03/25 22:47:39 by abrabant         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,7 @@ t_string_int	*ft_string_new_fill(size_t n, const char c)
 	if (str->chrs == NULL)
 		return (NULL);
 	str->length = n;
+	str->capacity = n;
 	i = 0;
 	while (i < str->length)
 		str->chrs[i++] = c;

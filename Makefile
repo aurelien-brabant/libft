@@ -6,7 +6,7 @@
 #    By: abrabant <abrabant@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/09/30 15:22:25 by abrabant          #+#    #+#              #
-#    Updated: 2021/03/25 21:26:28 by abrabant         ###   ########.fr        #
+#    Updated: 2021/03/25 22:51:15 by abrabant         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -96,7 +96,7 @@ STRING					= ft_string_new_fill.c ft_string_output.c			\
 						  ft_string_tocstring.c ft_string_append_cstr.c		\
 						  ft_string_append.c ft_string_at.c					\
 						  ft_string_length.c ft_string_size.c				\
-						  ft_string_capacity.c
+						  ft_string_capacity.c ft_string_reserve.c
 
 
 SRCS					= $(CORE) $(CSTRING) $(CTYPE) $(IO) $(STRCONV)		\
