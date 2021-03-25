@@ -6,7 +6,7 @@
 /*   By: abrabant <abrabant@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/13 00:40:18 by abrabant          #+#    #+#             */
-/*   Updated: 2020/11/22 21:37:53 by abrabant         ###   ########.fr       */
+/*   Updated: 2021/03/25 11:28:36 by abrabant         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 #include <stdlib.h>
 
 /*
-** My implementation of the realloc CONCEPT. I prefer talk about concept
+** My implementation of the realloc CONCEPT. I prefer talking about concept
 ** as this implementation is not following the standard one, as I have
 ** no access to malloc inner details. This implementation assumes a perfect
 ** understanding of what is done, there's no particular security checks.

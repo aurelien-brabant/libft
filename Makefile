@@ -6,7 +6,7 @@
 #    By: abrabant <abrabant@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/09/30 15:22:25 by abrabant          #+#    #+#              #
-#    Updated: 2021/03/24 21:19:11 by abrabant         ###   ########.fr        #
+#    Updated: 2021/03/25 17:32:01 by abrabant         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -27,7 +27,7 @@ VPATH					= ./src/cstring:./src/ctype:./src/io:./src/io/gnl:	\
 						./src/io/printf:									\
 						./src/strconv:./src/intconv:./src/unicode:			\
 						./src/core:./src/vector:./src/cla:					\
-						./src/array
+						./src/array:./src/string
 
 CORE				 	= ft_calloc.c ft_realloc.c ft_bsort.c				\
 						ft_clamp.c
@@ -91,9 +91,15 @@ CLA						= ft_cla_init.c ft_cla_str_var.c ft_cla_int_var.c	\
 						ft_cla_bool_var.c ft_cla_pos_var.c					\
 						ft_cla_sanity_check.c ft_cla_get_config.c
 
+STRING					= ft_string_new_fill.c ft_string_output.c			\
+						  ft_string_new_cstr.c ft_string_destroy.c			\
+						  ft_string_tocstring.c ft_string_append_cstr.c		\
+						  ft_string_append.c
+
 
 SRCS					= $(CORE) $(CSTRING) $(CTYPE) $(IO) $(STRCONV)		\
-						$(INTCONV) $(UNICODE) $(VECTOR) $(CLA) $(ARRAY)
+						$(INTCONV) $(UNICODE) $(VECTOR) $(CLA) $(ARRAY)		\
+						$(STRING)
 
 # ~~~~~~~~~~   OBJECTS   ~~~~~~~~~~
 
@@ -127,7 +133,7 @@ norm:
 	norminette ./include
 
 test: $(NAME)
-	@make -C test > /dev/null
+	@make re -C test
 	@printf "\033[0;35mRunning tests\033[0m...\n"
 	@./test/test.out
 
