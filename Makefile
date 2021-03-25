@@ -6,7 +6,7 @@
 #    By: abrabant <abrabant@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/09/30 15:22:25 by abrabant          #+#    #+#              #
-#    Updated: 2021/03/25 17:32:01 by abrabant         ###   ########.fr        #
+#    Updated: 2021/03/25 20:11:54 by abrabant         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -94,7 +94,8 @@ CLA						= ft_cla_init.c ft_cla_str_var.c ft_cla_int_var.c	\
 STRING					= ft_string_new_fill.c ft_string_output.c			\
 						  ft_string_new_cstr.c ft_string_destroy.c			\
 						  ft_string_tocstring.c ft_string_append_cstr.c		\
-						  ft_string_append.c
+						  ft_string_append.c ft_string_at.c					\
+						  ft_string_length.c ft_string_size.c
 
 
 SRCS					= $(CORE) $(CSTRING) $(CTYPE) $(IO) $(STRCONV)		\

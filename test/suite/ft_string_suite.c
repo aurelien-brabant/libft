@@ -71,7 +71,6 @@ Test(ft_string, ft_string_append)
 
 	/* compare with ref */
 	actual = ft_string_tocstring(str);
-	ft_string_output(str, 1);
 	cr_expect_str_eq(actual, ref);
 
 	/* cleanup */
@@ -79,5 +78,21 @@ Test(ft_string, ft_string_append)
 	for (size_t i = 0; i < nb; ++i) {
 		ft_string_destroy(tstrings[i]);
 	}
+	ft_string_destroy(str);
+}
+
+Test(ft_string, ft_string_at)
+{
+	const char		*ref = "00000000000";
+	char			*actual = NULL;
+	t_string		str = ft_string_new_cstr("Hello world");
+	
+	for (size_t i = 0; i < ft_string_length(str); ++i) {
+		*ft_string_at(str, i) = '0';
+	}
+	actual = ft_string_tocstring(str);
+	cr_expect_str_eq(actual, ref);
+
+	free(actual);
 	ft_string_destroy(str);
 }

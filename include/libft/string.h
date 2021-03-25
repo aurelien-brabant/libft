@@ -6,7 +6,7 @@
 /*   By: abrabant <abrabant@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/25 13:41:21 by abrabant          #+#    #+#             */
-/*   Updated: 2021/03/25 17:25:08 by abrabant         ###   ########.fr       */
+/*   Updated: 2021/03/25 20:09:30 by abrabant         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,14 +23,14 @@ typedef void *t_string;
 ** initialization. The size of the t_string object will be strlen(cstring).
 */
 
-t_string	ft_string_new_cstr(const char *cstring);
+t_string		ft_string_new_cstr(const char *cstring);
 
 /*
 ** Create a new t_string object of size n and fill this string with the
 ** character c.
 */
 
-t_string	ft_string_new_fill(size_t n, const char c);
+t_string		ft_string_new_fill(size_t n, const char c);
 
 /*
 ** Output a string on a given file descriptor. Returns the number of characters
@@ -38,7 +38,7 @@ t_string	ft_string_new_fill(size_t n, const char c);
 ** the write syscall, see write(3) for more informations.
 */
 
-int			ft_string_output(t_string str, int fd);
+int				ft_string_output(t_string str, int fd);
 
 /*
 ** Convert the string represented by str into a C null terminated version
@@ -46,8 +46,7 @@ int			ft_string_output(t_string str, int fd);
 ** if required.
 */
 
-char		*ft_string_tocstring(t_string str);
-
+char			*ft_string_tocstring(t_string str);
 
 /*
 ** Append the content of str2 to str. The content of str2 is leaved unchanged,
@@ -55,7 +54,7 @@ char		*ft_string_tocstring(t_string str);
 ** No additional dynamic memory allocation is done, and only str1 is modified.
 */
 
-void		ft_string_append(t_string str, t_string str2);
+void			ft_string_append(t_string str, t_string str2);
 
 /*
 ** Append a string terminated by a null byte, also called C string, to the
@@ -63,12 +62,22 @@ void		ft_string_append(t_string str, t_string str2);
 ** returned.
 */
 
-void	ft_string_append_cstr(t_string str, const char *cstr);
+void			ft_string_append_cstr(t_string str, const char *cstr);
+
+/*
+** Get the address of the char at index i of str.
+*/
+
+unsigned char	*ft_string_at(t_string str, size_t i);
+
+size_t			ft_string_length(t_string str);
+
+size_t			ft_string_size(t_string str);
 
 /*
 ** Destroy a t_string object, freeing memory allocated for it.
 */
 
-t_string	ft_string_destroy();
+t_string		ft_string_destroy();
 
 #endif

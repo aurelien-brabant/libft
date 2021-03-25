@@ -6,7 +6,7 @@
 /*   By: abrabant <abrabant@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/25 17:20:20 by abrabant          #+#    #+#             */
-/*   Updated: 2021/03/25 17:28:23 by abrabant         ###   ########.fr       */
+/*   Updated: 2021/03/25 19:57:16 by abrabant         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@
 
 static bool	resize(t_string_int *str, size_t newlen)
 {
-	uint8_t	*newchrs;
+	unsigned char	*newchrs;
 	size_t	newsize;
 
 	newsize = sizeof(char) * newlen * 2;

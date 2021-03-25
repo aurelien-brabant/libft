@@ -1,27 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   string_int.h                                       :+:      :+:    :+:   */
+/*   ft_string_length.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: abrabant <abrabant@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/03/25 13:41:57 by abrabant          #+#    #+#             */
-/*   Updated: 2021/03/25 19:57:49 by abrabant         ###   ########.fr       */
+/*   Created: 2021/03/25 20:10:02 by abrabant          #+#    #+#             */
+/*   Updated: 2021/03/25 20:10:51 by abrabant         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef STRING_INT_H
-# define STRING_INT_H
-# include <stdint.h>
-# include <stddef.h>
+#include "libft/internal/string_int.h"
 
-/* Internal header for the string data structure */
-
-typedef struct s_string_int
+size_t	ft_string_length(t_string_int *str)
 {
-	unsigned char	*chrs;
-	size_t			length;
-	size_t			size;
-}	t_string_int;
-
-#endif
+	return (str->length);
+}
