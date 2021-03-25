@@ -6,7 +6,7 @@
 /*   By: abrabant <abrabant@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/25 13:41:21 by abrabant          #+#    #+#             */
-/*   Updated: 2021/03/25 20:09:30 by abrabant         ###   ########.fr       */
+/*   Updated: 2021/03/25 21:20:42 by abrabant         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,9 +70,23 @@ void			ft_string_append_cstr(t_string str, const char *cstr);
 
 unsigned char	*ft_string_at(t_string str, size_t i);
 
+/*
+** Get the number of characters in the string
+*/
+
 size_t			ft_string_length(t_string str);
 
+/*
+** Get the length of a string. Returns the same value than ft_string_length.
+*/
+
 size_t			ft_string_size(t_string str);
+
+/*
+** Return the allocated storage (in bytes) for the str
+*/
+
+size_t			ft_string_capacity(t_string str);
 
 /*
 ** Destroy a t_string object, freeing memory allocated for it.

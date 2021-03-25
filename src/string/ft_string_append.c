@@ -6,7 +6,7 @@
 /*   By: abrabant <abrabant@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/25 17:20:20 by abrabant          #+#    #+#             */
-/*   Updated: 2021/03/25 19:57:16 by abrabant         ###   ########.fr       */
+/*   Updated: 2021/03/25 21:21:50 by abrabant         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ static bool	resize(t_string_int *str, size_t newlen)
 	newchrs = malloc(newsize);
 	if (newchrs == NULL)
 		return (false);
-	str->size = newsize; 
+	str->capacity = newsize; 
 	ft_memcpy(newchrs, str->chrs, str->length);
 	free(str->chrs);
 	str->chrs = newchrs;
@@ -41,7 +41,7 @@ void	ft_string_append(t_string_int *str, t_string_int *str2)
 	size_t	i;
 
 	newlen = str->length + str2->length;
-	if (newlen > str->size && !resize(str, newlen))
+	if (newlen > str->capacity && !resize(str, newlen))
 		return ;
 	i = 0;
 	while (str->length < newlen)

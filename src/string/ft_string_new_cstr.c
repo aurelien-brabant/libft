@@ -6,7 +6,7 @@
 /*   By: abrabant <abrabant@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/25 15:38:15 by abrabant          #+#    #+#             */
-/*   Updated: 2021/03/25 16:49:30 by abrabant         ###   ########.fr       */
+/*   Updated: 2021/03/25 21:22:19 by abrabant         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ t_string_int	*ft_string_new_cstr(const char *cstring)
 		return (NULL);
 	cstring_len = ft_strlen(cstring);
 	str->length = cstring_len; 
-	str->size = cstring_len; 
+	str->capacity = cstring_len; 
 	str->chrs = malloc(sizeof(char) * str->length);
 	if (str->chrs == NULL)
 		return (NULL);
