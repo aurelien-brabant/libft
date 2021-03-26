@@ -6,7 +6,7 @@
 /*   By: abrabant <abrabant@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/25 13:41:21 by abrabant          #+#    #+#             */
-/*   Updated: 2021/03/26 15:00:14 by abrabant         ###   ########.fr       */
+/*   Updated: 2021/03/26 15:01:17 by abrabant         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -144,6 +144,6 @@ size_t			ft_string_capacity(t_string str);
 ** Destroy a t_string object, freeing memory allocated for it.
 */
 
-t_string		ft_string_destroy(void);
+t_string		ft_string_destroy(t_string str);
 
 #endif
