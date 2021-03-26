@@ -127,3 +127,32 @@ Test(ft_string, ft_string_reserve)
 	ft_string_destroy(str);
 }
 
+Test(ft_string, ft_string_replacechar)
+{
+	char		*ref = "ababababab";
+	char		*actual = NULL;
+	t_string	str = ft_string_new_cstr("xbxbxbxbxb");
+
+	ft_string_replacechar(str, 'x', 'a');
+	actual = ft_string_tocstring(str);
+
+	cr_expect_str_eq(actual, ref);
+
+	free(actual);
+	ft_string_destroy(str);
+}
+
+Test(ft_string, ft_string_findchar)
+{
+	int			ref = 4;
+	t_string	str = ft_string_new_cstr("HellO world");
+
+	cr_expect_eq(ft_string_findchar(str, 'O'), ref);
+	ref = -1;
+	cr_expect_eq(ft_string_findchar(str, 'x'), ref);
+
+	ft_string_destroy(str);
+}
+
+
+

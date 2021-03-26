@@ -6,7 +6,7 @@
 /*   By: abrabant <abrabant@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/25 13:41:21 by abrabant          #+#    #+#             */
-/*   Updated: 2021/03/25 22:20:55 by abrabant         ###   ########.fr       */
+/*   Updated: 2021/03/26 00:09:03 by abrabant         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,6 +79,22 @@ unsigned char	*ft_string_at(t_string str, size_t i);
 */
 
 void			ft_string_reserve(t_string str, size_t i);
+
+/*
+** Replace every occurence of char orig by repchar
+*/
+
+void			ft_string_replacechar(t_string str, const char orig,
+					const char repchar);
+
+/*
+** Search linearily for the first occurence of character c in string str.
+** Return the index of it if it is found, -1 otherwise.
+**
+** Time complexity: up to O(n).
+*/
+
+int				ft_string_findchar(t_string str, const char c);
 
 /*
 ** Get the number of characters in the string
