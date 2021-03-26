@@ -6,7 +6,7 @@
 /*   By: abrabant <abrabant@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/25 16:18:20 by abrabant          #+#    #+#             */
-/*   Updated: 2021/03/25 21:22:00 by abrabant         ###   ########.fr       */
+/*   Updated: 2021/03/26 14:59:18 by abrabant         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ static bool	resize(t_string_int *str, size_t newlen)
 	newchrs = malloc(newsize);
 	if (newchrs == NULL)
 		return (false);
-	str->capacity = newsize; 
+	str->capacity = newsize;
 	ft_memcpy(newchrs, str->chrs, str->length);
 	free(str->chrs);
 	str->chrs = newchrs;
