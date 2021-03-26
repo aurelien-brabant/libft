@@ -6,7 +6,7 @@
 #    By: abrabant <abrabant@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/09/30 15:22:25 by abrabant          #+#    #+#              #
-#    Updated: 2021/03/26 12:57:40 by abrabant         ###   ########.fr        #
+#    Updated: 2021/03/26 18:35:18 by abrabant         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -27,7 +27,7 @@ VPATH					= ./src/cstring:./src/ctype:./src/io:./src/io/gnl:	\
 						./src/io/printf:									\
 						./src/strconv:./src/intconv:./src/unicode:			\
 						./src/core:./src/vector:./src/cla:					\
-						./src/array:./src/string
+						./src/array:./src/string:./src/stack
 
 CORE				 	= ft_calloc.c ft_realloc.c ft_bsort.c				\
 						ft_clamp.c
@@ -101,10 +101,14 @@ STRING					= ft_string_new_fill.c ft_string_output.c			\
 						  ft_string_findcsubset.c ft_string_findsubset.c	\
 						  ft_string_subset.c
 
+STACK					= ft_stack_new.c ft_stack_destroy.c ft_stack_push.c	\
+						  ft_stack_pop.c ft_stack_peek.c ft_stack_isempty.c	\
+						  ft_stack_size.c
+
 
 SRCS					= $(CORE) $(CSTRING) $(CTYPE) $(IO) $(STRCONV)		\
 						$(INTCONV) $(UNICODE) $(VECTOR) $(CLA) $(ARRAY)		\
-						$(STRING)
+						$(STRING) $(STACK)
 
 # ~~~~~~~~~~   OBJECTS   ~~~~~~~~~~
 
