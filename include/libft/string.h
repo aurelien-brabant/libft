@@ -6,7 +6,7 @@
 /*   By: abrabant <abrabant@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/25 13:41:21 by abrabant          #+#    #+#             */
-/*   Updated: 2021/03/26 12:29:59 by abrabant         ###   ########.fr       */
+/*   Updated: 2021/03/26 12:59:35 by abrabant         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -112,6 +112,15 @@ int				ft_string_findcsubset(t_string str, const char *subset);
 */
 
 int				ft_string_findsubset(t_string str, t_string subset);
+
+/*
+** Extract a subset from a string and create a new t_string object to contain
+** it. low and high are the boundaries of the subset in the string. low IS
+** INCLUSIVE while high is EXCLUSIVE. These values must be valid indexes,
+** otherwise this is considered as undefined behaviour.
+*/
+
+t_string		ft_string_subset(t_string str, size_t low, size_t high);
 
 /*
 ** Get the number of characters in the string

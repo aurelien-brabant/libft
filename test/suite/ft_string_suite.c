@@ -207,3 +207,27 @@ Test(ft_string, ft_string_findsubset)
 	ft_string_destroy(begsub);
 	ft_string_destroy(endsub);
 }
+
+Test(ft_string, ft_string_subset)
+{
+	const char	*ref = "ello ";
+	char		*actual = NULL;
+	t_string	str = ft_string_new_cstr("Hello world !");
+	t_string	subset = ft_string_subset(str, 1, 6);
+
+	actual = ft_string_tocstring(subset);
+	cr_expect_str_eq(actual, ref);
+	free(actual);
+	ft_string_destroy(subset);
+	subset = ft_string_subset(str, 2, 2);
+	cr_expect_null(subset);
+
+	ft_string_destroy(subset);
+}
+
+
+
+
+
+
+
