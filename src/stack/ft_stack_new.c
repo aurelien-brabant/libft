@@ -6,7 +6,7 @@
 /*   By: abrabant <abrabant@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/26 16:23:40 by abrabant          #+#    #+#             */
-/*   Updated: 2021/03/26 16:47:56 by abrabant         ###   ########.fr       */
+/*   Updated: 2021/03/26 20:21:56 by abrabant         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,14 +14,14 @@
 
 #include "libft/internal/stack_int.h"
 
-t_stack_int	*ft_stack_new(size_t size)
+t_stack_int	*ft_stack_new(void)
 {
 	t_stack_int	*stack;
 
 	stack = malloc(sizeof (*stack));
 	if (stack == NULL)
 		return (NULL);
-	stack->data = ft_array_new(size);
+	stack->data = ft_array_new(10);
 	if (stack->data == NULL)
 	{
 		free(stack);

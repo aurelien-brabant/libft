@@ -6,7 +6,7 @@
 /*   By: abrabant <abrabant@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/26 16:02:13 by abrabant          #+#    #+#             */
-/*   Updated: 2021/03/26 18:27:21 by abrabant         ###   ########.fr       */
+/*   Updated: 2021/03/26 20:34:11 by abrabant         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,11 +21,12 @@
 typedef void *t_stack;
 
 /*
-** Create a new stack object of given size. Note that the stack is not 
-** resizable.
+** Create a new stack object of given size. The allocated capacity of the stack
+** depends on the underlying container, which is a t_array object. It is
+** automatically managed and the API's user don't have/can't deal with it.
 */
 
-t_stack	ft_stack_new(size_t size);
+t_stack	ft_stack_new(void);
 
 /*
 ** Destroy a stack object, releasing all the memory allocated for it.
