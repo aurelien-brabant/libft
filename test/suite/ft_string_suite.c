@@ -1,5 +1,6 @@
 #include <criterion/criterion.h>
 #include "libft/string.h"
+#include "libft/array.h"
 
 TestSuite(ft_string);
 
@@ -225,9 +226,31 @@ Test(ft_string, ft_string_subset)
 	ft_string_destroy(subset);
 }
 
+Test(ft_string, ft_string_split)
+{
+	t_string	str = ft_string_new_cstr("@||Hello |world |how |||@@are @you ?");
+	char		*expected = "Hello world how are you ?";
+	t_string	joined = ft_string_new(10);
+	char		*actual = NULL;
 
+	/* Test standard split with many separators */
+	t_array		split = ft_string_split(str, "@|");
+	for (int i = 0; i < ft_array_get_length(split); ++i)
+		ft_string_append(joined, ft_array_get(split, i));
+	actual = ft_string_tocstring(joined);
+	cr_expect_str_eq(actual, expected);
+	free(actual);
+	ft_string_destroy(joined);
+	ft_array_destroy(split, (void (*)(void *))ft_string_destroy);
 
+	/* Test with no separator */
+	split = ft_string_split(str, "");
+	actual = ft_string_tocstring(ft_array_get(split, 0));
+	expected = ft_string_tocstring(str);
+	cr_expect_str_eq(actual, expected);
+	free(actual);
+	free(expected);
+	ft_array_destroy(split, (void (*)(void *))ft_string_destroy);
 
-
-
-
+	ft_string_destroy(str);
+}

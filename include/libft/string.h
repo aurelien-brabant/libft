@@ -6,7 +6,7 @@
 /*   By: abrabant <abrabant@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/25 13:41:21 by abrabant          #+#    #+#             */
-/*   Updated: 2021/03/26 15:01:17 by abrabant         ###   ########.fr       */
+/*   Updated: 2021/03/26 23:24:12 by abrabant         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,12 @@
 
 /* abstraction */
 typedef void *t_string;
+
+/*
+** Create a new empty t_string object with a defined capacity.
+*/
+
+t_string		ft_string_new(size_t capacity);
 
 /*
 ** Create a new t_string object, using a null terminated C-string for
@@ -121,6 +127,8 @@ int				ft_string_findsubset(t_string str, t_string subset);
 */
 
 t_string		ft_string_subset(t_string str, size_t low, size_t high);
+
+t_string		ft_string_split(t_string str, const char *sep);
 
 /*
 ** Get the number of characters in the string

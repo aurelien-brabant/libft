@@ -6,7 +6,7 @@
 #    By: abrabant <abrabant@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/09/30 15:22:25 by abrabant          #+#    #+#              #
-#    Updated: 2021/03/26 21:10:11 by abrabant         ###   ########.fr        #
+#    Updated: 2021/03/26 23:23:07 by abrabant         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -99,7 +99,8 @@ STRING					= ft_string_new_fill.c ft_string_output.c			\
 						  ft_string_capacity.c ft_string_reserve.c			\
 						  ft_string_replacechar.c ft_string_findchar.c		\
 						  ft_string_findcsubset.c ft_string_findsubset.c	\
-						  ft_string_subset.c
+						  ft_string_subset.c ft_string_split.c				\
+						  ft_string_new.c
 
 STACK					= ft_stack_new.c ft_stack_destroy.c ft_stack_push.c	\
 						  ft_stack_pop.c ft_stack_peek.c ft_stack_isempty.c	\
