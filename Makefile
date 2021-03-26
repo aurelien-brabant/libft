@@ -6,7 +6,7 @@
 #    By: abrabant <abrabant@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/09/30 15:22:25 by abrabant          #+#    #+#              #
-#    Updated: 2021/03/26 18:35:18 by abrabant         ###   ########.fr        #
+#    Updated: 2021/03/26 21:10:11 by abrabant         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -138,8 +138,8 @@ install:
 # Test the libft
 
 norm:
-	norminette ./src
-	norminette ./include
+	@norminette ./src
+	@norminette ./include
 
 test: $(NAME)
 	@make re -C test
