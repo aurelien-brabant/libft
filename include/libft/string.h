@@ -6,7 +6,7 @@
 /*   By: abrabant <abrabant@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/25 13:41:21 by abrabant          #+#    #+#             */
-/*   Updated: 2021/03/26 00:09:03 by abrabant         ###   ########.fr       */
+/*   Updated: 2021/03/26 12:29:59 by abrabant         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -97,6 +97,23 @@ void			ft_string_replacechar(t_string str, const char orig,
 int				ft_string_findchar(t_string str, const char c);
 
 /*
+** Find if str contains a given subset, represented as a traditional C
+** string, null terminated.
+** The index of the first char of the subset in str is returned if subset
+** is found, -1 otherwise.
+*/
+
+int				ft_string_findcsubset(t_string str, const char *subset);
+
+/*
+** Find if str contains a given subset, represented as a t_string object.
+** The index of the first char of the subset in str is returned if subset
+** is found, -1 otherwise.
+*/
+
+int				ft_string_findsubset(t_string str, t_string subset);
+
+/*
 ** Get the number of characters in the string
 */
 
@@ -109,7 +126,7 @@ size_t			ft_string_length(t_string str);
 size_t			ft_string_size(t_string str);
 
 /*
-** Return the allocated storage (in bytes) for the str
+** Return the allocated storage (in bytes) for str.
 */
 
 size_t			ft_string_capacity(t_string str);

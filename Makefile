@@ -6,7 +6,7 @@
 #    By: abrabant <abrabant@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/09/30 15:22:25 by abrabant          #+#    #+#              #
-#    Updated: 2021/03/26 00:59:07 by abrabant         ###   ########.fr        #
+#    Updated: 2021/03/26 12:36:32 by abrabant         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -97,7 +97,8 @@ STRING					= ft_string_new_fill.c ft_string_output.c			\
 						  ft_string_append.c ft_string_at.c					\
 						  ft_string_length.c ft_string_size.c				\
 						  ft_string_capacity.c ft_string_reserve.c			\
-						  ft_string_replacechar.c ft_string_findchar.c
+						  ft_string_replacechar.c ft_string_findchar.c		\
+						  ft_string_findcsubset.c ft_string_findsubset.c
 
 
 SRCS					= $(CORE) $(CSTRING) $(CTYPE) $(IO) $(STRCONV)		\

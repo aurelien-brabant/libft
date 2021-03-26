@@ -154,5 +154,56 @@ Test(ft_string, ft_string_findchar)
 	ft_string_destroy(str);
 }
 
+Test(ft_string, ft_string_findcsubset)
+{
+	t_string	str = ft_string_new_cstr("Hello world this is a string");
+	const char	*subset = "this is";
+	const char	*nosub = "strinG";
+	const char	*begsub = "Hello";
+	const char	*endsub = "string";
+	int	ref = 12; 
 
+	/* test with standard subset */
+	cr_expect_eq(ft_string_findcsubset(str, subset), ref);
 
+	/* test with subset at the very beginning */
+	cr_expect_eq(ft_string_findcsubset(str, begsub), 0);
+
+	/* test with subset at the very end */
+	cr_expect_eq(ft_string_findcsubset(str, endsub), 
+			(int)(ft_string_length(str) - strlen(endsub)));
+
+	/* test with missing subset */
+	cr_expect_eq(ft_string_findcsubset(str, nosub), -1);
+
+	ft_string_destroy(str);
+}
+
+Test(ft_string, ft_string_findsubset)
+{
+	t_string	str = ft_string_new_cstr("Hello world this is a string");
+	t_string	subset = ft_string_new_cstr("this is");
+	t_string	nosub = ft_string_new_cstr("strinG");
+	t_string 	begsub = ft_string_new_cstr("Hello");
+	t_string	endsub = ft_string_new_cstr("string");
+	int	ref = 12; 
+
+	/* test with standard subset */
+	cr_expect_eq(ft_string_findsubset(str, subset), ref);
+
+	/* test with subset at the very beginning */
+	cr_expect_eq(ft_string_findsubset(str, begsub), 0);
+
+	/* test with subset at the very end */
+	cr_expect_eq(ft_string_findsubset(str, endsub), 
+			(int)(ft_string_length(str) - ft_string_length(endsub)));
+
+	/* test with missing subset */
+	cr_expect_eq(ft_string_findcsubset(str, nosub), -1);
+
+	ft_string_destroy(str);
+	ft_string_destroy(subset);
+	ft_string_destroy(nosub);
+	ft_string_destroy(begsub);
+	ft_string_destroy(endsub);
+}
