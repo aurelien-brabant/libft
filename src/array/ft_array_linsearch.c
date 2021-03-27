@@ -6,7 +6,7 @@
 /*   By: abrabant <abrabant@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/21 17:08:27 by abrabant          #+#    #+#             */
-/*   Updated: 2021/03/21 20:06:33 by abrabant         ###   ########.fr       */
+/*   Updated: 2021/03/27 13:17:33 by abrabant         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 int	ft_array_linsearch(t_array_int *a, void *ref, int cmp(void *ref, void *el))
 {
-	int		i;
+	size_t	i;
 	void	*tmp;
 
 	i = 0;

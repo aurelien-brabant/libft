@@ -6,7 +6,7 @@
 /*   By: abrabant <abrabant@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/22 23:09:46 by abrabant          #+#    #+#             */
-/*   Updated: 2021/03/24 18:30:15 by abrabant         ###   ########.fr       */
+/*   Updated: 2021/03/27 13:20:41 by abrabant         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,7 @@ static	t_array	get_new_array(t_array a1)
 ** for them.
 */
 
-static void	handle_ret_zero(t_array_int **arrs, int *iter,
+static void	handle_ret_zero(t_array_int **arrs, size_t *iter,
 		int (*cmp)(void *el1, void *el2))
 {
 	void	*tmp;
@@ -56,7 +56,7 @@ static void	handle_ret_zero(t_array_int **arrs, int *iter,
 t_array	ft_array_sinter(t_array a1, t_array a2,
 		int (*cmp)(void *el1, void *el2))
 {
-	int				iter[2];
+	size_t			iter[2];
 	t_array_int		*arrs[3];
 	int				ret;
 

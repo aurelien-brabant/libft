@@ -6,7 +6,7 @@
 /*   By: abrabant <abrabant@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/21 14:36:53 by abrabant          #+#    #+#             */
-/*   Updated: 2021/03/21 18:06:36 by abrabant         ###   ########.fr       */
+/*   Updated: 2021/03/27 13:16:55 by abrabant         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,8 @@
 
 int	ft_array_foreach(t_array_int *a, int (*fn)(), void *data)
 {
-	int	i;
-	int	ret;
+	size_t	i;
+	size_t	ret;
 
 	i = 0;
 	while (i < a->length)

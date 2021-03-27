@@ -38,10 +38,10 @@ Test(ft_array, test_array_core)
 	int		el[] = { 1, 2, 3, 4, 5 };
 
 	a = ft_array_new(sizeof (el) / sizeof (int));
-	for (int i = 0; i < ft_array_get_size(a); ++i) {
+	for (size_t i = 0; i < ft_array_get_size(a); ++i) {
 		ft_array_append(a, &el[i]);
 	}
-	for (int i = 0; i < ft_array_get_size(a); ++i) {
+	for (size_t i = 0; i < ft_array_get_size(a); ++i) {
 		cr_expect_eq(*(int *)ft_array_get(a, i), el[i]);
 	}
 	ft_array_destroy(a, NULL);
@@ -53,10 +53,10 @@ Test(ft_array, test_array_delete)
 	int		el[] = { 1, 2, 3, 4, 5 };
 
 	a = ft_array_new(sizeof (el) / sizeof (int));
-	for (int i = 0; i < ft_array_get_size(a); ++i) {
+	for (size_t i = 0; i < ft_array_get_size(a); ++i) {
 		ft_array_append(a, &el[i]);
 	}
-	for (int i = 0; i < ft_array_get_length(a) - 1;) {
+	for (size_t i = 0; i < ft_array_get_length(a) - 1;) {
 		ft_array_delete(a, i, NULL);
 	}
 	cr_expect_eq(*(int *)ft_array_get(a, 0), el[4]);
@@ -69,11 +69,11 @@ Test(ft_array, test_array_delete_fn)
 	char	*el[] = { "str1", "str2", "str3", "str4", "str5" };
 
 	a = ft_array_new(sizeof (el) / sizeof (char *));
-	for (int i = 0; i < ft_array_get_size(a); ++i) {
+	for (size_t i = 0; i < ft_array_get_size(a); ++i) {
 		ft_array_append(a, strdup(el[i]));
 	}
 	/* Delete every element expect the last */
-	for (int i = 0; i < ft_array_get_length(a) - 1;) {
+	for (size_t i = 0; i < ft_array_get_length(a) - 1;) {
 		ft_array_delete(a, i, &free);
 	}
 	cr_expect_str_eq(ft_array_get(a, 0), el[4]);
@@ -94,17 +94,17 @@ Test(ft_array, test_array_insert)
 	int		actual;
 
 	a = ft_array_new(sizeof (el) / sizeof (int));
-	for (int i = 0; i < ft_array_get_size(a); ++i) {
+	for (size_t i = 0; i < ft_array_get_size(a); ++i) {
 		ft_array_append(a, &el[i]);
 	}
 	ft_array_insert(a, &inserted, 0);
 	ft_array_insert(a, &inserted, 2);
 	ft_array_insert(a, &inserted, ft_array_get_length(a));
 
-	int expected_size = sizeof (expected) / sizeof (int); 
-	for (int i = 0; i < expected_size ; ++i) {
+	size_t expected_size = sizeof (expected) / sizeof (int); 
+	for (size_t i = 0; i < expected_size ; ++i) {
 		actual = *(int *)ft_array_get(a, i);
-		cr_expect_eq(actual, expected[i], "for i == %d (%d != %d)\n", i, actual, expected[i]);
+		cr_expect_eq(actual, expected[i], "for i == %ld (%d != %d)\n", i, actual, expected[i]);
 	}
 	ft_array_destroy(a, NULL);
 }
@@ -120,11 +120,11 @@ Test(ft_array, test_array_set)
 	int		set = -1;
 
 	a = ft_array_new(sizeof (el) / sizeof (int));
-	for (int i = 0; i < ft_array_get_size(a); ++i) {
+	for (size_t i = 0; i < ft_array_get_size(a); ++i) {
 		ft_array_append(a, &el[i]);
 		ft_array_set(a, &set, i);
 	}
-	for (int i = 0; i < ft_array_get_size(a); ++i) {
+	for (size_t i = 0; i < ft_array_get_size(a); ++i) {
 		cr_expect_eq(*(int *)ft_array_get(a, i), set);
 	}
 	ft_array_destroy(a, NULL);
@@ -151,16 +151,16 @@ Test(ft_array, test_array_sub)
 	a = ft_array_new(sizeof (el) / sizeof (int));
 	sub = ft_array_new(sizeof (subset) / sizeof (int));
 	/* Populate a */
-	for (int i = 0; i < ft_array_get_size(a); ++i) {
+	for (size_t i = 0; i < ft_array_get_size(a); ++i) {
 		ft_array_append(a, &el[i]);
 	}
 	/* Populate sub */
-	for (int i = 0; i < ft_array_get_size(sub); ++i) {
+	for (size_t i = 0; i < ft_array_get_size(sub); ++i) {
 		ft_array_append(sub, &subset[i]);
 	}
 	subed = ft_array_sub(a, sub, &cmp_uint);
 	/* Test subed array */
-	for (int i = 0; i < (int)(sizeof (expected) / sizeof (int)); ++i) {
+	for (size_t i = 0; i < (int)(sizeof (expected) / sizeof (int)); ++i) {
 		cr_expect_eq(*(int *)ft_array_get(subed, i), expected[i]);
 	}
 	ft_array_destroy(a, NULL);
@@ -179,14 +179,14 @@ int	add_to_sum(void *el, int i, void *actual)
 
 Test(ft_array, test_array_foreach)
 {
-	int	el[] = { 1, 2, 3, 4, 5, 6, 7, 8 };
-	int	sum_up_to = sizeof(el) / sizeof (int);
-	int	sum = (sum_up_to * (sum_up_to + 1)) / 2;
-	int	actual = 0;
+	int		el[] = { 1, 2, 3, 4, 5, 6, 7, 8 };
+	size_t	sum_up_to = sizeof(el) / sizeof (int);
+	int		sum = (sum_up_to * (sum_up_to + 1)) / 2;
+	int		actual = 0;
 	t_array	a;
 
 	a = ft_array_new(sum_up_to);
-	for (int i = 0; i < sum_up_to; ++i) {
+	for (size_t i = 0; i < sum_up_to; ++i) {
 		ft_array_append(a, &el[i]);
 	}
 	ft_array_foreach(a, &add_to_sum, &actual);
@@ -215,16 +215,16 @@ Test(ft_array, test_array_inter)
 	a = ft_array_new(sizeof (el) / sizeof (int));
 	sub = ft_array_new(sizeof (subset) / sizeof (int));
 	/* Populate a */
-	for (int i = 0; i < ft_array_get_size(a); ++i) {
+	for (size_t i = 0; i < ft_array_get_size(a); ++i) {
 		ft_array_append(a, &el[i]);
 	}
 	/* Populate sub */
-	for (int i = 0; i < ft_array_get_size(sub); ++i) {
+	for (size_t i = 0; i < ft_array_get_size(sub); ++i) {
 		ft_array_append(sub, &subset[i]);
 	}
 	subed = ft_array_inter(a, sub, &cmp_uint);
 	/* Test subed array */
-	for (int i = 0; i < (int)(sizeof (expected) / sizeof (int)); ++i) {
+	for (size_t i = 0; i < (int)(sizeof (expected) / sizeof (int)); ++i) {
 		cr_expect_eq(*(int *)ft_array_get(subed, i), expected[i]);
 	}
 	ft_array_destroy(a, NULL);
@@ -253,16 +253,16 @@ Test(ft_array, test_array_union)
 	a = ft_array_new(sizeof (el) / sizeof (int));
 	sub = ft_array_new(sizeof (subset) / sizeof (int));
 	/* Populate a */
-	for (int i = 0; i < ft_array_get_size(a); ++i) {
+	for (size_t i = 0; i < ft_array_get_size(a); ++i) {
 		ft_array_append(a, &el[i]);
 	}
 	/* Populate sub */
-	for (int i = 0; i < ft_array_get_size(sub); ++i) {
+	for (size_t i = 0; i < ft_array_get_size(sub); ++i) {
 		ft_array_append(sub, &subset[i]);
 	}
 	_union = ft_array_union(a, sub, &cmp_uint);
 	/* Test _union array */
-	for (int i = 0; i < (int)(sizeof (expected) / sizeof (int)); ++i) {
+	for (size_t i = 0; i < (int)(sizeof (expected) / sizeof (int)); ++i) {
 		cr_expect_eq(*(int *)ft_array_get(_union, i), expected[i]);
 	}
 	ft_array_destroy(a, NULL);
@@ -287,12 +287,12 @@ Test(ft_array, test_array_dup)
 
 	a = ft_array_new(sizeof (el) / sizeof (int));
 	/* Populate a */
-	for (int i = 0; i < ft_array_get_size(a); ++i) {
+	for (size_t i = 0; i < ft_array_get_size(a); ++i) {
 		ft_array_append(a, &el[i]);
 	}
 	dup = ft_array_dup(a);
 	/* Test dup array */
-	for (int i = 0; i < ft_array_get_length(dup); ++i) {
+	for (size_t i = 0; i < ft_array_get_length(dup); ++i) {
 		cr_expect_eq(*(int *)ft_array_get(dup, i), el[i]);
 	}
 	ft_array_destroy(a, NULL);
@@ -320,16 +320,16 @@ Test(ft_array, test_array_concat)
 	a = ft_array_new(sizeof (el) / sizeof (int));
 	sub = ft_array_new(sizeof (subset) / sizeof (int));
 	/* Populate a */
-	for (int i = 0; i < ft_array_get_size(a); ++i) {
+	for (size_t i = 0; i < ft_array_get_size(a); ++i) {
 		ft_array_append(a, &el[i]);
 	}
 	/* Populate sub */
-	for (int i = 0; i < ft_array_get_size(sub); ++i) {
+	for (size_t i = 0; i < ft_array_get_size(sub); ++i) {
 		ft_array_append(sub, &subset[i]);
 	}
 	concat = ft_array_concat(a, sub);
 	/* Test concat array */
-	for (int i = 0; i < (int)(sizeof (expected) / sizeof (int)); ++i) {
+	for (size_t i = 0; i < (int)(sizeof (expected) / sizeof (int)); ++i) {
 		cr_expect_eq(*(int *)ft_array_get(concat, i), expected[i]);
 	}
 	ft_array_destroy(a, NULL);
@@ -349,11 +349,11 @@ Test(ft_array, test_array_reverse)
 	/* test */
 
 	a = ft_array_new(sizeof (el) / sizeof (int));
-	for (int i = 0; i < ft_array_get_size(a); ++i) {
+	for (size_t i = 0; i < ft_array_get_size(a); ++i) {
 		ft_array_append(a, &el[i]);
 	}
 	ft_array_reverse(a);
-	for (int i = 0; i < ft_array_get_size(a); ++i) {
+	for (size_t i = 0; i < ft_array_get_size(a); ++i) {
 		cr_expect_eq(*(int *)ft_array_get(a, i), expected[i]);
 	}
 	ft_array_destroy(a, NULL);
@@ -372,11 +372,11 @@ Test(ft_array, test_shift_left)
 	/* test */
 
 	a = ft_array_new(sizeof (el) / sizeof (int));
-	for (int i = 0; i < ft_array_get_size(a); ++i) {
+	for (size_t i = 0; i < ft_array_get_size(a); ++i) {
 		ft_array_append(a, &el[i]);
 	}
 	ft_array_shift(a, -1, shift_amount);
-	for (int i = 0; i < ft_array_get_size(a); ++i) {
+	for (size_t i = 0; i < ft_array_get_size(a); ++i) {
 		/* if expected value is zero, it means tha NULL pointer is expected (not the number zero itself) */
 		if (expected[i] == 0)
 			cr_expect_null(ft_array_get(a, i));
@@ -392,18 +392,18 @@ Test(ft_array, test_right_shift)
 {
 	t_array	a;
 
-	int	el[] = { 7, 2, 24, 4, 5 };
-	int	expected[] = { 0, 0, 0, 0, 7 };
-	int	shift_amount = 4;
+	int		el[] = { 7, 2, 24, 4, 5 };
+	int		expected[] = { 0, 0, 0, 0, 7 };
+	size_t	shift_amount = 4;
 
 	/* test */
 
 	a = ft_array_new(sizeof (el) / sizeof (int));
-	for (int i = 0; i < ft_array_get_size(a); ++i) {
+	for (size_t i = 0; i < ft_array_get_size(a); ++i) {
 		ft_array_append(a, &el[i]);
 	}
 	ft_array_shift(a, 1, shift_amount);
-	for (int i = 0; i < ft_array_get_size(a); ++i) {
+	for (size_t i = 0; i < ft_array_get_size(a); ++i) {
 		/* if expected value is zero, it means tha NULL pointer is expected (not the number zero itself) */
 		if (expected[i] == 0)
 			cr_expect_null(ft_array_get(a, i));
@@ -426,11 +426,11 @@ Test(ft_array, test_left_rotate)
 	/* test */
 
 	a = ft_array_new(sizeof (el) / sizeof (int));
-	for (int i = 0; i < ft_array_get_size(a); ++i) {
+	for (size_t i = 0; i < ft_array_get_size(a); ++i) {
 		ft_array_append(a, &el[i]);
 	}
 	ft_array_rotate(a, -1, rot_amount);
-	for (int i = 0; i < ft_array_get_size(a); ++i) {
+	for (size_t i = 0; i < ft_array_get_size(a); ++i) {
 		cr_expect_eq(*(int *)ft_array_get(a, i), expected[i]);
 	}
 	ft_array_destroy(a, NULL);
@@ -449,11 +449,11 @@ Test(ft_array, test_right_rotate)
 	/* test */
 
 	a = ft_array_new(sizeof (el) / sizeof (int));
-	for (int i = 0; i < ft_array_get_size(a); ++i) {
+	for (size_t i = 0; i < ft_array_get_size(a); ++i) {
 		ft_array_append(a, &el[i]);
 	}
 	ft_array_rotate(a, 1, rot_amount);
-	for (int i = 0; i < ft_array_get_size(a); ++i) {
+	for (size_t i = 0; i < ft_array_get_size(a); ++i) {
 		cr_expect_eq(*(int *)ft_array_get(a, i), expected[i]);
 	}
 	ft_array_destroy(a, NULL);
@@ -472,7 +472,7 @@ Test(ft_array, test_linsearch)
 	/* test */
 
 	a = ft_array_new(sizeof (el) / sizeof (int));
-	for (int i = 0; i < ft_array_get_size(a); ++i) {
+	for (size_t i = 0; i < ft_array_get_size(a); ++i) {
 		ft_array_append(a, &el[i]);
 	}
 	/* Test one present value */
@@ -498,7 +498,7 @@ Test(ft_array, test_uniq)
 	/* TEST NOT UNIQ ARRAY */
 
 	a = ft_array_new(sizeof (notuniq) / sizeof (int));
-	for (int i = 0; i < ft_array_get_size(a); ++i) {
+	for (size_t i = 0; i < ft_array_get_size(a); ++i) {
 		ft_array_append(a, &notuniq[i]);
 	}
 	cr_expect_eq(ft_array_uniq(a, &cmp_uint), expected);
@@ -507,7 +507,7 @@ Test(ft_array, test_uniq)
 	/* TEST UNIQ ARRAY */
 
 	a = ft_array_new(sizeof (notuniq) / sizeof (int));
-	for (int i = 0; i < ft_array_get_size(a); ++i) {
+	for (size_t i = 0; i < ft_array_get_size(a); ++i) {
 		ft_array_append(a, &uniq[i]);
 	}
 	expected = -1;
@@ -526,19 +526,19 @@ Test(ft_array, test_sinsert)
 	int		actual;
 
 	a = ft_array_new(sizeof (el) / sizeof (int));
-	for (int i = 0; i < ft_array_get_size(a); ++i) {
+	for (size_t i = 0; i < ft_array_get_size(a); ++i) {
 		ft_array_append(a, &el[i]);
 	}
 
 	/* The array should remain sorted even if insert_set is unsorted */
-	for (int i = 0; i < (int)(sizeof (insert_set) / sizeof (int)); ++i) {
+	for (size_t i = 0; i < (int)(sizeof (insert_set) / sizeof (int)); ++i) {
 		ft_array_sinsert(a, &insert_set[i], &cmp_uint);
 	}
 
-	int expected_size = sizeof (expected) / sizeof (int); 
-	for (int i = 0; i < expected_size ; ++i) {
+	size_t expected_size = sizeof (expected) / sizeof (int); 
+	for (size_t i = 0; i < expected_size ; ++i) {
 		actual = *(int *)ft_array_get(a, i);
-		cr_expect_eq(actual, expected[i], "for i == %d (%d != %d)\n", i, actual, expected[i]);
+		cr_expect_eq(actual, expected[i], "for i == %ld (%d != %d)\n", i, actual, expected[i]);
 	}
 	ft_array_destroy(a, NULL);
 }
@@ -564,16 +564,16 @@ Test(ft_array, test_array_sunion)
 	a = ft_array_new(sizeof (el) / sizeof (int));
 	sub = ft_array_new(sizeof (subset) / sizeof (int));
 	/* Populate a */
-	for (int i = 0; i < ft_array_get_size(a); ++i) {
+	for (size_t i = 0; i < ft_array_get_size(a); ++i) {
 		ft_array_append(a, &el[i]);
 	}
 	/* Populate sub */
-	for (int i = 0; i < ft_array_get_size(sub); ++i) {
+	for (size_t i = 0; i < ft_array_get_size(sub); ++i) {
 		ft_array_append(sub, &subset[i]);
 	}
 	_union = ft_array_sunion(a, sub, &cmp_uint);
 	/* Test _union array */
-	for (int i = 0; i < (int)(sizeof (expected) / sizeof (int)); ++i) {
+	for (size_t i = 0; i < (int)(sizeof (expected) / sizeof (int)); ++i) {
 		cr_expect_eq(*(int *)ft_array_get(_union, i), expected[i]);
 	}
 	ft_array_destroy(a, NULL);
@@ -602,16 +602,16 @@ Test(ft_array, test_array_sinter)
 	a = ft_array_new(sizeof (el) / sizeof (int));
 	sub = ft_array_new(sizeof (subset) / sizeof (int));
 	/* Populate a */
-	for (int i = 0; i < ft_array_get_size(a); ++i) {
+	for (size_t i = 0; i < ft_array_get_size(a); ++i) {
 		ft_array_append(a, &el[i]);
 	}
 	/* Populate sub */
-	for (int i = 0; i < ft_array_get_size(sub); ++i) {
+	for (size_t i = 0; i < ft_array_get_size(sub); ++i) {
 		ft_array_append(sub, &subset[i]);
 	}
 	subed = ft_array_sinter(a, sub, &cmp_uint);
 	/* Test subed array */
-	for (int i = 0; i < (int)(sizeof (expected) / sizeof (int)); ++i) {
+	for (size_t i = 0; i < (int)(sizeof (expected) / sizeof (int)); ++i) {
 		cr_expect_eq(*(int *)ft_array_get(subed, i), expected[i]);
 	}
 	ft_array_destroy(a, NULL);
@@ -640,16 +640,16 @@ Test(ft_array, test_array_ssub)
 	a = ft_array_new(sizeof (el) / sizeof (int));
 	sub = ft_array_new(sizeof (subset) / sizeof (int));
 	/* Populate a */
-	for (int i = 0; i < ft_array_get_size(a); ++i) {
+	for (size_t i = 0; i < ft_array_get_size(a); ++i) {
 		ft_array_append(a, &el[i]);
 	}
 	/* Populate sub */
-	for (int i = 0; i < ft_array_get_size(sub); ++i) {
+	for (size_t i = 0; i < ft_array_get_size(sub); ++i) {
 		ft_array_append(sub, &subset[i]);
 	}
 	subed = ft_array_ssub(a, sub, &cmp_uint);
 	/* Test subed array */
-	for (int i = 0; i < (int)(sizeof (expected) / sizeof (int)); ++i) {
+	for (size_t i = 0; i < (int)(sizeof (expected) / sizeof (int)); ++i) {
 		cr_expect_eq(*(int *)ft_array_get(subed, i), expected[i]);
 	}
 	ft_array_destroy(a, NULL);
@@ -678,16 +678,16 @@ Test(ft_array, test_array_merge)
 	a = ft_array_new(sizeof (el) / sizeof (int));
 	sub = ft_array_new(sizeof (el2) / sizeof (int));
 	/* Populate a */
-	for (int i = 0; i < ft_array_get_size(a); ++i) {
+	for (size_t i = 0; i < ft_array_get_size(a); ++i) {
 		ft_array_append(a, &el[i]);
 	}
 	/* Populate sub */
-	for (int i = 0; i < ft_array_get_size(sub); ++i) {
+	for (size_t i = 0; i < ft_array_get_size(sub); ++i) {
 		ft_array_append(sub, &el2[i]);
 	}
 	merged = ft_array_merge(a, sub, &cmp_uint);
 	/* Test merged array */
-	for (int i = 0; i < (int)(sizeof (expected) / sizeof (int)); ++i) {
+	for (size_t i = 0; i < (int)(sizeof (expected) / sizeof (int)); ++i) {
 		cr_expect_eq(*(int *)ft_array_get(merged, i), expected[i]);
 	}
 	ft_array_destroy(a, NULL);
@@ -708,7 +708,7 @@ Test(ft_array, test_binsearch)
 	/* test */
 
 	a = ft_array_new(sizeof (el) / sizeof (int));
-	for (int i = 0; i < ft_array_get_size(a); ++i) {
+	for (size_t i = 0; i < ft_array_get_size(a); ++i) {
 		ft_array_append(a, &el[i]);
 	}
 	/* Test one present value */
@@ -734,7 +734,7 @@ Test(ft_array, test_suniq)
 	/* TEST NOT UNIQ ARRAY */
 
 	a = ft_array_new(sizeof (notuniq) / sizeof (int));
-	for (int i = 0; i < ft_array_get_size(a); ++i) {
+	for (size_t i = 0; i < ft_array_get_size(a); ++i) {
 		ft_array_append(a, &notuniq[i]);
 	}
 	cr_expect_eq(ft_array_suniq(a, &cmp_uint), expected);
@@ -743,7 +743,7 @@ Test(ft_array, test_suniq)
 	/* TEST UNIQ ARRAY */
 
 	a = ft_array_new(sizeof (notuniq) / sizeof (int));
-	for (int i = 0; i < ft_array_get_size(a); ++i) {
+	for (size_t i = 0; i < ft_array_get_size(a); ++i) {
 		ft_array_append(a, &uniq[i]);
 	}
 	expected = -1;
@@ -760,7 +760,7 @@ Test(ft_array, test_issorted)
 	int	expected = true;
 
 	a = ft_array_new(sizeof (sorted) / sizeof (int));
-	for (int i = 0; i < ft_array_get_size(a); ++i) {
+	for (size_t i = 0; i < ft_array_get_size(a); ++i) {
 		ft_array_append(a, &sorted[i]);
 	}
 	cr_expect_eq(ft_array_issorted(a, &cmp_uint), expected);
@@ -768,7 +768,7 @@ Test(ft_array, test_issorted)
 
 
 	a = ft_array_new(sizeof (unsorted) / sizeof (int));
-	for (int i = 0; i < ft_array_get_size(a); ++i) {
+	for (size_t i = 0; i < ft_array_get_size(a); ++i) {
 		ft_array_append(a, &unsorted[i]);
 	}
 	expected = false;

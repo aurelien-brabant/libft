@@ -6,7 +6,7 @@
 /*   By: abrabant <abrabant@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/21 12:30:11 by abrabant          #+#    #+#             */
-/*   Updated: 2021/03/24 21:27:22 by abrabant         ###   ########.fr       */
+/*   Updated: 2021/03/27 13:29:34 by abrabant         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,9 +52,9 @@ void	ft_array_set(t_array a, void *el, int i);
 
 void	*ft_array_get(t_array a, int i);
 
-int		ft_array_get_length(t_array a);
+size_t	ft_array_get_length(t_array a);
 
-int		ft_array_get_size(t_array a);
+size_t	ft_array_get_size(t_array a);
 
 /*
 ** Duplicates an array.
@@ -199,7 +199,7 @@ bool	ft_array_issorted(t_array a, int (*cmp)(void *el1, void *el2));
 ** Time complexity: O(n)
 */
 
-void	ft_array_shift(t_array a, char shiftdir, int offset);
+void	ft_array_shift(t_array a, char shiftdir, size_t offset);
 
 /*
 ** Rotate the array in left or right direction.
@@ -219,7 +219,7 @@ void	ft_array_shift(t_array a, char shiftdir, int offset);
 ** for the rotate capability in general.
 */
 
-void	ft_array_rotate(t_array a, char rotatedir, int offset);
+void	ft_array_rotate(t_array a, char rotatedir, size_t offset);
 
 /*
 ** NOTE: this searching method should not be used if you want the order of

@@ -6,15 +6,15 @@
 /*   By: abrabant <abrabant@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/22 14:09:41 by abrabant          #+#    #+#             */
-/*   Updated: 2021/03/22 15:10:15 by abrabant         ###   ########.fr       */
+/*   Updated: 2021/03/27 13:31:33 by abrabant         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft/internal/array_int.h"
 
-static void	left_shift(t_array_int *a, int offset)
+static void	left_shift(t_array_int *a, size_t offset)
 {
-	int	i;
+	size_t	i;
 
 	i = offset;
 	while (i < a->length)
@@ -29,9 +29,9 @@ static void	left_shift(t_array_int *a, int offset)
 	}
 }
 
-static void	right_shift(t_array_int *a, int offset)
+static void	right_shift(t_array_int *a, size_t offset)
 {
-	int	i;
+	size_t	i;
 
 	i = a->length - 1;
 	while (i >= offset)
@@ -39,13 +39,12 @@ static void	right_shift(t_array_int *a, int offset)
 		a->array[i] = a->array[i - offset];
 		--i;
 	}
-	while (i >= 0)
-	{
+	while (i > 0)
 		a->array[i--] = 0;
-	}
+	a->array[i] = 0;
 }
 
-void	ft_array_shift(t_array_int *a, char shiftdir, int offset)
+void	ft_array_shift(t_array_int *a, char shiftdir, size_t offset)
 {
 	if (shiftdir == -1)
 	{

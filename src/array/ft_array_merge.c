@@ -6,7 +6,7 @@
 /*   By: abrabant <abrabant@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/22 19:54:15 by abrabant          #+#    #+#             */
-/*   Updated: 2021/03/24 21:20:19 by abrabant         ###   ########.fr       */
+/*   Updated: 2021/03/27 13:18:48 by abrabant         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,9 +31,9 @@ t_array	ft_array_merge(t_array a1, t_array a2,
 		int (*cmp)(void *el1, void *el2))
 {
 	t_array_int	*new;
-	int			i;
-	int			j;
-	int			k;
+	size_t		i;
+	size_t		j;
+	size_t		k;
 
 	i = 0;
 	j = 0;
