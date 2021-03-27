@@ -6,7 +6,7 @@
 /*   By: abrabant <abrabant@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/26 18:17:25 by abrabant          #+#    #+#             */
-/*   Updated: 2021/03/26 18:26:19 by abrabant         ###   ########.fr       */
+/*   Updated: 2021/03/27 14:57:17 by abrabant         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,5 +16,5 @@
 
 bool	ft_stack_isempty(t_stack_int *stack)
 {
-	return (ft_array_get_length(stack->data) == 0);
+	return (ft_array_length(stack->data) == 0);
 }

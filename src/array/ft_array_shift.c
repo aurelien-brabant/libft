@@ -6,7 +6,7 @@
 /*   By: abrabant <abrabant@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/22 14:09:41 by abrabant          #+#    #+#             */
-/*   Updated: 2021/03/27 14:33:55 by abrabant         ###   ########.fr       */
+/*   Updated: 2021/03/27 15:06:10 by abrabant         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,9 +24,7 @@ static void	left_shift(t_array_int *a, size_t offset)
 	}
 	i -= offset;
 	while (i < a->length)
-	{
 		a->array[i++] = 0;
-	}
 }
 
 static void	right_shift(t_array_int *a, size_t offset)

@@ -120,7 +120,7 @@ Test(ft_string, ft_string_reserve)
 	cr_expect_eq(ft_string_capacity(str), 50);
 
 	/* Attempt to write on reserved spaces, just to ensure the space is allocated */
-	for (int i = 10; i < 50; ++i) {
+	for (size_t i = 10; i < 50; ++i) {
 		*ft_string_at(str, i) = 0;
 	}
 
@@ -235,7 +235,7 @@ Test(ft_string, ft_string_split)
 
 	/* Test standard split with many separators */
 	t_array		split = ft_string_split(str, "@|");
-	for (int i = 0; i < ft_array_get_length(split); ++i)
+	for (size_t i = 0; i < ft_array_length(split); ++i)
 		ft_string_append(joined, ft_array_get(split, i));
 	actual = ft_string_tocstring(joined);
 	cr_expect_str_eq(actual, expected);
@@ -291,7 +291,3 @@ Test(ft_string, ft_string_cmp)
 	ft_string_destroy(str1);
 	ft_string_destroy(str2);
 }
-
-
-
-

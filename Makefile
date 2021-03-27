@@ -6,7 +6,7 @@
 #    By: abrabant <abrabant@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/09/30 15:22:25 by abrabant          #+#    #+#              #
-#    Updated: 2021/03/27 14:51:22 by abrabant         ###   ########.fr        #
+#    Updated: 2021/03/27 14:56:43 by abrabant         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -84,7 +84,7 @@ ARRAY					= ft_array_new.c ft_array_append.c					\
 						ft_array_inter.c ft_array_sinter.c					\
 						ft_array_sub.c ft_array_ssub.c						\
 						ft_array_uniq.c	ft_array_suniq.c					\
-						ft_array_get_length.c ft_array_get_size.c			\
+						ft_array_length.c ft_array_size.c					\
 						ft_array_int_resize.c ft_array_capacity.c
 
 CLA						= ft_cla_init.c ft_cla_str_var.c ft_cla_int_var.c	\

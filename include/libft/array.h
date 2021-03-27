@@ -6,7 +6,7 @@
 /*   By: abrabant <abrabant@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/21 12:30:11 by abrabant          #+#    #+#             */
-/*   Updated: 2021/03/27 14:50:37 by abrabant         ###   ########.fr       */
+/*   Updated: 2021/03/27 14:54:25 by abrabant         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,9 +52,9 @@ void	ft_array_set(t_array a, void *el, int i);
 
 void	*ft_array_get(t_array a, int i);
 
-size_t	ft_array_get_length(t_array a);
+size_t	ft_array_length(t_array a);
 
-size_t	ft_array_get_size(t_array a);
+size_t	ft_array_size(t_array a);
 
 size_t	ft_array_capacity(t_array a);
 

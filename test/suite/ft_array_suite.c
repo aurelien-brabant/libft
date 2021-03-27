@@ -56,7 +56,7 @@ Test(ft_array, test_array_delete)
 	for (size_t i = 0; i < ft_array_capacity(a); ++i) {
 		ft_array_append(a, &el[i]);
 	}
-	for (size_t i = 0; i < ft_array_get_length(a) - 1;) {
+	for (size_t i = 0; i < ft_array_length(a) - 1;) {
 		ft_array_delete(a, i, NULL);
 	}
 	cr_expect_eq(*(int *)ft_array_get(a, 0), el[4]);
@@ -73,7 +73,7 @@ Test(ft_array, test_array_delete_fn)
 		ft_array_append(a, strdup(el[i]));
 	}
 	/* Delete every element expect the last */
-	for (size_t i = 0; i < ft_array_get_length(a) - 1;) {
+	for (size_t i = 0; i < ft_array_length(a) - 1;) {
 		ft_array_delete(a, i, &free);
 	}
 	cr_expect_str_eq(ft_array_get(a, 0), el[4]);
@@ -99,7 +99,7 @@ Test(ft_array, test_array_insert)
 	}
 	ft_array_insert(a, &inserted, 0);
 	ft_array_insert(a, &inserted, 2);
-	ft_array_insert(a, &inserted, ft_array_get_length(a));
+	ft_array_insert(a, &inserted, ft_array_length(a));
 
 	size_t expected_size = sizeof (expected) / sizeof (int); 
 	for (size_t i = 0; i < expected_size ; ++i) {
@@ -292,7 +292,7 @@ Test(ft_array, test_array_dup)
 	}
 	dup = ft_array_dup(a);
 	/* Test dup array */
-	for (size_t i = 0; i < ft_array_get_length(dup); ++i) {
+	for (size_t i = 0; i < ft_array_length(dup); ++i) {
 		cr_expect_eq(*(int *)ft_array_get(dup, i), el[i]);
 	}
 	ft_array_destroy(a, NULL);

@@ -6,7 +6,7 @@
 /*   By: abrabant <abrabant@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/26 17:06:39 by abrabant          #+#    #+#             */
-/*   Updated: 2021/03/26 17:14:24 by abrabant         ###   ########.fr       */
+/*   Updated: 2021/03/27 14:55:54 by abrabant         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ void	*ft_stack_pop(t_stack_int *stack)
 	int		arr_length;
 	void	*el;
 
-	arr_length = ft_array_get_length(stack->data);
+	arr_length = ft_array_length(stack->data);
 	if (arr_length == 0)
 		return (NULL);
 	el = ft_array_get(stack->data, arr_length - 1);
