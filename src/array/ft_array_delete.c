@@ -6,15 +6,15 @@
 /*   By: abrabant <abrabant@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/21 15:55:15 by abrabant          #+#    #+#             */
-/*   Updated: 2021/03/24 20:45:33 by abrabant         ###   ########.fr       */
+/*   Updated: 2021/03/27 15:11:05 by abrabant         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft/internal/array_int.h"
 
-void	ft_array_delete(t_array_int *a, int index, void (*fn)(void *el))
+void	ft_array_delete(t_array_int *a, size_t index, void (*fn)(void *el))
 {
-	int	i;
+	size_t	i;
 
 	i = a->length - 1;
 	if (fn != NULL)

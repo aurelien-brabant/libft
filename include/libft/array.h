@@ -6,7 +6,7 @@
 /*   By: abrabant <abrabant@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/21 12:30:11 by abrabant          #+#    #+#             */
-/*   Updated: 2021/03/27 14:54:25 by abrabant         ###   ########.fr       */
+/*   Updated: 2021/03/27 15:10:36 by abrabant         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@
 
 typedef void *t_array; /* abstraction */
 
-t_array	*ft_array_new(int size);
+t_array	*ft_array_new(int capacity);
 
 /*
 ** Append the element el to the end of the array arr.
@@ -40,7 +40,7 @@ void	ft_array_append(t_array a, void *el);
 ** Time complexity: O(1) (in all cases).
 */
 
-void	ft_array_set(t_array a, void *el, int i);
+void	ft_array_set(t_array a, void *el, size_t index);
 
 /*
 ** Get the element at index i of a.
@@ -50,7 +50,7 @@ void	ft_array_set(t_array a, void *el, int i);
 ** Time complexity: O(1) (in all cases).
 */
 
-void	*ft_array_get(t_array a, int i);
+void	*ft_array_get(t_array a, size_t index);
 
 size_t	ft_array_length(t_array a);
 
@@ -167,7 +167,7 @@ t_array	ft_array_ssub(t_array a1, t_array a2, int (*cmp)(void *, void *));
 ** perform the insert operation, but the time complexity will never exceed O(n).
 */
 
-void	ft_array_insert(t_array a, void *el, int i);
+void	ft_array_insert(t_array a, void *el, size_t index);
 
 /*
 ** Insert an element in a sorted array. Useful if keeping an array sorted
@@ -287,7 +287,7 @@ int		ft_array_suniq(t_array a, int cmp(void *, void *));
 ** the total size of the array will lead to higher time complexity.
 */
 
-void	ft_array_delete(t_array a, int i, void (*fn)(void *el));
+void	ft_array_delete(t_array a, size_t i, void (*fn)(void *el));
 
 /*
 ** Reverse the order of the elements in the array

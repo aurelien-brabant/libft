@@ -6,7 +6,7 @@
 /*   By: abrabant <abrabant@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/21 15:13:39 by abrabant          #+#    #+#             */
-/*   Updated: 2021/03/27 14:31:17 by abrabant         ###   ########.fr       */
+/*   Updated: 2021/03/27 15:10:13 by abrabant         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,14 +15,12 @@
 #include "libft/cstring.h"
 #include "libft/internal/array_int.h"
 
-void	ft_array_insert(t_array_int *a, void *el, int index)
+void	ft_array_insert(t_array_int *a, void *el, size_t index)
 {
-	int	i;
+	size_t	i;
 
 	if (a->length == a->capacity)
-	{
 		ft_array_int_resize(a);
-	}
 	i = a->length;
 	while (i > index)
 	{
