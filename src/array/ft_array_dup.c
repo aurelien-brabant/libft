@@ -6,7 +6,7 @@
 /*   By: abrabant <abrabant@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/22 18:23:16 by abrabant          #+#    #+#             */
-/*   Updated: 2021/03/22 18:32:11 by abrabant         ###   ########.fr       */
+/*   Updated: 2021/03/27 14:30:54 by abrabant         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ t_array	ft_array_dup(t_array a)
 {
 	t_array_int	*new;
 
-	new = (t_array_int *)ft_array_new(((t_array_int *)a)->size);
+	new = (t_array_int *)ft_array_new(((t_array_int *)a)->capacity);
 	if (new == NULL)
 	{
 		return (NULL);

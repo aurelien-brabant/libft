@@ -6,7 +6,7 @@
 /*   By: abrabant <abrabant@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/22 19:54:15 by abrabant          #+#    #+#             */
-/*   Updated: 2021/03/27 13:18:48 by abrabant         ###   ########.fr       */
+/*   Updated: 2021/03/27 14:32:05 by abrabant         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,8 +17,8 @@ static	t_array	get_new_array(t_array a1, t_array a2)
 {
 	t_array_int	*new;
 
-	new = (t_array_int *)ft_array_new(((t_array_int *)a1)->size
-			+ ((t_array_int *)a2)->size);
+	new = (t_array_int *)ft_array_new(((t_array_int *)a1)->capacity
+			+ ((t_array_int *)a2)->capacity);
 	if (new == NULL)
 	{
 		return (NULL);

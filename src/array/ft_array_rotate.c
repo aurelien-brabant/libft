@@ -6,7 +6,7 @@
 /*   By: abrabant <abrabant@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/22 15:19:49 by abrabant          #+#    #+#             */
-/*   Updated: 2021/03/24 21:20:44 by abrabant         ###   ########.fr       */
+/*   Updated: 2021/03/27 14:32:54 by abrabant         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,18 +44,14 @@ static void	rotate_one_right(t_array_int *a)
 	a->array[i] = rotated;
 }
 
-void	ft_array_rotate(t_array_int *a, char rotatedir, int offset)
+void	ft_array_rotate(t_array_int *a, char rotatedir, size_t offset)
 {
 	while (offset > 0)
 	{
 		if (rotatedir == -1)
-		{
 			rotate_one_left(a);
-		}
 		if (rotatedir == 1)
-		{
 			rotate_one_right(a);
-		}
 		--offset;
 	}
 }

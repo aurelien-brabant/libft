@@ -6,7 +6,7 @@
 /*   By: abrabant <abrabant@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/22 19:20:53 by abrabant          #+#    #+#             */
-/*   Updated: 2021/03/24 21:19:42 by abrabant         ###   ########.fr       */
+/*   Updated: 2021/03/27 14:30:47 by abrabant         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,8 +18,8 @@ t_array	ft_array_concat(t_array a1, t_array a2)
 {
 	t_array_int	*new;
 
-	new = (t_array_int *)ft_array_new(((t_array_int *)a1)->size
-			+ ((t_array_int *)a2)->size);
+	new = (t_array_int *)ft_array_new(((t_array_int *)a1)->capacity
+			+ ((t_array_int *)a2)->capacity);
 	if (new == NULL)
 	{
 		return (NULL);

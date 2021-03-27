@@ -6,7 +6,7 @@
 /*   By: abrabant <abrabant@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/21 15:13:39 by abrabant          #+#    #+#             */
-/*   Updated: 2021/03/21 18:15:33 by abrabant         ###   ########.fr       */
+/*   Updated: 2021/03/27 14:31:17 by abrabant         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ void	ft_array_insert(t_array_int *a, void *el, int index)
 {
 	int	i;
 
-	if (a->length == a->size)
+	if (a->length == a->capacity)
 	{
 		ft_array_int_resize(a);
 	}

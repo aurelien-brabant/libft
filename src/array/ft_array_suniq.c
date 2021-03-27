@@ -6,7 +6,7 @@
 /*   By: abrabant <abrabant@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/23 15:03:15 by abrabant          #+#    #+#             */
-/*   Updated: 2021/03/24 21:24:30 by abrabant         ###   ########.fr       */
+/*   Updated: 2021/03/27 14:34:41 by abrabant         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,9 +22,7 @@ int	ft_array_suniq(t_array_int *a, int cmp(void *, void *))
 	while (i < high)
 	{
 		if (cmp(a->array[i], a->array[i + 1]) == 0)
-		{
 			return (i + 1);
-		}
 		++i;
 	}
 	return (-1);

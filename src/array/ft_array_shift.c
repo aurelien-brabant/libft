@@ -6,7 +6,7 @@
 /*   By: abrabant <abrabant@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/22 14:09:41 by abrabant          #+#    #+#             */
-/*   Updated: 2021/03/27 13:31:33 by abrabant         ###   ########.fr       */
+/*   Updated: 2021/03/27 14:33:55 by abrabant         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,11 +47,7 @@ static void	right_shift(t_array_int *a, size_t offset)
 void	ft_array_shift(t_array_int *a, char shiftdir, size_t offset)
 {
 	if (shiftdir == -1)
-	{
 		left_shift(a, offset);
-	}
 	else if (shiftdir == 1)
-	{
 		right_shift(a, offset);
-	}
 }

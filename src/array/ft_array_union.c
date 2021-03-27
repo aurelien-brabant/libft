@@ -6,7 +6,7 @@
 /*   By: abrabant <abrabant@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/22 21:57:12 by abrabant          #+#    #+#             */
-/*   Updated: 2021/03/27 13:19:22 by abrabant         ###   ########.fr       */
+/*   Updated: 2021/03/27 14:34:58 by abrabant         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,12 +19,10 @@ t_array	ft_array_union(t_array a1, t_array a2, int (*cmp)(void *, void *))
 	t_array_int	*new;
 	size_t		i;
 
-	new = (t_array_int *)ft_array_new(((t_array_int *)a1)->size
-			+ ((t_array_int *)a2)->size);
+	new = (t_array_int *)ft_array_new(((t_array_int *)a1)->capacity
+			+ ((t_array_int *)a2)->capacity);
 	if (new == NULL)
-	{
 		return (NULL);
-	}
 	ft_memcpy(new->array, ((t_array_int *)a1)->array,
 			sizeof(*new->array) * ((t_array_int *)a1)->length);
 	new->length = ((t_array_int *)a1)->length;

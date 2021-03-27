@@ -6,7 +6,7 @@
 /*   By: abrabant <abrabant@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/22 17:19:28 by abrabant          #+#    #+#             */
-/*   Updated: 2021/03/22 17:40:11 by abrabant         ###   ########.fr       */
+/*   Updated: 2021/03/27 14:34:00 by abrabant         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ void	ft_array_sinsert(t_array_int *a, void *el,
 {
 	int	i;
 
-	if (a->length == a->size)
+	if (a->length == a->capacity)
 	{
 		ft_array_int_resize(a);
 	}

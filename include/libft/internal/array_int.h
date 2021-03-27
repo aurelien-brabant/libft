@@ -6,7 +6,7 @@
 /*   By: abrabant <abrabant@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/21 12:32:39 by abrabant          #+#    #+#             */
-/*   Updated: 2021/03/27 13:16:14 by abrabant         ###   ########.fr       */
+/*   Updated: 2021/03/27 14:30:06 by abrabant         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@
 
 typedef struct s_array
 {
-	size_t	size;
+	size_t	capacity;
 	size_t	length;
 	void	**array;
 }	t_array_int;
