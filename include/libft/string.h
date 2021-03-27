@@ -6,7 +6,7 @@
 /*   By: abrabant <abrabant@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/25 13:41:21 by abrabant          #+#    #+#             */
-/*   Updated: 2021/03/27 00:23:02 by abrabant         ###   ########.fr       */
+/*   Updated: 2021/03/27 02:05:26 by abrabant         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,6 +62,12 @@ char			*ft_string_tocstring(t_string str);
 */
 
 long long		ft_string_btoll(t_string str, unsigned char base);
+
+/*
+** Compare str and str2 lexicographically. Behaves like strcmp(3).
+*/
+
+int				ft_string_cmp(t_string str, t_string str2);
 
 /*
 ** Append the content of str2 to str. The content of str2 is leaved unchanged,

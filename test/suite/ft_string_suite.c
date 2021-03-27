@@ -269,6 +269,28 @@ Test(ft_string, ft_string_btoll)
 	ft_string_destroy(str);
 }
 
+Test(ft_string, ft_string_cmp)
+{
+	t_string	str1 = ft_string_new_cstr("Hello world");
+	t_string	str2 = ft_string_new_cstr("Hello world");
+
+	cr_expect_eq(ft_string_cmp(str1, str2), 0);
+
+	/* change the last character to make str1 less than str2 */
+	*ft_string_at(str1, ft_string_length(str1) - 1) = 'D';
+
+	cr_expect(ft_string_cmp(str1, str2) < 0);
+
+	/* back to normal from last test */
+	*ft_string_at(str1, ft_string_length(str1) - 1) = 'd';
+	/* change the first character of s2 to make it less than str1 */
+	*ft_string_at(str2, 0) = '0';
+
+	cr_expect(ft_string_cmp(str1, str2) > 0);
+
+	ft_string_destroy(str1);
+	ft_string_destroy(str2);
+}
 
 
 
