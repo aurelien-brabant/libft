@@ -6,7 +6,7 @@
 /*   By: abrabant <abrabant@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/26 21:16:16 by abrabant          #+#    #+#             */
-/*   Updated: 2021/03/26 23:09:48 by abrabant         ###   ########.fr       */
+/*   Updated: 2021/03/27 02:24:16 by abrabant         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,6 @@ t_array	ft_string_split(t_string str, const char *sep)
 	if (split == NULL)
 		return (NULL);
 	i = 0;
-
 	while (i < str_int->length)
 	{
 		while (str_int->chrs[i] && ft_strchr(sep, str_int->chrs[i]) != NULL)
