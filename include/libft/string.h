@@ -6,7 +6,7 @@
 /*   By: abrabant <abrabant@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/25 13:41:21 by abrabant          #+#    #+#             */
-/*   Updated: 2021/03/26 23:24:12 by abrabant         ###   ########.fr       */
+/*   Updated: 2021/03/27 00:23:02 by abrabant         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,6 +53,15 @@ int				ft_string_output(t_string str, int fd);
 */
 
 char			*ft_string_tocstring(t_string str);
+
+/*
+** Parse a string into it's integer equivalent, stored in a long long
+** datatype. The string representation can be expressed in a particular base,
+** from base 2 to base 16. The expected charset for a base 16 is
+** "0123456789ABCDEF" or "0123456789abcdef".
+*/
+
+long long		ft_string_btoll(t_string str, unsigned char base);
 
 /*
 ** Append the content of str2 to str. The content of str2 is leaved unchanged,

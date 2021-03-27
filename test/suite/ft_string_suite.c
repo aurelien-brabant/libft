@@ -254,3 +254,22 @@ Test(ft_string, ft_string_split)
 
 	ft_string_destroy(str);
 }
+
+/*
+** Only a simple test is provided, as the logic is the same as in
+** ft_btoll, which already has a complete test suite for itself.
+*/
+
+Test(ft_string, ft_string_btoll)
+{
+	t_string	str = ft_string_new_cstr(" -FF");
+
+	cr_expect_eq(ft_string_btoll(str, 16), -255);
+
+	ft_string_destroy(str);
+}
+
+
+
+
+
