@@ -6,7 +6,7 @@
 /*   By: abrabant <abrabant@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/26 21:16:16 by abrabant          #+#    #+#             */
-/*   Updated: 2021/03/28 22:54:24 by abrabant         ###   ########.fr       */
+/*   Updated: 2021/03/29 01:23:04 by abrabant         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,7 @@ t_array	ft_string_split(t_string str, const char *sep)
 	size_t			beg;
 
 	str_int = (t_string_int *)str;
-	split = ft_array_new(str_int->length / 2);
+	split = ft_array_new(str_int->length / 2 + 1);
 	if (split == NULL)
 		return (NULL);
 	i = 0;
