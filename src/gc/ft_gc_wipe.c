@@ -6,7 +6,7 @@
 /*   By: abrabant <abrabant@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/28 19:21:38 by abrabant          #+#    #+#             */
-/*   Updated: 2021/03/28 19:45:37 by abrabant         ###   ########.fr       */
+/*   Updated: 2021/03/28 22:21:50 by abrabant         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ static int	wipe(void *el, size_t i, void *triggers)
 	return (0);
 }
 
-void ft_gc_wipe(t_gc_int *gc)
+void	ft_gc_wipe(t_gc_int *gc)
 {
 	ft_array_foreach(gc->collector, wipe, gc->triggers);
 	ft_array_set_length(gc->collector, 0);

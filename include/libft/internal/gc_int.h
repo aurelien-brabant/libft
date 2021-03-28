@@ -6,18 +6,17 @@
 /*   By: abrabant <abrabant@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/28 18:42:54 by abrabant          #+#    #+#             */
-/*   Updated: 2021/03/28 18:50:36 by abrabant         ###   ########.fr       */
+/*   Updated: 2021/03/28 22:23:05 by abrabant         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
-#include "libft/array.h"
 
 /*
 ** Garbage collector ADT internals
 */
 
 #ifndef GC_INT_H
-#define GC_INT_H
+# define GC_INT_H
+# include "libft/array.h"
 
 /*
 ** collector contains addresses that points to something that needs to be

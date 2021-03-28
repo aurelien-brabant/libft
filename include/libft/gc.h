@@ -6,7 +6,7 @@
 /*   By: abrabant <abrabant@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/28 18:50:40 by abrabant          #+#    #+#             */
-/*   Updated: 2021/03/28 19:48:48 by abrabant         ###   ########.fr       */
+/*   Updated: 2021/03/28 22:22:14 by abrabant         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ typedef void *t_gc;
 ** Initialize a new garbage collector.
 */
 
-t_gc	ft_gc_new();
+t_gc	ft_gc_new(void);
 
 /*
 ** Add el to the garbage collector, and specifiy the address of the function
