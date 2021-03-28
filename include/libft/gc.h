@@ -6,7 +6,7 @@
 /*   By: abrabant <abrabant@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/28 18:50:40 by abrabant          #+#    #+#             */
-/*   Updated: 2021/03/28 19:03:04 by abrabant         ###   ########.fr       */
+/*   Updated: 2021/03/28 19:48:48 by abrabant         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,13 +30,15 @@ t_gc	ft_gc_new();
 ** el is returned for convenience only.
 */
 
-void	*ft_gc_add(t_gc gc, void *el, void *trigger);
+void	*ft_gc_add(t_gc gc, void *el, void (*trigger)());
 
 /*
 ** Wipe all the elements which have been added in the garbage colllector.
 ** NOTE: this function doesn't DESTROY the garbage collector, it only
 ** performs a complete wipe and makes it empty. Useful if memory needs to
 ** be released at some point without destroying the garbage collector.
+**
+** The first element in the garbage collector will be wiped first.
 */
 
 void	*ft_gc_wipe(t_gc gc);

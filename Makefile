@@ -6,7 +6,7 @@
 #    By: abrabant <abrabant@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/09/30 15:22:25 by abrabant          #+#    #+#              #
-#    Updated: 2021/03/28 19:30:52 by abrabant         ###   ########.fr        #
+#    Updated: 2021/03/28 19:50:03 by abrabant         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -108,7 +108,8 @@ STACK					= ft_stack_new.c ft_stack_destroy.c ft_stack_push.c	\
 						  ft_stack_pop.c ft_stack_peek.c ft_stack_isempty.c	\
 						  ft_stack_size.c
 
-GC						= ft_gc_new.c
+GC						= ft_gc_new.c ft_gc_destroy.c ft_gc_wipe.c			\
+						  ft_gc_add.c
 
 
 SRCS					= $(CORE) $(CSTRING) $(CTYPE) $(IO) $(STRCONV)		\

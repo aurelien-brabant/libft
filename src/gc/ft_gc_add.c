@@ -1,30 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_gc_wipe.c                                       :+:      :+:    :+:   */
+/*   ft_gc_add.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: abrabant <abrabant@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/03/28 19:21:38 by abrabant          #+#    #+#             */
-/*   Updated: 2021/03/28 19:45:37 by abrabant         ###   ########.fr       */
+/*   Created: 2021/03/28 19:46:16 by abrabant          #+#    #+#             */
+/*   Updated: 2021/03/28 19:49:34 by abrabant         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft/internal/gc_int.h"
 #include "libft/array.h"
+#include "libft/internal/gc_int.h"
 
-static int	wipe(void *el, size_t i, void *triggers)
+void	*ft_gc_add(t_gc_int *gc, void *el, void (*trigger)())
 {
-	void	(*trigger)();
-
-	trigger = ft_array_get(triggers, i);
-	trigger(el);
-	return (0);
-}
-
-void ft_gc_wipe(t_gc_int *gc)
-{
-	ft_array_foreach(gc->collector, wipe, gc->triggers);
-	ft_array_set_length(gc->collector, 0);
-	ft_array_set_length(gc->triggers, 0);
+	ft_array_append(gc->collector, el);
+	ft_array_append(gc->triggers, trigger);
+	return (el);
 }
