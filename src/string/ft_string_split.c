@@ -6,7 +6,7 @@
 /*   By: abrabant <abrabant@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/26 21:16:16 by abrabant          #+#    #+#             */
-/*   Updated: 2021/03/27 02:24:16 by abrabant         ###   ########.fr       */
+/*   Updated: 2021/03/28 22:54:24 by abrabant         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,11 +41,13 @@ t_array	ft_string_split(t_string str, const char *sep)
 	i = 0;
 	while (i < str_int->length)
 	{
-		while (str_int->chrs[i] && ft_strchr(sep, str_int->chrs[i]) != NULL)
+		while (i < str_int->length && ft_strchr(sep, str_int->chrs[i]) != NULL)
 			++i;
 		beg = i;
 		while (i < str_int->length && ft_strchr(sep, str_int->chrs[i]) == NULL)
 			++i;
+		if (beg == i)
+			break ;
 		new = ft_string_subset(str, beg, i);
 		if (!add_to_split(split, new))
 			return (NULL);
