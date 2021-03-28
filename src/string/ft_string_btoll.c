@@ -6,7 +6,7 @@
 /*   By: abrabant <abrabant@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/27 00:27:13 by abrabant          #+#    #+#             */
-/*   Updated: 2021/03/27 00:55:29 by abrabant         ###   ########.fr       */
+/*   Updated: 2021/03/29 00:43:11 by abrabant         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,11 +30,13 @@ long long	ft_string_btoll(t_string_int *str, unsigned char base)
 	if (str->chrs[i] == '+' || str->chrs[i] == '-')
 		if (str->chrs[i++] == '-')
 			sign = -1;
-	ch = ft_strchr(set, ft_tolower(str->chrs[i]));
-	while (i++ < str->length && ch != NULL)
+	while (i < str->length)
 	{
-		nb = nb * base + (ch - set);
 		ch = ft_strchr(set, ft_tolower(str->chrs[i]));
+		if (ch == NULL)
+			break ;
+		nb = nb * base + (ch - set);
+		++i;
 	}
 	return (nb * sign);
 }
