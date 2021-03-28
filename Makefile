@@ -6,7 +6,7 @@
 #    By: abrabant <abrabant@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/09/30 15:22:25 by abrabant          #+#    #+#              #
-#    Updated: 2021/03/27 14:56:43 by abrabant         ###   ########.fr        #
+#    Updated: 2021/03/28 19:16:47 by abrabant         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -27,7 +27,7 @@ VPATH					= ./src/cstring:./src/ctype:./src/io:./src/io/gnl:	\
 						./src/io/printf:									\
 						./src/strconv:./src/intconv:./src/unicode:			\
 						./src/core:./src/vector:./src/cla:					\
-						./src/array:./src/string:./src/stack
+						./src/array:./src/string:./src/stack:./src/gc
 
 CORE				 	= ft_calloc.c ft_realloc.c ft_bsort.c				\
 						ft_clamp.c
@@ -107,10 +107,12 @@ STACK					= ft_stack_new.c ft_stack_destroy.c ft_stack_push.c	\
 						  ft_stack_pop.c ft_stack_peek.c ft_stack_isempty.c	\
 						  ft_stack_size.c
 
+GC						= ft_gc_new.c
+
 
 SRCS					= $(CORE) $(CSTRING) $(CTYPE) $(IO) $(STRCONV)		\
 						$(INTCONV) $(UNICODE) $(VECTOR) $(CLA) $(ARRAY)		\
-						$(STRING) $(STACK)
+						$(STRING) $(STACK) $(GC)
 
 # ~~~~~~~~~~   OBJECTS   ~~~~~~~~~~
 
