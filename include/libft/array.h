@@ -6,7 +6,7 @@
 /*   By: abrabant <abrabant@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/21 12:30:11 by abrabant          #+#    #+#             */
-/*   Updated: 2021/03/27 15:10:36 by abrabant         ###   ########.fr       */
+/*   Updated: 2021/03/28 19:29:17 by abrabant         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,6 +53,13 @@ void	ft_array_set(t_array a, void *el, size_t index);
 void	*ft_array_get(t_array a, size_t index);
 
 size_t	ft_array_length(t_array a);
+
+/*
+** Set the length of the array to length. Useful if the size of the array
+** needs to be truncated for some reason, without using successive removes.
+*/
+
+void	ft_array_set_length(t_array_int *a, size_t length);
 
 size_t	ft_array_size(t_array a);
 
