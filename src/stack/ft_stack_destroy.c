@@ -6,7 +6,7 @@
 /*   By: abrabant <abrabant@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/26 16:51:13 by abrabant          #+#    #+#             */
-/*   Updated: 2021/03/26 16:52:52 by abrabant         ###   ########.fr       */
+/*   Updated: 2021/03/28 23:04:26 by abrabant         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,8 @@
 
 void	ft_stack_destroy(t_stack_int *stack, void (*fn)(void *))
 {
+	if (stack == NULL)
+		return ;
 	ft_array_destroy(stack->data, fn);
 	free(stack);
 }
