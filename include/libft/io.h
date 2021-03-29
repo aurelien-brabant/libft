@@ -6,7 +6,7 @@
 /*   By: abrabant <abrabant@42.student.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/07 14:33:15 by abrabant          #+#    #+#             */
-/*   Updated: 2020/12/24 22:09:38 by abrabant         ###   ########.fr       */
+/*   Updated: 2021/03/29 13:18:52 by abrabant         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,8 +16,7 @@
 # include <stdarg.h>
 
 void	ft_putchar_fd(char c, int fd);
-void	ft_putstr_fd(char *s, int fd);
-void	ft_putendl_fd(char *s, int fd);
+void	ft_putstr_fd(const char *s, int fd);
 void	ft_putnbr_fd(int n, int fd);
 int		ft_gnl(int fd, char **line);
 
