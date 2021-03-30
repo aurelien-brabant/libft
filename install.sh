@@ -1,7 +1,7 @@
 #!/bin/sh
 
 INSTALL_ARCHIVE_PATH=/usr/local/lib
-INSTALL_INCLUDE_PATH=/usr/local/include
+INSTALL_INCLUDE_PATH=/usr/local/include/
 
 INCLUDE_DIR=./include/libft
 ARCHIVE=libft.a
