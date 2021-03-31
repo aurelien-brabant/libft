@@ -775,3 +775,26 @@ Test(ft_array, test_issorted)
 	cr_expect_eq(ft_array_issorted(a, &cmp_uint), expected);
 	ft_array_destroy(a, NULL);
 }
+
+static int	acmp_uint(void *el, void *el2)
+{
+	return (**(int **)el - **(int **)el2);
+}
+
+Test(ft_array, test_sort)
+{
+	t_array	a;
+
+	int	tab[] = { 454, 2, 0, 0, 2, 25, 456, 1, 9, 3 };
+	int	sorted_tab[] = { 0, 0, 1, 2, 2, 3, 9, 25, 454, 456 };
+
+	a = ft_array_new(sizeof (tab) / sizeof (int));
+	for (size_t i = 0; i < ft_array_capacity(a); ++i) {
+		ft_array_append(a, &tab[i]);
+	}
+	ft_array_sort(a, &ft_selection_sort, acmp_uint);
+	for (size_t i = 0; i < ft_array_length(a); ++i) {
+		cr_expect_eq(*(int *)ft_array_get(a, i), sorted_tab[i]);
+	}
+	ft_array_destroy(a, NULL);
+}
