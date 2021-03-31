@@ -6,7 +6,7 @@
 /*   By: abrabant <abrabant@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/21 12:30:11 by abrabant          #+#    #+#             */
-/*   Updated: 2021/03/28 19:29:17 by abrabant         ###   ########.fr       */
+/*   Updated: 2021/03/31 17:21:15 by abrabant         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -187,6 +187,13 @@ void	ft_array_insert(t_array a, void *el, size_t index);
 */
 
 void	ft_array_sinsert(t_array a, void *el, int (*cmp)(void *el1, void *el2));
+
+/*
+** Sort the array using a given comparison function and sorting algorithm
+*/
+
+void	ft_array_sort(t_array_int *a, void (*alg)(void *, size_t, size_t,
+			int (*cmp)(void *, void *)), int (*cmp)(void *, void *));
 
 /*
 ** Determine if array is sorted or not.
