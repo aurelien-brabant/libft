@@ -6,7 +6,7 @@
 /*   By: abrabant <abrabant@42.student.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/07 14:30:22 by abrabant          #+#    #+#             */
-/*   Updated: 2021/03/31 14:33:18 by abrabant         ###   ########.fr       */
+/*   Updated: 2021/03/31 17:14:02 by abrabant         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,12 +16,54 @@
 
 void		*ft_calloc(size_t nmemb, size_t size);
 void		*ft_realloc(void *ptr, size_t osize, size_t nsize);
+
+/*
+** Generic implementation of a bubble sort algorithm.
+** Time complexity: best: O(n) (already sorted), worst: O(n^2)
+** (in descending order).
+*/
+
 void		ft_bubble_sort(void *mem, size_t nb_el, size_t size_el,
 				int (*cmp)(void *, void *));
+
+/*
+** Generic implementation of an insertion sort algorithm.
+** Time complexity: best: O(n) (already sorted), worst: O(n^2) (in descending
+** order).
+**
+** Performs a lot of right shifting, and does not provide any useful
+** result until all the passes are done. This algorithm is available for
+** demonstration purpose AND should NOT be used to sort arrays, but
+** linked lists instead because of performance issues.
+*/
+
 void		ft_insertion_sort(void *mem, size_t nb_el, size_t size_el,
 				int (*cmp)(void *, void *));
+
+/*
+** Generic implementation of a selection sort algorithm.
+** Time complexity: best: O(n) (already sorted), worst: O(n^2) (in descending
+** order).
+*/
+
 void		ft_selection_sort(void *mem, size_t nb_el, size_t size_el,
 				int (*cmp)(void *, void *));
+
+/*
+** Perform comparison of two signed integers, in a generic context
+** (using void pointers). These pointers are assumed to point to an
+** integer datatype.
+*/
+
+int			ft_gcmp_int(void *int1, void *int2);
+
+/*
+** Perform comparison of two UNsigned integers, in a generic context
+** (using void pointers). These pointers are assumed to point to an
+** UNSIGNED integer datatype.
+*/
+
+int			ft_gcmp_uint(void *uint1, void *uint2);
 
 long long	ft_clamp(long long nb, long long min, long long max);
 

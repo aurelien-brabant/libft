@@ -6,7 +6,7 @@
 #    By: abrabant <abrabant@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/09/30 15:22:25 by abrabant          #+#    #+#              #
-#    Updated: 2021/03/31 14:45:55 by abrabant         ###   ########.fr        #
+#    Updated: 2021/03/31 16:00:34 by abrabant         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -30,7 +30,8 @@ VPATH					= ./src/cstring:./src/ctype:./src/io:./src/io/gnl:	\
 						./src/array:./src/string:./src/stack:./src/gc
 
 CORE				 	= ft_calloc.c ft_realloc.c ft_bubble_sort.c			\
-						ft_clamp.c ft_insertion_sort.c ft_selection_sort.c	
+						ft_clamp.c ft_insertion_sort.c ft_selection_sort.c	\
+						ft_gcmp_uint.c ft_gcmp_int.c
 
 CSTRING					= ft_strlen.c ft_strlcpy.c ft_strlcat.c ft_strdup.c	\
 						ft_strchr.c ft_strrchr.c ft_strncmp.c ft_strnstr.c	\
