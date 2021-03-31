@@ -6,7 +6,7 @@
 /*   By: abrabant <abrabant@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/31 00:47:30 by abrabant          #+#    #+#             */
-/*   Updated: 2021/03/31 01:20:14 by abrabant         ###   ########.fr       */
+/*   Updated: 2021/03/31 02:04:45 by abrabant         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 #include "libft/cstring.h"
 
-void		ft_insertion_sort(void *mem, size_t nb_el, size_t size_el,
+void	ft_insertion_sort(void *mem, size_t nb_el, size_t size_el,
 				int (*cmp)(void *, void *))
 {
 	size_t	i;

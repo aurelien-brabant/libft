@@ -6,7 +6,7 @@
 /*   By: abrabant <abrabant@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/21 14:54:20 by abrabant          #+#    #+#             */
-/*   Updated: 2021/03/28 23:03:57 by abrabant         ###   ########.fr       */
+/*   Updated: 2021/03/31 02:05:10 by abrabant         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ void	ft_array_destroy(t_array_int *a, void (*fn)(void *el))
 	size_t	i;
 
 	if (a == NULL)
-		return ; 
+		return ;
 	i = 0;
 	if (fn != NULL)
 	{
