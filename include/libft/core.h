@@ -6,7 +6,7 @@
 /*   By: abrabant <abrabant@42.student.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/07 14:30:22 by abrabant          #+#    #+#             */
-/*   Updated: 2021/03/31 17:14:02 by abrabant         ###   ########.fr       */
+/*   Updated: 2021/03/31 21:29:48 by abrabant         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,6 +64,20 @@ int			ft_gcmp_int(void *int1, void *int2);
 */
 
 int			ft_gcmp_uint(void *uint1, void *uint2);
+
+/*
+** Perform comparison of two signed integers, when using a signed int
+** t_array.
+*/
+
+int			ft_acmp_int(void *uint1, void *uint2);
+
+/*
+** Perform comparison of two UNsigned integers, when using a UNsigned int 
+** t_array.
+*/
+
+int			ft_acmp_uint(void *uint1, void *uint2);
 
 long long	ft_clamp(long long nb, long long min, long long max);
 
