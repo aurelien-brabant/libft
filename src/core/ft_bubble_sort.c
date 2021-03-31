@@ -6,7 +6,7 @@
 /*   By: abrabant </var/mail/abrabant>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/30 16:28:44 by abrabant          #+#    #+#             */
-/*   Updated: 2021/03/30 17:23:06 by abrabant         ###   ########.fr       */
+/*   Updated: 2021/03/31 01:59:16 by abrabant         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,7 @@ void	ft_bubble_sort(void *mem, size_t nb_el, size_t size_el,
 		swaped_flag = false;
 		cur = mem;
 		j = 0;
-		while (j++ < nb_el - i)
+		while (j++ < nb_el - i - 1)
 		{
 			if (cmp(cur, cur + size_el) > 0)
 				swaped_flag = swap(cur, tmp, size_el);

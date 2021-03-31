@@ -264,7 +264,7 @@ Test(ft_vector, ft_vec_sort)
 
 	for (int i = 0; i < 5; ++i)
 		ft_vec_add(vec, &tab[i]);
-	ft_vec_sort(vec, &ft_bsort, &sort_positive_int);
+	ft_vec_sort(vec, &ft_bubble_sort, &sort_positive_int);
 	for (int i = 0; i < 5; ++i)
 		cr_expect_eq(*(int *)ft_vec_get(vec, i), tab_ref[i]);
 
