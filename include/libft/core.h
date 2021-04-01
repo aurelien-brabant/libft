@@ -6,7 +6,7 @@
 /*   By: abrabant <abrabant@42.student.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/07 14:30:22 by abrabant          #+#    #+#             */
-/*   Updated: 2021/03/31 21:29:48 by abrabant         ###   ########.fr       */
+/*   Updated: 2021/04/01 14:45:00 by abrabant         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,6 +48,9 @@ void		ft_insertion_sort(void *mem, size_t nb_el, size_t size_el,
 
 void		ft_selection_sort(void *mem, size_t nb_el, size_t size_el,
 				int (*cmp)(void *, void *));
+
+void	ft_quick_sort(void *arr, size_t nb_el, size_t size_el,
+		int (*cmp)(void *, void *));
 
 /*
 ** Perform comparison of two signed integers, in a generic context
