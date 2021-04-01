@@ -6,7 +6,7 @@
 /*   By: abrabant <abrabant@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/01 14:04:03 by abrabant          #+#    #+#             */
-/*   Updated: 2021/04/01 14:52:41 by abrabant         ###   ########.fr       */
+/*   Updated: 2021/04/01 15:18:00 by abrabant         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@
 ** using a structure for quicksort lul.
 */
 
-static void *g_tmpbuf = NULL;
+static void	*g_tmpbuf = NULL;
 
 static void	swap(void *el1, void *el2, size_t size_el)
 {
