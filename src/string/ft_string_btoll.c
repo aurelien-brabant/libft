@@ -6,7 +6,7 @@
 /*   By: abrabant <abrabant@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/27 00:27:13 by abrabant          #+#    #+#             */
-/*   Updated: 2021/04/03 09:31:05 by abrabant         ###   ########.fr       */
+/*   Updated: 2021/04/03 11:11:01 by abrabant         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ long long	ft_string_btoll(t_string_int *str, unsigned char base, bool *err)
 	while (i < str->length)
 	{
 		ch = ft_strchr(set, ft_tolower(str->chrs[i]));
-		*err = (ch == NULL);
+		*err = (ch == NULL || ch - set >= base);
 		if (*err)
 			break ;
 		nb = nb * base + (ch - set);
