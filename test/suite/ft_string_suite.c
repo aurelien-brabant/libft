@@ -241,7 +241,7 @@ Test(ft_string, ft_string_split)
 	cr_expect_str_eq(actual, expected);
 	free(actual);
 	ft_string_destroy(joined);
-	ft_array_destroy(split, (void (*)(void *))ft_string_destroy);
+	ft_string_destroy_split(split);
 
 	/* Test with no separator */
 	split = ft_string_split(str, "");
@@ -250,7 +250,7 @@ Test(ft_string, ft_string_split)
 	cr_expect_str_eq(actual, expected);
 	free(actual);
 	free(expected);
-	ft_array_destroy(split, (void (*)(void *))ft_string_destroy);
+	ft_string_destroy_split(split);
 
 	ft_string_destroy(str);
 }

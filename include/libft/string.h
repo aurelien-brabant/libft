@@ -6,12 +6,13 @@
 /*   By: abrabant <abrabant@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/25 13:41:21 by abrabant          #+#    #+#             */
-/*   Updated: 2021/04/03 09:24:10 by abrabant         ###   ########.fr       */
+/*   Updated: 2021/04/03 11:23:17 by abrabant         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef STRING_H
 # define STRING_H
+# include <stdbool.h>
 # include <stddef.h>
 # include "libft/internal/string_int.h"
 
@@ -169,5 +170,11 @@ size_t			ft_string_capacity(t_string str);
 */
 
 t_string		ft_string_destroy(t_string str);
+
+/*
+** Shortcut function to destroy an array returned by ft_string_split
+*/
+
+void			ft_string_destroy_split(void *split);
 
 #endif
