@@ -6,7 +6,7 @@
 /*   By: abrabant <abrabant@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/25 13:41:21 by abrabant          #+#    #+#             */
-/*   Updated: 2021/03/27 02:05:26 by abrabant         ###   ########.fr       */
+/*   Updated: 2021/04/03 09:24:10 by abrabant         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,10 +59,11 @@ char			*ft_string_tocstring(t_string str);
 ** datatype. The string representation can be expressed in a particular base,
 ** from base 2 to base 16. The expected charset for a base 16 is
 ** "0123456789ABCDEF" or "0123456789abcdef".
+**
+** err is going to be set to true if any parsing error occurs.
 */
 
-long long		ft_string_btoll(t_string str, unsigned char base);
-
+long long	ft_string_btoll(t_string_int *str, unsigned char base, bool *err);
 /*
 ** Compare str and str2 lexicographically. Behaves like strcmp(3).
 */

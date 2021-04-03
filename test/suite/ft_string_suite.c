@@ -263,9 +263,26 @@ Test(ft_string, ft_string_split)
 Test(ft_string, ft_string_btoll)
 {
 	t_string	str = ft_string_new_cstr(" -FF");
+	bool		err = false;
 
-	cr_expect_eq(ft_string_btoll(str, 16), -255);
+	cr_expect_eq(ft_string_btoll(str, 16, &err), -255);
+	cr_expect_eq(err, false);
 
+	ft_string_destroy(str);
+
+	/* test error: only sign is found */
+	str = ft_string_new_cstr("+");
+
+	cr_expect_eq(ft_string_btoll(str, 10, &err), 0);
+	cr_expect_eq(err, true);
+
+	ft_string_destroy(str);
+
+	str = ft_string_new_cstr("");
+	
+	cr_expect_eq(ft_string_btoll(str, 10, &err), 0);
+
+	cr_expect_eq(err, true);
 	ft_string_destroy(str);
 }
 

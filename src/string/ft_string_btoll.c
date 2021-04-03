@@ -6,7 +6,7 @@
 /*   By: abrabant <abrabant@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/27 00:27:13 by abrabant          #+#    #+#             */
-/*   Updated: 2021/03/29 00:43:11 by abrabant         ###   ########.fr       */
+/*   Updated: 2021/04/03 09:31:05 by abrabant         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 #include "libft/cstring.h"
 #include "libft/internal/string_int.h"
 
-long long	ft_string_btoll(t_string_int *str, unsigned char base)
+long long	ft_string_btoll(t_string_int *str, unsigned char base, bool *err)
 {
 	static const char *const	set = "0123456789abcdef";
 	long long					nb;	
@@ -30,10 +30,12 @@ long long	ft_string_btoll(t_string_int *str, unsigned char base)
 	if (str->chrs[i] == '+' || str->chrs[i] == '-')
 		if (str->chrs[i++] == '-')
 			sign = -1;
+	*err = (i >= str->length);
 	while (i < str->length)
 	{
 		ch = ft_strchr(set, ft_tolower(str->chrs[i]));
-		if (ch == NULL)
+		*err = (ch == NULL);
+		if (*err)
 			break ;
 		nb = nb * base + (ch - set);
 		++i;
