@@ -6,7 +6,7 @@
 /*   By: abrabant <abrabant@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/25 13:41:21 by abrabant          #+#    #+#             */
-/*   Updated: 2021/04/03 11:23:17 by abrabant         ###   ########.fr       */
+/*   Updated: 2021/04/03 11:39:11 by abrabant         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,7 +64,8 @@ char			*ft_string_tocstring(t_string str);
 ** err is going to be set to true if any parsing error occurs.
 */
 
-long long	ft_string_btoll(t_string_int *str, unsigned char base, bool *err);
+long long		ft_string_btoll(t_string_int *str, unsigned char base,
+					bool *err);
 /*
 ** Compare str and str2 lexicographically. Behaves like strcmp(3).
 */
