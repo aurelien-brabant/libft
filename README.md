@@ -18,7 +18,25 @@ My libft has been and will be updated according to this new version (which is in
 
 ## Testing
 
-See this [README](https://github.com/aurelien-brabant/libft/blob/master/test/README.md).
+### Using docker
+
+You can test the libft easily by building the test image:
+
+```bash
+docker build -t abrabant/libft-test test
+```
+
+Then run a container based on the `abrabant/libft-test` and don't forget to
+bind the root of the libft to `/libft` in the container. Assuming all of this
+is done from the root of the libft you can do:
+
+`docker run -v $PWD:/libft abrabant/libft-test`
+
+### On any linux system
+
+While the docker way is recommended, you can also test the libft on your own
+system as long as the criterion test API is installed. Take a look at the
+`test/README.md` file for more informations.
 
 ## Motivations
 If you're not a 42 school, you may ask what is the purpose of "reinventing" the wheel with this library. At 42, we do not have
