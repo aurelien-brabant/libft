@@ -1,6 +1,9 @@
 ![](https://i.imgur.com/zXfESsW.png)
 # libft
 
+![tests](https://github.com/aurelien-brabant/libft/actions/workflows/tests.yml/badge.svg)
+![norminette](https://github.com/aurelien-brabant/libft/actions/workflows/norminette.yml/badge.svg)
+
 libft is my own C library,  made from scratch with the most basic features and functions of the C programming language. It's also the first project of the 42cursus at #42Born2Code.
 
 This version is the one I maintain as long as I need to for my C projects at 42. You can find the graded and original version [here]().
