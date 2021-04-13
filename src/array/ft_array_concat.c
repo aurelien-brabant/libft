@@ -6,7 +6,7 @@
 /*   By: abrabant <abrabant@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/22 19:20:53 by abrabant          #+#    #+#             */
-/*   Updated: 2021/03/27 14:30:47 by abrabant         ###   ########.fr       */
+/*   Updated: 2021/04/13 16:19:34 by abrabant         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,9 +26,9 @@ t_array	ft_array_concat(t_array a1, t_array a2)
 	}
 	new->length = ((t_array_int *)a1)->length + ((t_array_int *)a2)->length;
 	ft_memcpy(new->array, ((t_array_int *)a1)->array,
-			sizeof(*new->array) * ((t_array_int *)a1)->length);
+		sizeof(*new->array) * ((t_array_int *)a1)->length);
 	ft_memcpy(new->array + ((t_array_int *)a1)->length,
-			((t_array_int *)a2)->array,
-			sizeof(*new->array) * ((t_array_int *)a2)->length);
+		((t_array_int *)a2)->array,
+		sizeof(*new->array) * ((t_array_int *)a2)->length);
 	return (new);
 }

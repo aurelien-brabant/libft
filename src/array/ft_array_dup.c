@@ -6,7 +6,7 @@
 /*   By: abrabant <abrabant@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/22 18:23:16 by abrabant          #+#    #+#             */
-/*   Updated: 2021/03/27 14:30:54 by abrabant         ###   ########.fr       */
+/*   Updated: 2021/04/13 16:19:19 by abrabant         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,6 @@ t_array	ft_array_dup(t_array a)
 	}
 	new->length = ((t_array_int *)a)->length;
 	ft_memcpy(new->array, ((t_array_int *)a)->array,
-			sizeof(*new->array) * new->length);
+		sizeof(*new->array) * new->length);
 	return (new);
 }

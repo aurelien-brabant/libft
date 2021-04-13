@@ -6,7 +6,7 @@
 /*   By: abrabant <abrabant@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/01 18:10:00 by abrabant          #+#    #+#             */
-/*   Updated: 2021/04/02 17:35:47 by abrabant         ###   ########.fr       */
+/*   Updated: 2021/04/13 16:18:33 by abrabant         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,7 +63,7 @@ void	mergesort(void *arr, size_t low, size_t high, t_merge_sort *ms)
 		mergesort(arr, low, mid, ms);
 		mergesort(arr, mid + 1, high, ms);
 		merge(arr + low * ms->size_el, arr + mid * ms->size_el,
-				arr + high * ms->size_el, ms);
+			arr + high * ms->size_el, ms);
 	}
 }
 
