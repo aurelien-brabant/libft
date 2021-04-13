@@ -17,4 +17,3 @@ jobs:
     - run: python3 -m pip install norminette
     - run: $HOME/.local/bin/norminette src
     - run: $HOME/.local/bin/norminette include
-
