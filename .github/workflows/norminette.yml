@@ -1,12 +1,12 @@
-# .github/workflows/main.yml
-on: [push, pull_request]
-
+name: norminette
+on: [push]
 jobs:
-  norminette_job:
+  norminette-linter:
     runs-on: ubuntu-latest
-    name: norminette
     steps:
-    - uses: actions/checkout@v2
-    - uses: alexandregv/norminette-action@v3
-      with:
-        flags: 'src'
+      - name: Check out repo
+        uses: actions/checkout@v2
+      - run: python3 -m pip install --upgrade pip setuptools
+      - run: python3 -m pip install norminette
+      - run: $HOME/.local/bin/norminette src
+      - run: $HOME/.local/bin/norminette include

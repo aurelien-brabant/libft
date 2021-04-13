@@ -6,7 +6,7 @@
 /*   By: abrabant <abrabant@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/14 16:29:07 by abrabant          #+#    #+#             */
-/*   Updated: 2020/12/28 22:26:24 by abrabant         ###   ########.fr       */
+/*   Updated: 2021/04/13 16:19:00 by abrabant         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,7 +46,7 @@ static void	buf_int(t_state *s, unsigned long long n, unsigned char base)
 static void	buf_alt_form(t_state *s, bool iszero)
 {
 	if (ishexspec(s) && ((isflag(s, ALT_FORM_FLAG) && !iszero)
-				|| s->conv.spec == PTR_SPEC))
+			|| s->conv.spec == PTR_SPEC))
 	{
 		if (s->conv.spec == HEXUPR_SPEC)
 			store_in_buf(s, "0X", 2);
