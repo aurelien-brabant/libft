@@ -6,7 +6,7 @@
 /*   By: abrabant <abrabant@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/21 21:25:50 by abrabant          #+#    #+#             */
-/*   Updated: 2021/03/23 23:03:42 by abrabant         ###   ########.fr       */
+/*   Updated: 2021/04/13 16:36:16 by abrabant         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,6 @@
 # include "libft/array.h"
 # include "libft/strconv.h"
 # include "libft/intconv.h"
-# include "libft/vector.h"
 # include "libft/core.h"
 # include "libft/cstring.h"
 # include "libft/unicode.h"
