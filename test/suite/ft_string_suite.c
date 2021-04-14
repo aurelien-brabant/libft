@@ -308,3 +308,23 @@ Test(ft_string, ft_string_cmp)
 	ft_string_destroy(str1);
 	ft_string_destroy(str2);
 }
+
+Test(ft_string, ft_string_cstrstr)
+{
+	t_string	str1 = ft_string_new_cstr("Hello world 1 2 3 4");
+	char		*cstr = ft_string_tocstring(str1);
+	const char	*needle[] = { "world", "2", "h", "H", "w", "hE", "4", "el", "lo", "be", "ka", "12" };
+	size_t		needle_size = sizeof (needle) / sizeof (char *);
+	size_t		expected;
+	size_t		actual;
+	char		*tmp;
+
+	for (size_t i = 0; i < needle_size; ++i) {
+		tmp = strstr(cstr, needle[i]); 
+		expected = tmp != NULL ? tmp - cstr : -1;
+		actual = ft_string_cstrstr(str1, needle[i]);
+		cr_expect_eq(expected, actual, "expected=%ld | actual=%ld", expected, actual);
+	}
+	free(cstr);
+	ft_string_destroy(str1);
+}

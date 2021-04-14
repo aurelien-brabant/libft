@@ -6,7 +6,7 @@
 /*   By: abrabant <abrabant@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/25 13:41:21 by abrabant          #+#    #+#             */
-/*   Updated: 2021/04/03 11:39:11 by abrabant         ###   ########.fr       */
+/*   Updated: 2021/04/14 23:21:31 by abrabant         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -136,6 +136,21 @@ int				ft_string_findcsubset(t_string str, const char *subset);
 */
 
 int				ft_string_findsubset(t_string str, t_string subset);
+
+/*
+** Make an attempt to find the C-like string needle into the t_string haystack.
+**
+** If needle is present at least one time in haystack, the index of its first
+** character is returned. -1 is returned if there's no occurence of needle in
+** haystack.
+**
+** NOTE: the use of a t_string object allows the use of null bytes in haystack
+** as standard characters, but it will never be compared positively with the
+** ending null byte of needle due to the fact needle is supposed to be encoded
+** in a C-like fashion, where the null byte is used to mean string termination.
+*/
+
+int				ft_string_cstrstr(t_string_int *haystack, const char *needle);
 
 /*
 ** Extract a subset from a string and create a new t_string object to contain
