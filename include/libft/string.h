@@ -6,7 +6,7 @@
 /*   By: abrabant <abrabant@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/25 13:41:21 by abrabant          #+#    #+#             */
-/*   Updated: 2021/04/14 23:21:31 by abrabant         ###   ########.fr       */
+/*   Updated: 2021/04/15 00:55:20 by abrabant         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -151,6 +151,15 @@ int				ft_string_findsubset(t_string str, t_string subset);
 */
 
 int				ft_string_cstrstr(t_string_int *haystack, const char *needle);
+
+/*
+** Substitute all occurences of the C string *from* by *to*, creating a new
+** t_string object holding this substituted version. 
+** *haystack* remains unchanged.
+*/
+
+t_string_int	*ft_string_csubst(t_string str, const char *from,
+					const char *to);
 
 /*
 ** Extract a subset from a string and create a new t_string object to contain

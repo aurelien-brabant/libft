@@ -328,3 +328,16 @@ Test(ft_string, ft_string_cstrstr)
 	free(cstr);
 	ft_string_destroy(str1);
 }
+
+Test(ft_string, ft_string_csubst)
+{
+	t_string	str1 = ft_string_new_cstr("salusalut a tous salut!! salu salut");
+	t_string	substituted = ft_string_csubst(str1, "salut", "hello");
+	char		*expected = "saluhello a tous hello!! salu hello";
+	char		*actual = ft_string_tocstring(substituted);
+
+	cr_expect_str_eq(expected, actual);
+	free(actual);
+	ft_string_destroy(substituted);
+	ft_string_destroy(str1);
+}
