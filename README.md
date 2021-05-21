@@ -1,4 +1,5 @@
-![](https://i.imgur.com/zXfESsW.png)
+![abrabant's stats](https://badge42.herokuapp.com/api/stats/abrabant)
+
 # libft
 
 ![tests](https://github.com/aurelien-brabant/libft/actions/workflows/tests.yml/badge.svg)
