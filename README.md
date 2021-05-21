@@ -13,12 +13,8 @@ This version is the one I maintain as long as I need to for my C projects at 42.
 
 For the common core projects, we have to use the 42 school's linter, the [norminette](https://github.com/42School/norminette),
 in order to ensure that our C code respects all the [rules](https://github.com/42School/norminette/blob/master/pdf/en.norm.pdf).
-This repository is making use of this [norminette-action](https://github.com/alexandregv/norminette-action) to check that, everytime a change is made.
 
 The norm is a good way for us to learn without coding badly, even if some constraints can be really questionable.
-
-The [version 3 of the norminette](https://github.com/42School/norminette) will be released in February 2021 (recently delayed).
-My libft has been and will be updated according to this new version (which is introducing breaking changes to v2 code).
 
 ## Testing
 
