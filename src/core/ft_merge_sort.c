@@ -49,19 +49,15 @@ static void	merge(void *low, void *mid, void *high, t_merge_sort *ms)
 	ft_memcpy(low, ms->tmp, high - low + ms->size_el);
 }
 
-/*
-** Iterative merge sort to consume less additional space
-*/
-
-void	mergesort(void *arr, size_t low, size_t high, t_merge_sort *ms)
+static void	rec_mergesort(void *arr, size_t low, size_t high, t_merge_sort *ms)
 {
 	size_t	mid;
 
 	if (low < high)
 	{
 		mid = (low + high) / 2;
-		mergesort(arr, low, mid, ms);
-		mergesort(arr, mid + 1, high, ms);
+		rec_mergesort(arr, low, mid, ms);
+		rec_mergesort(arr, mid + 1, high, ms);
 		merge(arr + low * ms->size_el, arr + mid * ms->size_el,
 			arr + high * ms->size_el, ms);
 	}
@@ -78,6 +74,6 @@ void	ft_merge_sort(void *arr, size_t nb_el, size_t size_el,
 		return ;
 	ms.cmp = cmp;
 	ms.size_el = size_el;
-	mergesort(arr, 0, nb_el - 1, &ms);
+	rec_mergesort(arr, 0, nb_el - 1, &ms);
 	free(ms.tmp);
 }
