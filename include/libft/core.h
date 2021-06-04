@@ -6,7 +6,7 @@
 /*   By: abrabant <abrabant@42.student.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/07 14:30:22 by abrabant          #+#    #+#             */
-/*   Updated: 2021/06/03 11:59:10 by abrabant         ###   ########.fr       */
+/*   Updated: 2021/06/04 11:52:01 by abrabant         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -87,8 +87,7 @@ int			ft_acmp_uint(void *uint1, void *uint2);
 
 long long	ft_clamp(long long nb, long long min, long long max);
 
-
-int			ft_get_short_opt(int argc, const char **argv, const char *opstring, 
+int			ft_get_short_opt(int argc, const char **argv, const char *opstring,
 				char **optarg);
 
 #endif
