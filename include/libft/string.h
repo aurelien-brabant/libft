@@ -197,7 +197,7 @@ size_t			ft_string_capacity(t_string str);
 t_string		ft_string_destroy(t_string str);
 
 /*
-** Shortcut function to destroy an array returned by ft_string_split
+** Shortcut function to destroy an vector returned by ft_string_split
 */
 
 void			ft_string_destroy_split(void *split);

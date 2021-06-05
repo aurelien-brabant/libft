@@ -1,20 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_stack_isempty.c                                 :+:      :+:    :+:   */
+/*   ft_vector_foreach.c                                 :+:      :+:    :+:  */
 /*                                                    +:+ +:+         +:+     */
 /*   By: abrabant <abrabant@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/03/26 18:17:25 by abrabant          #+#    #+#             */
-/*   Updated: 2021/03/27 14:57:17 by abrabant         ###   ########.fr       */
+/*   Created: 2021/03/21 14:36:53 by abrabant          #+#    #+#             */
+/*   Updated: 2021/03/27 13:16:55 by abrabant         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdbool.h>
+#include "libft/internal/vector_int.h"
 
-#include "libft/internal/stack_int.h"
-
-bool	ft_stack_isempty(t_stack_int *stack)
+int	ft_vector_foreach(t_vector_int *a, int (*fn)(), void *data)
 {
-	return (ft_vector_length(stack->data) == 0);
+	size_t	i;
+	size_t	ret;
+
+	i = 0;
+	while (i < a->length)
+	{
+		ret = fn(a->vector[i], i, data);
+		if (ret != 0)
+			return (ret);
+		++i;
+	}
+	return (0);
 }

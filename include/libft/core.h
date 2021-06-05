@@ -33,7 +33,7 @@ void		ft_bubble_sort(void *mem, size_t nb_el, size_t size_el,
 **
 ** Performs a lot of right shifting, and does not provide any useful
 ** result until all the passes are done. This algorithm is available for
-** demonstration purpose AND should NOT be used to sort arrays, but
+** demonstration purpose AND should NOT be used to sort vectors, but
 ** linked lists instead because of performance issues.
 */
 
@@ -73,14 +73,14 @@ int			ft_gcmp_uint(void *uint1, void *uint2);
 
 /*
 ** Perform comparison of two signed integers, when using a signed int
-** t_array.
+** t_vector.
 */
 
 int			ft_acmp_int(void *uint1, void *uint2);
 
 /*
 ** Perform comparison of two UNsigned integers, when using a UNsigned int 
-** t_array.
+** t_vector.
 */
 
 int			ft_acmp_uint(void *uint1, void *uint2);

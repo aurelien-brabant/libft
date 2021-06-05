@@ -14,7 +14,7 @@
 
 #include "libft/gc.h"
 #include "libft/string.h"
-#include "libft/array.h"
+#include "libft/vector.h"
 
 /*
 ** The usefulness of a garbage collector can be seen when it comes to
@@ -30,7 +30,7 @@ TestSuite(ft_gc_suite);
 
 static	void wipe_split(void *el)
 {
-	ft_array_destroy(el, (void (*)(void *))ft_string_destroy);
+	ft_vector_destroy(el, (void (*)(void *))ft_string_destroy);
 }
 
 Test(ft_gc_suite, ft_gc_core)
@@ -38,7 +38,7 @@ Test(ft_gc_suite, ft_gc_core)
 	t_gc		gc = ft_gc_new();
 	/* this line is voluntarily left as complicated to ensure its working */
 	t_string	str = ft_gc_add(gc, ft_string_new_cstr("hey@@|hello|@world|@how are @you@@@@@"), (void (*)(void *))ft_string_destroy);
-	t_array		split = ft_string_split(str, "|@");
+	t_vector		split = ft_string_split(str, "|@");
 
 	ft_gc_add(gc, split, wipe_split);
 	ft_gc_destroy(gc);

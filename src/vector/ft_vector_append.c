@@ -1,20 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_stack_isempty.c                                 :+:      :+:    :+:   */
+/*   ft_vector_append.c                                  :+:      :+:    :+:  */
 /*                                                    +:+ +:+         +:+     */
 /*   By: abrabant <abrabant@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/03/26 18:17:25 by abrabant          #+#    #+#             */
-/*   Updated: 2021/03/27 14:57:17 by abrabant         ###   ########.fr       */
+/*   Created: 2021/03/21 13:17:38 by abrabant          #+#    #+#             */
+/*   Updated: 2021/03/27 14:30:36 by abrabant         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdbool.h>
+#include <stdlib.h>
 
-#include "libft/internal/stack_int.h"
+#include "libft/internal/vector_int.h"
+#include "libft/cstring.h"
 
-bool	ft_stack_isempty(t_stack_int *stack)
+void	ft_vector_append(t_vector_int *a, void *el)
 {
-	return (ft_vector_length(stack->data) == 0);
+	if (a->length == a->capacity)
+	{
+		ft_vector_int_resize(a);
+	}
+	a->vector[a->length++] = el;
 }

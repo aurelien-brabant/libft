@@ -1,20 +1,37 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_stack_isempty.c                                 :+:      :+:    :+:   */
+/*   ft_vector_linsearch.c                               :+:      :+:    :+:  */
 /*                                                    +:+ +:+         +:+     */
 /*   By: abrabant <abrabant@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/03/26 18:17:25 by abrabant          #+#    #+#             */
-/*   Updated: 2021/03/27 14:57:17 by abrabant         ###   ########.fr       */
+/*   Created: 2021/03/21 17:08:27 by abrabant          #+#    #+#             */
+/*   Updated: 2021/03/27 13:17:33 by abrabant         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdbool.h>
+#include "libft/internal/vector_int.h"
 
-#include "libft/internal/stack_int.h"
-
-bool	ft_stack_isempty(t_stack_int *stack)
+int	ft_vector_linsearch(t_vector_int *a, void *ref,
+						int cmp(void *ref, void *el))
 {
-	return (ft_vector_length(stack->data) == 0);
+	size_t	i;
+	void	*tmp;
+
+	i = 0;
+	while (i < a->length)
+	{
+		if (cmp(ref, a->vector[i]) == 0)
+		{
+			if (i > 0)
+			{
+				tmp = a->vector[i];
+				a->vector[i] = a->vector[i - 1];
+				a->vector[i - 1] = tmp;
+			}
+			return (i);
+		}
+		++i;
+	}
+	return (-1);
 }

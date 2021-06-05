@@ -13,12 +13,12 @@
 #ifndef STACK_INT_H
 # define STACK_INT_H
 
-# include "libft/array.h"
+# include "libft/vector.h"
 
 typedef struct s_stack_int
 {
-	int		top;
-	t_array	data;
+	int			top;
+	t_vector	data;
 }	t_stack_int;
 
 #endif

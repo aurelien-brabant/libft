@@ -27,7 +27,7 @@ VPATH					= ./src/cstring:./src/ctype:./src/io:./src/io/gnl:	\
 						./src/io/printf:									\
 						./src/strconv:./src/intconv:./src/unicode:			\
 						./src/core:./src/vector:./src/cla:					\
-						./src/array:./src/string:./src/stack:./src/gc
+						./src/vector:./src/string:./src/stack:./src/gc
 
 CORE				 	= ft_calloc.c ft_realloc.c ft_bubble_sort.c			\
 						ft_clamp.c ft_insertion_sort.c ft_selection_sort.c	\
@@ -68,22 +68,22 @@ INTCONV					= ft_itoa.c ft_lltob.c ft_ulltob.c ft_ulllenb.c
 
 UNICODE					= ft_runelen.c ft_buf_utf8.c ft_encode_utf8.c
 
-ARRAY					= ft_array_new.c ft_array_append.c					\
-						ft_array_foreach.c ft_array_destroy.c				\
-						ft_array_insert.c ft_array_delete.c					\
-						ft_array_linsearch.c ft_array_binsearch.c			\
-						ft_array_get.c ft_array_set.c						\
-						ft_array_reverse.c ft_array_shift.c					\
-						ft_array_rotate.c ft_array_issorted.c				\
-						ft_array_sinsert.c ft_array_dup.c					\
-						ft_array_concat.c ft_array_merge.c					\
-						ft_array_union.c ft_array_sunion.c					\
-						ft_array_inter.c ft_array_sinter.c					\
-						ft_array_sub.c ft_array_ssub.c						\
-						ft_array_uniq.c	ft_array_suniq.c					\
-						ft_array_length.c ft_array_size.c					\
-						ft_array_int_resize.c ft_array_capacity.c			\
-						ft_array_set_length.c ft_array_sort.c
+VECTOR					= ft_vector_new.c ft_vector_append.c					\
+						ft_vector_foreach.c ft_vector_destroy.c				\
+						ft_vector_insert.c ft_vector_delete.c					\
+						ft_vector_linsearch.c ft_vector_binsearch.c			\
+						ft_vector_get.c ft_vector_set.c						\
+						ft_vector_reverse.c ft_vector_shift.c					\
+						ft_vector_rotate.c ft_vector_issorted.c				\
+						ft_vector_sinsert.c ft_vector_dup.c					\
+						ft_vector_concat.c ft_vector_merge.c					\
+						ft_vector_union.c ft_vector_sunion.c					\
+						ft_vector_inter.c ft_vector_sinter.c					\
+						ft_vector_sub.c ft_vector_ssub.c						\
+						ft_vector_uniq.c	ft_vector_suniq.c					\
+						ft_vector_length.c ft_vector_size.c					\
+						ft_vector_int_resize.c ft_vector_capacity.c			\
+						ft_vector_set_length.c ft_vector_sort.c
 
 CLA						= ft_cla_init.c ft_cla_str_var.c ft_cla_int_var.c	\
 						ft_cla_bool_var.c ft_cla_pos_var.c					\
@@ -111,7 +111,7 @@ GC						= ft_gc_new.c ft_gc_destroy.c ft_gc_wipe.c			\
 
 
 SRCS					= $(CORE) $(CSTRING) $(CTYPE) $(IO) $(STRCONV)		\
-						$(INTCONV) $(UNICODE) $(CLA) $(ARRAY)				\
+						$(INTCONV) $(UNICODE) $(CLA) $(VECTOR)				\
 						$(STRING) $(STACK) $(GC)
 
 # ~~~~~~~~~~   OBJECTS   ~~~~~~~~~~

@@ -10,12 +10,12 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft/array.h"
+#include "libft/vector.h"
 #include "libft/internal/gc_int.h"
 
 void	*ft_gc_add(t_gc_int *gc, void *el, void (*trigger)())
 {
-	ft_array_append(gc->collector, el);
-	ft_array_append(gc->triggers, trigger);
+	ft_vector_append(gc->collector, el);
+	ft_vector_append(gc->triggers, trigger);
 	return (el);
 }

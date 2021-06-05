@@ -1,32 +1,43 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_stack_new.c                                     :+:      :+:    :+:   */
+/*   ft_vector_binsearch.c                               :+:      :+:    :+:  */
 /*                                                    +:+ +:+         +:+     */
 /*   By: abrabant <abrabant@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/03/26 16:23:40 by abrabant          #+#    #+#             */
-/*   Updated: 2021/03/26 20:21:56 by abrabant         ###   ########.fr       */
+/*   Created: 2021/03/21 19:43:40 by abrabant          #+#    #+#             */
+/*   Updated: 2021/03/21 19:55:33 by abrabant         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdlib.h>
+#include "libft/internal/vector_int.h"
 
-#include "libft/internal/stack_int.h"
-
-t_stack_int	*ft_stack_new(void)
+int	ft_vector_binsearch(t_vector_int *a, void *ref,
+						int cmp(void *ref, void *el))
 {
-	t_stack_int	*stack;
+	int	high;
+	int	low;
+	int	mid;
+	int	ret;
 
-	stack = malloc(sizeof (*stack));
-	if (stack == NULL)
-		return (NULL);
-	stack->data = ft_vector_new(10);
-	if (stack->data == NULL)
+	low = 0;
+	high = a->length - 1;
+	while (low <= high)
 	{
-		free(stack);
-		return (NULL);
+		mid = (low + high) / 2;
+		ret = cmp(ref, a->vector[mid]);
+		if (ret == 0)
+		{
+			return (mid);
+		}
+		if (ret > 0)
+		{
+			low = mid + 1;
+		}
+		else
+		{
+			high = mid - 1;
+		}
 	}
-	stack->top = -1;
-	return (stack);
+	return (-1);
 }

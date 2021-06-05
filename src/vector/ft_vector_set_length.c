@@ -1,20 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_stack_isempty.c                                 :+:      :+:    :+:   */
+/*   ft_vector_set_length.c                              :+:      :+:    :+:  */
 /*                                                    +:+ +:+         +:+     */
 /*   By: abrabant <abrabant@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/03/26 18:17:25 by abrabant          #+#    #+#             */
-/*   Updated: 2021/03/27 14:57:17 by abrabant         ###   ########.fr       */
+/*   Created: 2021/03/28 19:23:45 by abrabant          #+#    #+#             */
+/*   Updated: 2021/03/28 19:26:26 by abrabant         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdbool.h>
+#include "libft/vector.h"
 
-#include "libft/internal/stack_int.h"
-
-bool	ft_stack_isempty(t_stack_int *stack)
+void	ft_vector_set_length(t_vector_int *a, size_t length)
 {
-	return (ft_vector_length(stack->data) == 0);
+	a->length = length;
 }

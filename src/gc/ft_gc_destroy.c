@@ -20,7 +20,7 @@ void	ft_gc_destroy(t_gc gc)
 	if (gc == NULL)
 		return ;
 	ft_gc_wipe((t_gc_int *)gc);
-	ft_array_destroy(((t_gc_int *)gc)->collector, NULL);
-	ft_array_destroy(((t_gc_int *)gc)->triggers, NULL);
+	ft_vector_destroy(((t_gc_int *)gc)->collector, NULL);
+	ft_vector_destroy(((t_gc_int *)gc)->triggers, NULL);
 	free(gc);
 }

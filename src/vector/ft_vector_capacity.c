@@ -1,20 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_stack_isempty.c                                 :+:      :+:    :+:   */
+/*   ft_vector_capacity.c                                :+:      :+:    :+:  */
 /*                                                    +:+ +:+         +:+     */
 /*   By: abrabant <abrabant@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/03/26 18:17:25 by abrabant          #+#    #+#             */
-/*   Updated: 2021/03/27 14:57:17 by abrabant         ###   ########.fr       */
+/*   Created: 2021/03/27 14:47:28 by abrabant          #+#    #+#             */
+/*   Updated: 2021/03/27 14:48:13 by abrabant         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdbool.h>
+#include "libft/internal/vector_int.h"
 
-#include "libft/internal/stack_int.h"
-
-bool	ft_stack_isempty(t_stack_int *stack)
+size_t	ft_vector_capacity(t_vector_int *a)
 {
-	return (ft_vector_length(stack->data) == 0);
+	return (a->capacity);
 }

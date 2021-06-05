@@ -1,20 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_stack_isempty.c                                 :+:      :+:    :+:   */
+/*   ft_vector_destroy.c                                 :+:      :+:    :+:  */
 /*                                                    +:+ +:+         +:+     */
 /*   By: abrabant <abrabant@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/03/26 18:17:25 by abrabant          #+#    #+#             */
-/*   Updated: 2021/03/27 14:57:17 by abrabant         ###   ########.fr       */
+/*   Created: 2021/03/21 14:54:20 by abrabant          #+#    #+#             */
+/*   Updated: 2021/03/31 02:05:10 by abrabant         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdbool.h>
+#include <stdlib.h>
+#include "libft/internal/vector_int.h"
 
-#include "libft/internal/stack_int.h"
-
-bool	ft_stack_isempty(t_stack_int *stack)
+void	ft_vector_destroy(t_vector_int *a, void (*fn)(void *el))
 {
-	return (ft_vector_length(stack->data) == 0);
+	size_t	i;
+
+	if (a == NULL)
+		return ;
+	i = 0;
+	if (fn != NULL)
+	{
+		while (i < a->length)
+			fn(a->vector[i++]);
+	}
+	free(a->vector);
+	free(a);
 }

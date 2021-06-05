@@ -1,27 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_stack_pop.c                                     :+:      :+:    :+:   */
+/*   ft_vector_sub.c                                     :+:      :+:    :+:  */
 /*                                                    +:+ +:+         +:+     */
 /*   By: abrabant <abrabant@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/03/26 17:06:39 by abrabant          #+#    #+#             */
-/*   Updated: 2021/03/27 14:55:54 by abrabant         ###   ########.fr       */
+/*   Created: 2021/03/23 11:54:47 by abrabant          #+#    #+#             */
+/*   Updated: 2021/03/27 14:34:22 by abrabant         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "libft/internal/vector_int.h"
 #include "libft/vector.h"
-#include "libft/internal/stack_int.h"
 
-void	*ft_stack_pop(t_stack_int *stack)
+t_vector	ft_vector_sub(t_vector a1, t_vector a2, int (*cmp)(void *, void *))
 {
-	int		arr_length;
-	void	*el;
+	t_vector_int	*new;
+	size_t			i;
 
-	arr_length = ft_vector_length(stack->data);
-	if (arr_length == 0)
+	new = (t_vector_int *)ft_vector_new(((t_vector_int *)a1)->capacity);
+	if (new == NULL)
 		return (NULL);
-	el = ft_vector_get(stack->data, arr_length - 1);
-	ft_vector_delete(stack->data, arr_length - 1, NULL);
-	return (el);
+	i = 0;
+	while (i < ((t_vector_int *)a1)->length)
+	{
+		if (ft_vector_linsearch(a2, ((t_vector_int *)a1)->vector[i], cmp) == -1)
+			new->vector[new->length++] = ((t_vector_int *)a1)->vector[i];
+		++i;
+	}
+	return (new);
 }

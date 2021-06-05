@@ -18,7 +18,7 @@
 
 #ifndef LIBFT_H
 # define LIBFT_H
-# include "libft/array.h"
+# include "libft/vector.h"
 # include "libft/strconv.h"
 # include "libft/intconv.h"
 # include "libft/core.h"

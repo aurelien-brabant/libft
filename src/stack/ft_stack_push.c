@@ -14,5 +14,5 @@
 
 void	ft_stack_push(t_stack_int *stack, void *el)
 {
-	ft_array_append(stack->data, el);
+	ft_vector_append(stack->data, el);
 }

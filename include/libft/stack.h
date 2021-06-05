@@ -22,7 +22,7 @@ typedef void *t_stack;
 
 /*
 ** Create a new stack object of given size. The allocated capacity of the stack
-** depends on the underlying container, which is a t_array object. It is
+** depends on the underlying container, which is a t_vector object. It is
 ** automatically managed and the API's user don't have/can't deal with it.
 */
 
@@ -30,8 +30,8 @@ t_stack	ft_stack_new(void);
 
 /*
 ** Destroy a stack object, releasing all the memory allocated for it.
-** As a t_array container is used internally, the fn function is directly
-** passed to the ft_array_destroy function if required. NULL must be passed
+** As a t_vector container is used internally, the fn function is directly
+** passed to the ft_vector_destroy function if required. NULL must be passed
 ** if no cleanup is wanted.
 */
 

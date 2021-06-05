@@ -25,10 +25,10 @@ static size_t	get_alloc_size(t_rune *r)
 }
 
 /*
-** encodes an array of runes into UTF-8 and put the encoded result in
-** a malloc-ed array of bytes.
+** encodes an vector of runes into UTF-8 and put the encoded result in
+** a malloc-ed vector of bytes.
 **
-** @param	r	=>	a pointer to the start of the rune array.
+** @param	r	=>	a pointer to the start of the rune vector.
 **
 ** @return	the malloc-ed string.
 */

@@ -12,7 +12,7 @@
 
 #include <stdlib.h>
 
-#include "libft/array.h"
+#include "libft/vector.h"
 #include "libft/internal/gc_int.h"
 
 t_gc_int	*ft_gc_new(void)
@@ -22,17 +22,17 @@ t_gc_int	*ft_gc_new(void)
 	gc = malloc(sizeof (*gc));
 	if (gc == NULL)
 		return (NULL);
-	gc->collector = ft_array_new(10);
+	gc->collector = ft_vector_new(10);
 	if (gc->collector == NULL)
 	{
 		free(gc);
 		return (NULL);
 	}
-	gc->triggers = ft_array_new(10);
+	gc->triggers = ft_vector_new(10);
 	if (gc->triggers == NULL)
 	{
 		free(gc);
-		ft_array_destroy(gc->collector, NULL);
+		ft_vector_destroy(gc->collector, NULL);
 	}
 	return (gc);
 }

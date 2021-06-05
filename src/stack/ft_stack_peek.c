@@ -14,5 +14,5 @@
 
 void	*ft_stack_peek(t_stack_int *stack)
 {
-	return (ft_array_get(stack->data, ft_array_length(stack->data) - 1));
+	return (ft_vector_get(stack->data, ft_vector_length(stack->data) - 1));
 }

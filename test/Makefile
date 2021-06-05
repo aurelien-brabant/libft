@@ -3,7 +3,16 @@
 TARGET=test.out
 CC=clang
 CFLAGS= -Wno-format-security -D_GNU_SOURCE -I../include
+
+# libbsd is required on linux
+ifeq ($(shell uname), Linux)
 LD_FLAGS=-lcriterion -lbsd -L.. -lft
+endif
+
+# ... but not on MacOS
+ifeq ($(shell uname), Darwin)
+LD_FLAGS=-lcriterion -L.. -lft
+endif
 
 SRCS	= $(wildcard ./suite/*suite.c)
 OBJS	= $(SRCS:%.c=%.o)

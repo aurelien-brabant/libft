@@ -10,10 +10,10 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft/array.h"
+#include "libft/vector.h"
 #include "libft/string.h"
 
 void	ft_string_destroy_split(void *split)
 {
-	ft_array_destroy((t_array) split, (void (*)(void *))ft_string_destroy);
+	ft_vector_destroy((t_vector) split, (void (*)(void *))ft_string_destroy);
 }

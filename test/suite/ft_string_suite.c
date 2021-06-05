@@ -1,6 +1,6 @@
 #include <criterion/criterion.h>
 #include "libft/string.h"
-#include "libft/array.h"
+#include "libft/vector.h"
 
 TestSuite(ft_string);
 
@@ -234,9 +234,9 @@ Test(ft_string, ft_string_split)
 	char		*actual = NULL;
 
 	/* Test standard split with many separators */
-	t_array		split = ft_string_split(str, "@|");
-	for (size_t i = 0; i < ft_array_length(split); ++i)
-		ft_string_append(joined, ft_array_get(split, i));
+	t_vector		split = ft_string_split(str, "@|");
+	for (size_t i = 0; i < ft_vector_length(split); ++i)
+		ft_string_append(joined, ft_vector_get(split, i));
 	actual = ft_string_tocstring(joined);
 	cr_expect_str_eq(actual, expected);
 	free(actual);
@@ -245,7 +245,7 @@ Test(ft_string, ft_string_split)
 
 	/* Test with no separator */
 	split = ft_string_split(str, "");
-	actual = ft_string_tocstring(ft_array_get(split, 0));
+	actual = ft_string_tocstring(ft_vector_get(split, 0));
 	expected = ft_string_tocstring(str);
 	cr_expect_str_eq(actual, expected);
 	free(actual);

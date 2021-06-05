@@ -12,30 +12,30 @@
 
 #include "libft/internal/string_int.h"
 #include "libft/string.h"
-#include "libft/array.h"
+#include "libft/vector.h"
 #include "libft/cstring.h"
 
-static bool	add_to_split(t_array split, t_string subset)
+static bool	add_to_split(t_vector split, t_string subset)
 {
 	if (subset == NULL)
 	{
-		ft_array_destroy(split, (void (*)(void *))ft_string_destroy);
+		ft_vector_destroy(split, (void (*)(void *))ft_string_destroy);
 		return (false);
 	}
-	ft_array_append(split, subset);
+	ft_vector_append(split, subset);
 	return (true);
 }
 
-t_array	ft_string_split(t_string str, const char *sep)
+t_vector	ft_string_split(t_string str, const char *sep)
 {
 	t_string_int	*str_int;
 	t_string		new;
-	t_array			split;
+	t_vector		split;
 	size_t			i;
 	size_t			beg;
 
 	str_int = (t_string_int *)str;
-	split = ft_array_new(str_int->length / 2 + 1);
+	split = ft_vector_new(str_int->length / 2 + 1);
 	if (split == NULL)
 		return (NULL);
 	i = 0;

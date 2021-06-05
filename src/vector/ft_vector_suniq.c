@@ -1,20 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_stack_isempty.c                                 :+:      :+:    :+:   */
+/*   ft_vector_suniq.c                                   :+:      :+:    :+:  */
 /*                                                    +:+ +:+         +:+     */
 /*   By: abrabant <abrabant@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/03/26 18:17:25 by abrabant          #+#    #+#             */
-/*   Updated: 2021/03/27 14:57:17 by abrabant         ###   ########.fr       */
+/*   Created: 2021/03/23 15:03:15 by abrabant          #+#    #+#             */
+/*   Updated: 2021/03/27 14:34:41 by abrabant         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdbool.h>
+#include "libft/internal/vector_int.h"
 
-#include "libft/internal/stack_int.h"
-
-bool	ft_stack_isempty(t_stack_int *stack)
+int	ft_vector_suniq(t_vector_int *a, int cmp(void *, void *))
 {
-	return (ft_vector_length(stack->data) == 0);
+	int	i;
+	int	high;
+
+	high = a->length - 1;
+	i = 0;
+	while (i < high)
+	{
+		if (cmp(a->vector[i], a->vector[i + 1]) == 0)
+			return (i + 1);
+		++i;
+	}
+	return (-1);
 }

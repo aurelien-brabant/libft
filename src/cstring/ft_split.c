@@ -20,7 +20,7 @@
 ** @param	c	=> the delimitor character.
 **
 ** @return (number of words + 1), including 0 termination for the string
-** array that'll be generated using getwc.
+** vector that'll be generated using getwc.
 */
 
 static unsigned int	getwc(char const *str, char c)
@@ -75,7 +75,7 @@ static unsigned int	getlc(char const *str, char c, int i)
 ** @param	s	=> the base string.
 ** @param	c	=> the single character delimitor c.
 **
-** @return	a string array that contains every word + ending 0 pointer.
+** @return	a string vector that contains every word + ending 0 pointer.
 */
 
 char	**ft_split(char const *s, char c)
