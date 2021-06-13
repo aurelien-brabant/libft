@@ -126,7 +126,7 @@ all: $(NAME)
 
 $(NAME): $(OBJ_DIR) $(OBJS)
 	@ar rcs $(NAME) $(OBJS)
-	@printf "\033[0;32m$(NAME) \033[0mcreated.\n"
+	@printf "AR\t$(NAME)\n"
 
 clean:
 	@rm -f $(OBJS) $(BONUS_OBJS)
@@ -153,7 +153,7 @@ test: $(NAME)
 # Compilation rule for each C file.
 $(OBJ_DIR)/%.o:%.c
 	@$(CC) $(CFLAGS) -I$(INCLUDE_PATH) -g -c $< -o $@
-	@printf "[\033[1;35mLIBFT\033[0m] \033[1;37mCC \033[0;33m$<\033[0m\n"
+	@printf "CC\t$<\n"
 
 $(OBJ_DIR):
 	mkdir $(OBJ_DIR)
