@@ -6,7 +6,7 @@
 /*   By: abrabant <abrabant@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/25 13:41:21 by abrabant          #+#    #+#             */
-/*   Updated: 2021/04/15 00:55:20 by abrabant         ###   ########.fr       */
+/*   Updated: 2021/06/14 21:20:39 by abrabant         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -87,6 +87,8 @@ void			ft_string_append(t_string str, t_string str2);
 */
 
 void			ft_string_append_cstr(t_string str, const char *cstr);
+
+void			ft_string_append_char(t_string str, const char c);
 
 /*
 ** Get the address of the char at index i of str.

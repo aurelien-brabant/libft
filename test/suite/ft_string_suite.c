@@ -341,3 +341,15 @@ Test(ft_string, ft_string_csubst)
 	ft_string_destroy(substituted);
 	ft_string_destroy(str1);
 }
+
+Test(ft_string, ft_string_append_char)
+{
+	t_string	str1 = ft_string_new_cstr("Hello worl");
+	char		*expected = "Hello world";
+	ft_string_append_char(str1, 'd');
+	char		*actual = ft_string_tocstring(str1);
+
+	cr_expect_str_eq(expected, actual);
+	free(actual);
+	ft_string_destroy(str1);
+}
