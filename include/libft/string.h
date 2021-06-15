@@ -6,7 +6,7 @@
 /*   By: abrabant <abrabant@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/25 13:41:21 by abrabant          #+#    #+#             */
-/*   Updated: 2021/06/14 21:20:39 by abrabant         ###   ########.fr       */
+/*   Updated: 2021/06/15 09:36:46 by abrabant         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -179,6 +179,8 @@ t_string		ft_string_split(t_string str, const char *sep);
 */
 
 size_t			ft_string_length(t_string str);
+
+void			ft_string_set_length(t_string_int *s, size_t length);
 
 /*
 ** Get the length of a string. Returns the same value than ft_string_length.
