@@ -6,7 +6,7 @@
 #    By: abrabant <abrabant@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/09/30 15:22:25 by abrabant          #+#    #+#              #
-#    Updated: 2021/06/15 09:37:09 by abrabant         ###   ########.fr        #
+#    Updated: 2021/06/21 13:42:21 by abrabant         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -47,7 +47,7 @@ CSTRING					= ft_strlen.c ft_strlcpy.c ft_strlcat.c ft_strdup.c	\
 
 CTYPE					= ft_isascii.c ft_isdigit.c ft_isalnum.c			\
 						ft_isalpha.c ft_isprint.c ft_tolower.c ft_toupper.c	\
-						ft_isspace.c
+						ft_isspace.c ft_islower.c ft_isupper.c
 
 # Special project files for IO
 
