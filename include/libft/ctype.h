@@ -6,7 +6,7 @@
 /*   By: abrabant <abrabant@42.student.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/07 14:22:02 by abrabant          #+#    #+#             */
-/*   Updated: 2020/11/22 22:33:04 by abrabant         ###   ########.fr       */
+/*   Updated: 2021/06/21 13:36:44 by abrabant         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,5 +22,7 @@ int		ft_isprint(int c);
 int		ft_toupper(int c);
 int		ft_tolower(int c);
 int		ft_isspace(int c);
+int		ft_isupper(int c);
+int		ft_islower(int c);
 
 #endif
