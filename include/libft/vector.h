@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   vector.h                                            :+:      :+:    :+:  */
+/*   vector.h                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: abrabant <abrabant@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/21 12:30:11 by abrabant          #+#    #+#             */
-/*   Updated: 2021/04/01 15:18:37 by abrabant         ###   ########.fr       */
+/*   Updated: 2021/06/22 21:49:37 by abrabant         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,13 +44,19 @@ void		ft_vector_set(t_vector a, void *el, size_t index);
 
 /*
 ** Get the element at index i of a.
-** NOTE: No out of bounds check is performed, so make sure the value of i is
-** relevant.
+** If index is out of bounds, NULL is returned.
 **
 ** Time complexity: O(1) (in all cases).
 */
 
 void		*ft_vector_get(t_vector a, size_t index);
+
+/*
+** Get the last element of a vector
+** If there's no element in the vector, NULL is returned.
+*/
+
+void		*ft_vector_last(t_vector_int *vec);
 
 size_t		ft_vector_length(t_vector a);
 

@@ -798,3 +798,14 @@ Test(ft_vector, test_sort)
 	}
 	ft_vector_destroy(a, NULL);
 }
+
+Test(ft_vector, test_last)
+{
+	t_vector	vector = ft_vector_new(10);
+	int tab[10] = { 0, 1, 2, 3, 4, 5, 6, 7, 8, 9 };
+
+	for (size_t i = 0; i < 10; ++i) {
+		ft_vector_append(vector, &tab[i]);
+	}
+	cr_assert_eq(*(int *)ft_vector_last(vector), 9);
+}

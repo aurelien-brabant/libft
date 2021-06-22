@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_vector_get.c                                     :+:      :+:    :+:  */
+/*   ft_vector_get.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: abrabant <abrabant@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/22 12:26:39 by abrabant          #+#    #+#             */
-/*   Updated: 2021/03/27 15:09:01 by abrabant         ###   ########.fr       */
+/*   Updated: 2021/06/22 21:47:21 by abrabant         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,5 +14,7 @@
 
 void	*ft_vector_get(t_vector_int *a, size_t index)
 {
+	if (index >= a->length)
+		return (NULL);
 	return (a->vector[index]);
 }

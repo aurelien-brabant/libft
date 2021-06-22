@@ -6,7 +6,7 @@
 #    By: abrabant <abrabant@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/09/30 15:22:25 by abrabant          #+#    #+#              #
-#    Updated: 2021/06/21 13:42:21 by abrabant         ###   ########.fr        #
+#    Updated: 2021/06/22 21:49:52 by abrabant         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -83,7 +83,8 @@ VECTOR					= ft_vector_new.c ft_vector_append.c					\
 						ft_vector_uniq.c	ft_vector_suniq.c					\
 						ft_vector_length.c ft_vector_size.c					\
 						ft_vector_int_resize.c ft_vector_capacity.c			\
-						ft_vector_set_length.c ft_vector_sort.c
+						ft_vector_set_length.c ft_vector_sort.c				\
+						ft_vector_last.c
 
 CLA						= ft_cla_init.c ft_cla_str_var.c ft_cla_int_var.c	\
 						ft_cla_bool_var.c ft_cla_pos_var.c					\
