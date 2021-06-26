@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_vector_append.c                                  :+:      :+:    :+:  */
+/*   ft_vector_append.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: abrabant <abrabant@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/21 13:17:38 by abrabant          #+#    #+#             */
-/*   Updated: 2021/03/27 14:30:36 by abrabant         ###   ########.fr       */
+/*   Updated: 2021/06/27 00:14:29 by abrabant         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,8 +18,6 @@
 void	ft_vector_append(t_vector_int *a, void *el)
 {
 	if (a->length == a->capacity)
-	{
 		ft_vector_int_resize(a);
-	}
 	a->vector[a->length++] = el;
 }

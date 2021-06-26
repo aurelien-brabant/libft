@@ -809,3 +809,21 @@ Test(ft_vector, test_last)
 	}
 	cr_assert_eq(*(int *)ft_vector_last(vector), 9);
 }
+
+Test(ft_vector, test_get_array)
+{
+	t_vector	vec = ft_vector_new(10);
+	const char	*strs[] = {
+		"string1", "string2", "string3", "string4", "string5", NULL
+	};
+	char		**strings = NULL;
+
+	for (int i = 0; strs[i] != NULL; ++i) {
+		ft_vector_append(vec, strdup(strs[i]));	
+	}
+
+	strings = (char **)ft_vector_get_array(vec);
+	for (int i = 0; strings[i] != NULL; ++i) {
+		cr_expect_str_eq(strs[i], strings[i]);
+	}
+}

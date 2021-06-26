@@ -6,7 +6,7 @@
 /*   By: abrabant <abrabant@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/21 12:30:11 by abrabant          #+#    #+#             */
-/*   Updated: 2021/06/22 21:49:37 by abrabant         ###   ########.fr       */
+/*   Updated: 2021/06/27 00:24:54 by abrabant         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -351,5 +351,23 @@ int			ft_vector_foreach(t_vector a, int (*fn)(), void *data);
 */
 
 void		ft_vector_destroy(t_vector a, void (*fn)(void *el));
+
+/*
+** Get the internal representation of the array stored in vec, which is an
+** array of pointers. This does	__NOT__ copy it, it only returns its address
+** in memory. Any modifications done to it will affect the vector itself.
+** It can be especially useful to avoid excessive casting or to pass to
+** an array to other functions.
+**
+** Let's consider, as an example, the following assignment:
+** char **strings = ft_vector_get_array(vec);
+** That's it, we've got our string array directly using the vector_get_array
+** function. Awesome.
+**
+** NOTE: to make it really handy, this array is always terminated by a NULL
+** pointer, to make iterating on it really convenient.
+*/
+
+void		**ft_vector_get_array(t_vector_int *vec);
 
 #endif
