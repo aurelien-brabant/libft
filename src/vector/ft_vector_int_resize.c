@@ -6,7 +6,7 @@
 /*   By: abrabant <abrabant@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/21 12:58:53 by abrabant          #+#    #+#             */
-/*   Updated: 2021/06/27 00:14:04 by abrabant         ###   ########.fr       */
+/*   Updated: 2021/06/27 00:36:37 by abrabant         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,6 @@
 #include "libft/core.h"
 #include "libft/cstring.h"
 #include "libft/internal/vector_int.h"
-
 
 void	ft_vector_int_resize(t_vector_int *a)
 {
