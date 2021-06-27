@@ -6,7 +6,7 @@
 /*   By: abrabant <abrabant@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/28 19:21:38 by abrabant          #+#    #+#             */
-/*   Updated: 2021/03/28 22:21:50 by abrabant         ###   ########.fr       */
+/*   Updated: 2021/06/27 02:47:43 by abrabant         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ static int	wipe(void *el, size_t i, void *triggers)
 	void	(*trigger)();
 
 	trigger = ft_vector_get(triggers, i);
-	trigger(el);
+	trigger(el, NULL);
 	return (0);
 }
 
